@@ -1,0 +1,1332 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#8F77EA">
+<meta name="description" content="الرياضيات ببساطة - Math Made Easy: دروس وتدريبات واختبارات وألعاب لرياضيات الصف الثاني الابتدائي، الفصل الدراسي الثاني.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Math Made Easy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Baloo+Bhaijaan+2:wght@500;700&family=Cairo:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,700;1,500&family=Nunito:wght@700;800;900&display=swap">
+<style>
+/* Layout: single-column mobile-first reading flow, cards on soft lavender ground, bottom tab bar. */
+:root{
+  --lav-50:#F6F3FF;--lav-100:#EDE7FF;--lav-200:#DACFFB;--lav-300:#C2B2F6;--lav-500:#8F77EA;--lav-600:#7154D6;--lav-800:#3F2E94;
+  --sky-50:#EEF8FF;--sky-100:#DDF0FF;--sky-300:#A9D8F7;--sky-500:#4AA3DF;--sky-700:#1D6FAE;
+  --sun-50:#FFFBE8;--sun-100:#FFF3BF;--sun-300:#FFE070;--sun-500:#F5C842;--sun-800:#6E5200;
+  --ink:#2A2358;--muted:#615A8E;--bg:#FBFAFF;--card:#FFFFFF;--line:#E7E1FA;
+  --ok:#17744A;--ok-bg:#E4F7EC;--warn:#8F4A00;--warn-bg:#FFF0DC;--bad:#B3243B;--bad-bg:#FFE9EC;
+  --f-head:'Baloo Bhaijaan 2','Cairo',system-ui,sans-serif;
+  --f-body:'Cairo','Segoe UI',Tahoma,sans-serif;
+  --f-en:'Nunito','Segoe UI',system-ui,sans-serif;
+  --r1:12px;--r2:18px;--r3:26px;
+  --sh:0 2px 0 rgba(113,84,214,.08),0 10px 26px rgba(113,84,214,.10);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.75;
+  padding-block:0 96px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));direction:rtl}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+#app{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px;padding-top:12px}
+h1,h2,h3{font-family:var(--f-head);line-height:1.3;margin:0;text-wrap:balance}
+h1{font-size:2rem}h2{font-size:1.45rem}h3{font-size:1.15rem}
+p{margin:0 0 .6em}
+a{color:var(--lav-800)}
+.en{font-family:var(--f-en);direction:ltr;unicode-bidi:isolate;display:inline-block}
+.small{font-size:.88rem;color:var(--muted)}
+.m{direction:ltr;unicode-bidi:isolate;display:inline-block;font-family:var(--f-en);font-weight:800;letter-spacing:.01em}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-family:var(--f-en);font-weight:800;line-height:1.05;margin:0 .2em;direction:ltr}
+.fr b{padding:0 .3em;font-weight:800}.fr b:first-child{border-bottom:2.5px solid currentColor}
+button{font-family:inherit;font-size:inherit}
+:focus-visible{outline:3px solid var(--lav-600);outline-offset:3px;border-radius:8px}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:780px;margin:0 auto;padding:8px 0;border-bottom:2px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);min-width:0}
+.brand svg{width:38px;height:38px;flex:none}
+.brand span{display:block;line-height:1.15}
+.b-en{font-family:var(--f-en);font-weight:900;font-size:1.1rem;direction:ltr}
+.b-ar{font-family:var(--f-head);font-size:.85rem;color:var(--muted)}
+.chip{font-family:var(--f-en);font-weight:800;font-size:.8rem;background:var(--sun-100);color:var(--sun-800);border-radius:99px;padding:3px 12px;white-space:nowrap;direction:ltr}
+
+/* bottom nav */
+.nav{position:fixed;inset:auto 0 0 0;z-index:25;background:#fff;border-top:2px solid var(--line);display:flex;justify-content:center;gap:2px;
+  padding:6px max(6px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px))}
+.nav a{flex:1;max-width:130px;display:flex;flex-direction:column;align-items:center;gap:1px;text-decoration:none;color:var(--muted);font-size:.74rem;font-weight:700;padding:5px 2px;border-radius:14px;min-width:0}
+.nav a svg{width:24px;height:24px}
+.nav a.on{background:var(--lav-100);color:var(--lav-800)}
+
+/* cards & buttons */
+.card{background:var(--card);border:2px solid var(--line);border-radius:var(--r3);padding:18px;box-shadow:var(--sh);min-width:0}
+.card.lav{background:var(--lav-50)}.card.sky{background:var(--sky-50);border-color:var(--sky-100)}.card.sun{background:var(--sun-50);border-color:var(--sun-100)}
+.card h2{margin-bottom:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:10px 22px;border-radius:16px;border:0;cursor:pointer;font-weight:800;text-decoration:none;text-align:center;
+  background:var(--lav-600);color:#fff;box-shadow:0 4px 0 var(--lav-800);transition:transform .12s,box-shadow .12s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--lav-800)}
+.btn.sun{background:var(--sun-500);color:var(--ink);box-shadow:0 4px 0 #C99A10}
+.btn.sky{background:var(--sky-500);color:#08243A;box-shadow:0 4px 0 var(--sky-700)}
+.btn.ghost{background:#fff;color:var(--lav-800);border:2px solid var(--lav-300);box-shadow:none}
+.btn.sm{min-height:40px;padding:6px 14px;font-size:.92rem;border-radius:12px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.crumb{font-size:.88rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px}
+.crumb a{color:var(--muted)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--lav-100),var(--sky-100) 60%,var(--sun-100));border-radius:var(--r3);padding:22px 18px;display:grid;gap:12px}
+.hero .mascot{width:92px;height:92px;animation:bob 3.2s ease-in-out infinite}
+.hero h1 .en{display:block;font-size:2.3rem;font-weight:900;color:var(--lav-800)}
+.hero .sub{font-family:var(--f-head);font-size:1.15rem}
+.blob{position:absolute;border-radius:50%;opacity:.55;pointer-events:none}
+.b1{width:110px;height:110px;background:var(--sun-300);inset-inline-start:-30px;bottom:-30px}
+.b2{width:70px;height:70px;background:var(--sky-300);inset-inline-end:14px;top:-18px}
+@keyframes bob{50%{transform:translateY(-6px) rotate(3deg)}}
+.namebox{display:flex;gap:8px;flex-wrap:wrap}
+.namebox input{flex:1;min-width:140px;border:2px solid var(--lav-300);border-radius:14px;padding:8px 14px;font:inherit;background:#fff;color:var(--ink)}
+
+/* progress */
+.bar{height:16px;background:var(--lav-100);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--lav-500),var(--sky-500));border-radius:99px;transition:width .5s}
+.stats{display:flex;flex-wrap:wrap;gap:10px}
+.stat{flex:1;min-width:96px;background:var(--lav-50);border-radius:var(--r2);padding:10px 12px;text-align:center}
+.stat b{display:block;font-family:var(--f-en);font-size:1.6rem;font-weight:900;color:var(--lav-800);line-height:1.2}
+.stat span{font-size:.85rem;color:var(--muted)}
+.star{width:22px;height:22px;vertical-align:middle}
+.stars{display:inline-flex;gap:2px;direction:ltr}
+
+/* unit / lesson tiles */
+.tile{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:var(--r2);padding:12px 14px;transition:transform .15s,border-color .15s;min-width:0}
+.tile:hover{transform:translateY(-3px);border-color:var(--lav-300)}
+.tile .ic{flex:none;width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:1.6rem;background:var(--sun-100)}
+.tile:nth-child(3n+2) .ic{background:var(--sky-100)}.tile:nth-child(3n) .ic{background:var(--lav-100)}
+.tile .tx{min-width:0;flex:1}
+.tile .t1{font-family:var(--f-en);font-weight:800;line-height:1.25;direction:ltr;text-align:right}
+.tile .t2{font-size:.9rem;color:var(--muted);line-height:1.4}
+.pill{font-size:.76rem;font-weight:800;border-radius:99px;padding:1px 10px;white-space:nowrap;display:inline-block}
+.pill.new{background:var(--lav-100);color:var(--lav-800)}.pill.started{background:var(--sky-100);color:var(--sky-700)}
+.pill.done{background:var(--ok-bg);color:var(--ok)}.pill.review{background:var(--warn-bg);color:var(--warn)}
+.list{display:flex;flex-direction:column;gap:10px}
+
+/* lesson */
+.lhead{background:linear-gradient(150deg,var(--lav-100),var(--sky-50));border-radius:var(--r3);padding:18px;display:grid;gap:6px}
+.lhead .en{font-size:1.7rem;font-weight:900;color:var(--lav-800);line-height:1.2}
+.lhead .ar{font-family:var(--f-head);font-size:1.2rem}
+.jump{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.jump button{flex:none;border:2px solid var(--lav-200);background:#fff;border-radius:99px;padding:4px 14px;cursor:pointer;font-weight:700;color:var(--lav-800)}
+.objective{border-inline-start:0;background:var(--sun-50);border:2px dashed var(--sun-500);border-radius:var(--r2);padding:14px 16px}
+.objective .lab{font-family:var(--f-en);font-weight:900;color:var(--sun-800);direction:ltr;display:block;text-align:right}
+.vocab{display:flex;flex-wrap:wrap;gap:8px}
+.vocab span{background:#fff;border:2px solid var(--sky-300);border-radius:14px;padding:3px 12px;display:inline-flex;gap:8px;align-items:baseline}
+.vocab .en{font-weight:800;color:var(--sky-700)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.step .no{width:38px;height:38px;border-radius:50%;background:var(--lav-600);color:#fff;font-family:var(--f-en);font-weight:900;display:grid;place-items:center}
+.step h3{margin-bottom:2px}
+.vis{background:var(--lav-50);border-radius:var(--r2);padding:12px;margin:8px 0;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;overflow-x:auto;max-width:100%}
+.ex{background:var(--sky-50);border:2px solid var(--sky-100);border-radius:var(--r2);padding:14px}
+.ex ol{margin:6px 0;padding-inline-start:22px}
+.ex .ans{display:inline-block;margin-top:6px;background:var(--ok-bg);color:var(--ok);font-weight:800;border-radius:12px;padding:2px 14px}
+.sumlist{margin:0;padding-inline-start:22px}
+.sumlist li{margin:4px 0}
+
+/* money */
+.notes{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.note{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:84px;height:46px;border-radius:8px;border:2px solid rgba(42,35,88,.55);font-family:var(--f-en);line-height:1;position:relative;box-shadow:0 2px 0 rgba(42,35,88,.18)}
+.note b{font-size:1.35rem;font-weight:900}.note small,.coin small{font-family:var(--f-body);font-size:.62rem;font-weight:700}
+.note::before{content:"";position:absolute;inset:4px;border:1.5px dashed rgba(42,35,88,.35);border-radius:5px;pointer-events:none}
+.n5{background:#F3D9E4}.n10{background:#F8C9C4}.n20{background:#CDEBD3}.n50{background:#C7E0F7}.n100{background:#FFE6A8}.n200{background:#E2D3F6}
+.coin{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;background:#F5D36B;border:3px solid #C99A10;font-family:var(--f-en);font-weight:900;font-size:1.15rem;line-height:1}
+
+/* visuals */
+.pairs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:ltr}
+.pair{display:inline-flex;gap:4px;padding:4px 8px;border-radius:99px;background:var(--sky-100)}
+.pair i{width:16px;height:16px;border-radius:50%;background:var(--sky-500)}
+.pair.single{background:var(--bad-bg)}.pair.single i{background:#E8607A}
+.arr{display:grid;gap:4px;font-size:1.6rem;line-height:1.1;direction:ltr;justify-items:center}
+.pat{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;direction:ltr}
+.pb{min-width:46px;height:46px;border-radius:14px;background:#fff;border:2.5px solid var(--lav-300);display:grid;place-items:center;font-family:var(--f-en);font-weight:900;padding:0 6px}
+.pb.q{background:var(--sun-100);border-color:var(--sun-500);border-style:dashed}
+.pa{font-family:var(--f-en);font-style:normal;font-weight:800;color:var(--lav-600);font-size:.95rem}
+.vert{display:inline-grid;justify-items:end;font-size:1.6rem;font-weight:900;direction:ltr;background:#fff;border-radius:14px;padding:6px 16px;border:2px solid var(--lav-200)}
+.vert hr{width:100%;border:0;border-top:3px solid var(--ink);margin:2px 0}
+.fsvg{max-width:100%}.nl,.bc,.tri{width:100%;max-width:460px;height:auto;display:block}
+.cset{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:ltr;max-width:340px}
+.c{width:30px;height:30px;border-radius:50%;border:2.5px solid var(--ink);background:#fff;display:inline-block}
+.c-l{background:var(--lav-500)}.c-r{background:#EF6B81}.c-b{background:#58AEE8}.c-g{background:#6CC58D}.c-y{background:#F5C842}.c-e{background:#fff}
+.pv{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.pvc{text-align:center}.pvl{font-size:.8rem;color:var(--muted)}.pvr{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;max-width:210px}
+.hb{width:42px;height:42px;border-radius:6px;background:var(--lav-300);border:2px solid var(--lav-600);font:800 .7rem var(--f-en);display:grid;place-items:center;font-style:normal}
+.tb{width:14px;height:42px;border-radius:4px;background:var(--sky-300);border:2px solid var(--sky-700);display:block}
+.ob{width:14px;height:14px;border-radius:50%;background:var(--sun-500);border:2px solid #C99A10;display:block}
+.groups{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;direction:ltr}
+.grp{border:2.5px dashed var(--lav-300);border-radius:16px;padding:6px 10px;background:#fff;font-size:1.3rem;display:flex;gap:2px;flex-wrap:wrap;justify-content:center;max-width:120px}
+.pg{display:grid;gap:6px;width:100%;max-width:420px}
+.pg-row{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center;background:#fff;border-radius:12px;padding:4px 10px}
+.pg-l{font-weight:800;font-size:.95rem}.pg-s{font-size:1.25rem;letter-spacing:2px;direction:ltr;text-align:left;line-height:1.3}
+.pg-key{font-weight:800;text-align:center;background:var(--sun-100);border-radius:10px;padding:2px 10px}
+
+/* question runner */
+.q{display:flex;flex-direction:column;gap:12px}
+.qhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:6px}.dots i{width:14px;height:14px;border-radius:50%;background:var(--lav-100);border:2px solid var(--lav-300)}
+.dots i.ok{background:var(--ok);border-color:var(--ok)}.dots i.half{background:var(--sun-500);border-color:#C99A10}.dots i.no{background:#E8607A;border-color:#E8607A}.dots i.now{border-color:var(--lav-600);background:#fff}
+.lvl{font-size:.8rem;font-weight:800;border-radius:99px;padding:1px 12px;background:var(--sky-100);color:var(--sky-700)}
+.qtext{font-size:1.15rem;font-weight:700;line-height:1.9}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;text-align:start;min-height:56px;padding:8px 14px;background:#fff;border:2.5px solid var(--lav-200);border-radius:16px;cursor:pointer;color:var(--ink);font-weight:700;width:100%}
+.opt .ol{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--lav-100);font-weight:800}
+.opt .ot{min-width:0;flex:1}
+.opt.on{border-color:var(--lav-600);background:var(--lav-50)}.opt.on .ol{background:var(--lav-600);color:#fff}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg)}.opt.ok .ol{background:var(--ok);color:#fff}
+.opt.bad{border-color:#E8607A;background:var(--bad-bg)}
+.opt.off{opacity:.45;text-decoration:line-through}
+.tfs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fl input,.fcin input{width:130px;height:56px;border:3px solid var(--lav-300);border-radius:16px;text-align:center;font:900 1.5rem var(--f-en);color:var(--ink);background:#fff;direction:ltr}
+.fl input:focus,.fcin input:focus{border-color:var(--lav-600);outline:0}
+.fcin{display:inline-flex;flex-direction:column;align-items:center;gap:4px}
+.fcin input{width:84px;height:48px}.fcin hr{width:100%;border:0;border-top:4px solid var(--ink);margin:0}
+.fb{border-radius:var(--r2);padding:12px 14px;display:none;font-weight:600}
+.fb.show{display:block;animation:pop .3s}
+.fb.ok{background:var(--ok-bg);color:#0E4F31}.fb.try{background:var(--warn-bg);color:var(--warn)}.fb.rev{background:var(--sky-100);color:#0F3F63}
+.fb b.h{display:block;font-size:1.05rem}
+@keyframes pop{from{transform:scale(.96);opacity:0}}
+.mtc{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.mtb{min-height:54px;border:2.5px solid var(--lav-200);background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px;cursor:pointer;font-weight:700;color:var(--ink);text-align:center}
+.mtb.pick{border-color:var(--lav-600);background:var(--lav-50)}
+.mtb .nb{font-family:var(--f-en);font-weight:900;width:24px;height:24px;border-radius:50%;background:var(--lav-600);color:#fff;font-size:.8rem;display:grid;place-items:center}
+.mtb.ok{border-color:var(--ok);background:var(--ok-bg)}.mtb.bad{border-color:#E8607A;background:var(--bad-bg)}
+.fin{text-align:center;display:grid;gap:10px;justify-items:center}
+.fin .stars .star{width:44px;height:44px}
+.fin .big{font-family:var(--f-en);font-size:2.4rem;font-weight:900;color:var(--lav-800);line-height:1}
+.pop .star{animation:pop .5s backwards}.pop .star:nth-child(2){animation-delay:.15s}.pop .star:nth-child(3){animation-delay:.3s}
+.empty{text-align:center;color:var(--muted);padding:18px;background:var(--lav-50);border-radius:var(--r2)}
+details.ac{background:#fff;border:2px solid var(--line);border-radius:var(--r2);padding:2px 14px}
+details.ac summary{cursor:pointer;font-weight:800;min-height:48px;display:flex;align-items:center;gap:8px;list-style:none}
+details.ac summary::-webkit-details-marker{display:none}
+details.ac[open]{border-color:var(--lav-300)}
+details.ac .in{padding:2px 0 12px;display:grid;gap:8px}
+.kv{display:grid;gap:2px}.kv b{color:var(--lav-800)}
+.tag{display:inline-block;background:var(--warn-bg);color:var(--warn);border-radius:99px;padding:0 10px;font-size:.85rem;font-weight:700;margin:2px}
+.foot{margin-top:14px;text-align:center;padding:22px 10px 8px;border-top:2px solid var(--line);display:grid;gap:2px}
+.f-en{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.15rem;color:var(--muted);direction:ltr}
+.f-name{display:flex;align-items:baseline;justify-content:center;gap:12px;flex-wrap:wrap}
+.f-nen{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.75rem;color:var(--lav-800);direction:ltr}
+.f-nar{font-family:'Amiri','Cairo',serif;font-weight:700;font-size:1.6rem;color:var(--lav-800)}
+.f-sep{color:var(--sun-500);font-size:1.5rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (min-width:640px){body{font-size:18px}.hero{grid-template-columns:auto 1fr;align-items:center}}
+
+/* worksheets (A4) */
+.notice{background:var(--sun-50);border:2px solid var(--sun-300);border-radius:var(--r2);padding:12px 16px}
+.sheet{background:#fff;border:2px solid var(--line);border-radius:10px;padding:22px 24px;max-width:794px;margin:0 auto;width:100%;font-size:16px;line-height:1.7;box-shadow:var(--sh)}
+.sh-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:3px solid var(--lav-600);padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap}
+.sh-head .en{font-weight:900;font-size:1.3rem;color:var(--lav-800)}
+.sh-line{display:flex;gap:18px;flex-wrap:wrap;margin:6px 0 12px}
+.sh-line span{display:inline-flex;align-items:flex-end;gap:6px}.sh-line i{display:inline-block;min-width:150px;border-bottom:2px solid var(--ink);height:1.2em}
+.sh-sec{margin:14px 0 6px;font-family:var(--f-head);font-size:1.15rem;background:var(--lav-100);border-radius:10px;padding:2px 12px;display:flex;justify-content:space-between;align-items:center}
+.pq{display:grid;grid-template-columns:34px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line);break-inside:avoid}
+.pqn{width:30px;height:30px;border-radius:50%;background:var(--lav-600);color:#fff;font:900 .95rem var(--f-en);display:grid;place-items:center}
+.pqt{font-weight:700}.pvis{margin:4px 0;display:flex;justify-content:flex-start}.pvis .vis{background:#fff;padding:2px;margin:0}
+.pops{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:4px}.po{display:inline-flex;align-items:center;gap:6px}
+.po i{width:26px;height:26px;border:2px solid var(--ink);border-radius:50%;display:inline-grid;place-items:center;font-style:normal;font-weight:800;font-size:.85rem}
+.po i.bx{border-radius:5px;width:22px;height:22px}
+.pans{margin-top:6px;display:flex;align-items:center;gap:8px}.ln{display:inline-block;min-width:130px;border-bottom:2px solid var(--ink);height:1.4em}
+.fbox{display:inline-flex;flex-direction:column;align-items:center}.fbox i{width:46px;height:28px;border:2px solid var(--ink);display:block}.fbox hr{width:46px;border:0;border-top:3px solid var(--ink);margin:2px 0}
+.pmt{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin-top:4px}.pmr{display:flex;align-items:center;gap:8px;min-height:44px}.pmr>span:first-child{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.85rem}
+.work{height:70px;border:2px dashed var(--lav-300);border-radius:10px;margin-top:6px;position:relative}
+.work::after{content:"مساحة الحل";position:absolute;top:2px;inset-inline-start:8px;font-size:.7rem;color:var(--lav-300)}
+.ans-q{padding:6px 0;border-bottom:1px dashed var(--line);break-inside:avoid}
+.cert{border:6px double var(--lav-600);border-radius:20px;background:linear-gradient(160deg,#fff,var(--lav-50));padding:28px 18px;text-align:center;display:grid;gap:8px;justify-items:center}
+.cert .en{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.2rem;font-weight:700;color:var(--lav-800)}
+.cert .nm{font-family:'Amiri',serif;font-size:2.2rem;font-weight:700;border-bottom:3px solid var(--sun-500);padding:0 24px}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff;padding:0;font-size:14px}
+  body::before,.top,.nav,.noprint,.crumb{display:none!important}
+  #app{max-width:none;padding:0;gap:0}
+  .sheet{border:0;box-shadow:none;padding:0;border-radius:0;max-width:none}
+  .cert{break-inside:avoid}
+  .foot{break-inside:avoid}
+}
+
+/* extras */
+.coinbtn{background:none;border:0;padding:3px;cursor:pointer;border-radius:12px;min-height:48px;min-width:48px;display:inline-grid;place-items:center;font:inherit;color:inherit}
+.coinbtn:active{transform:scale(.94)}.coinbtn[disabled]{opacity:.5;cursor:default}
+.slice{cursor:pointer;transition:fill .15s}.slice:hover{filter:brightness(.97)}
+.toast{position:fixed;inset-inline:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));margin:0 auto;width:max-content;max-width:calc(100% - 32px);background:var(--lav-800);color:#fff;border-radius:18px;padding:10px 16px;display:flex;gap:12px;align-items:center;z-index:40;transform:translateY(24px);opacity:0;pointer-events:none;transition:transform .3s,opacity .3s;box-shadow:0 8px 24px rgba(63,46,148,.35)}
+.toast.show{transform:none;opacity:1}.toast .tic{font-size:1.8rem}.toast small{opacity:.9}
+.foot a{color:var(--lav-800);font-weight:700}
+.top .chip{flex:none}
+@media (max-width:380px){body{font-size:16px}h1{font-size:1.7rem}.hero h1 .en{font-size:1.9rem}.note{width:72px}}
+[hidden]{display:none!important}
+.stat{min-width:72px;padding:8px 6px}.stat b{font-size:1.45rem}
+.b1{opacity:.35;z-index:0}.hero>*{position:relative;z-index:1}
+
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="#home" aria-label="الرئيسية"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#8F77EA"/><path d="M20 7l3.6 7.4 8.1 1-6 5.6 1.6 8L20 25.100 12.700 29l1.600-8-6-5.600 8.100-1z" fill="#FFE070" stroke="#fff" stroke-width="1.500" stroke-linejoin="round"/></svg><span><span class="b-en">Math Made Easy</span><span class="b-ar">الرياضيات ببساطة</span></span></a><span class="chip" id="chip" aria-label="نجومك"></span></header>
+<main id="app" tabindex="-1"></main>
+<nav class="nav" id="nav" aria-label="التنقل الرئيسي"></nav>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="675dcaed69a64e68e85c92d0-text/javascript">
+'use strict';
+/* ============ core helpers ============ */
+var APP={lessons:[],units:[]};
+const m=s=>'<bdi class="m">'+s+'</bdi>';
+const fr=(n,d)=>'<span class="fr"><b>'+n+'</b><b>'+d+'</b></span>';
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const rep=(v,k)=>Array(k).fill(v).join(' + ');
+const paper=n=>n===1?'ورقة':n===2?'ورقتين':n+' ورقات';
+const LET=['أ','ب','ج','د'];
+function hash32(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function rng(seed){
+  let a=hash32(String(seed))||1;
+  const f=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+  f.int=(lo,hi)=>lo+Math.floor(f()*(hi-lo+1));
+  f.pick=arr=>arr[Math.floor(f()*arr.length)];
+  f.shuffle=arr=>{arr=arr.slice();for(let i=arr.length-1;i>0;i--){const j=Math.floor(f()*(i+1));const t=arr[i];arr[i]=arr[j];arr[j]=t}return arr};
+  f.chance=p=>f()<p;
+  return f;
+}
+function normNum(s){return String(s).replace(/[٠-٩]/g,d=>d.charCodeAt(0)-1632).replace(/[۰-۹]/g,d=>d.charCodeAt(0)-1776).replace(/[^\d-]/g,'')}
+const NF=['سلمى','آية','ليلى','مريم','هنا','نور','جنى','فريدة'],NM=['علي','مصطفى','طارق','آدم','يوسف','عمر','كريم','زياد'];
+function person(r){const f=r.chance(.5);return{n:r.pick(f?NF:NM),f:f,v:(a,b)=>f?b:a,has:f?'معاها':'معاه',hers:f?'ـها':'ـه'}}
+const ITEMS=['كراسة','قلم','كورة','عروسة','عصير','شنطة','شيكولاتة','مسطرة','لعبة','كتاب'];
+const FRUIT=[['تفاح','🍎'],['موز','🍌'],['برتقال','🍊'],['عنب','🍇'],['فراولة','🍓']];
+const COL=['#9B84EE','#66B8EC','#F5C842','#F28B9B','#6CC58D'];
+
+/* ============ visual builders ============ */
+function note(v){return v===1?'<span class="coin">1<small>جنيه</small></span>':'<span class="note n'+v+'"><b>'+v+'</b><small>جنيه</small></span>'}
+const notes=a=>'<div class="notes">'+a.map(note).join('')+'</div>';
+function dotsPairs(n){let s='<div class="pairs">';for(let i=0;i<Math.floor(n/2);i++)s+='<span class="pair"><i></i><i></i></span>';if(n%2)s+='<span class="pair single"><i></i></span>';return s+'</div>'}
+function arrayGrid(r,c,sym){sym=sym||'🍎';return '<div class="arr" style="grid-template-columns:repeat('+c+',auto)">'+Array(r*c).fill('<span>'+sym+'</span>').join('')+'</div>'}
+function patStrip(a,rule){return '<div class="pat">'+a.map((v,i)=>(i?'<i class="pa">'+(rule||'›')+'</i>':'')+'<b class="pb'+(v==='?'?' q':'')+'">'+v+'</b>').join('')+'</div>'}
+function vert(a,b,op,res){return '<div class="vert"><span>'+a+'</span><span>'+(op||'+')+' '+b+'</span><hr><span>'+(res===undefined?'?':res)+'</span></div>'}
+function pvBlocks(h,t,o){let s='<div class="pv">';
+  if(h)s+='<div class="pvc"><div class="pvl">مئات</div><div class="pvr">'+'<i class="hb">100</i>'.repeat(h)+'</div></div>';
+  if(t)s+='<div class="pvc"><div class="pvl">عشرات</div><div class="pvr">'+'<i class="tb"></i>'.repeat(t)+'</div></div>';
+  if(o)s+='<div class="pvc"><div class="pvl">آحاد</div><div class="pvr">'+'<i class="ob"></i>'.repeat(o)+'</div></div>';
+  return s+'</div>'}
+function counters(items){return '<div class="cset">'+items.map(c=>'<i class="c c-'+c+'"></i>').join('')+'</div>'}
+function groups(k,n,sym){let g='<div class="grp">'+Array(n).fill('<span>'+sym+'</span>').join('')+'</div>';return '<div class="groups">'+Array(k).fill(g).join('')+'</div>'}
+function famTri(a,b,c){
+  const t=v=>v==='?'?'?':v;
+  const circ=(x,y,v,f)=>'<circle cx="'+x+'" cy="'+y+'" r="23" fill="'+(v==='?'?'#FFF3BF':f)+'" stroke="#3F2E94" stroke-width="2.5"/><text x="'+x+'" y="'+(y+7)+'" text-anchor="middle" font-size="20" font-weight="900" fill="#2A2358" font-family="Nunito,sans-serif">'+t(v)+'</text>';
+  return '<svg class="tri" viewBox="0 0 220 150" style="max-width:220px" role="img" aria-label="عيلة أرقام"><polygon points="110,28 34,122 186,122" fill="#fff" stroke="#C2B2F6" stroke-width="3"/>'+circ(110,28,c,'#DDF0FF')+circ(34,122,a,'#EDE7FF')+circ(186,122,b,'#EDE7FF')+'</svg>'}
+function circleFrac(n,k,size){
+  size=size||84;const R=44,cx=50,cy=50;let s='<svg class="fsvg" viewBox="0 0 100 100" width="'+size+'" height="'+size+'" role="img" aria-label="دايرة مقسومة '+n+' أجزاء">';
+  if(n===1)s+='<circle cx="50" cy="50" r="'+R+'" fill="'+(k?'#B9A7F5':'#fff')+'" stroke="#3F2E94" stroke-width="3"/>';
+  else for(let i=0;i<n;i++){
+    const a0=-Math.PI/2+2*Math.PI*i/n,a1=-Math.PI/2+2*Math.PI*(i+1)/n;
+    const x0=(cx+R*Math.cos(a0)).toFixed(2),y0=(cy+R*Math.sin(a0)).toFixed(2),x1=(cx+R*Math.cos(a1)).toFixed(2),y1=(cy+R*Math.sin(a1)).toFixed(2);
+    s+='<path d="M'+cx+' '+cy+' L'+x0+' '+y0+' A'+R+' '+R+' 0 0 1 '+x1+' '+y1+' Z" fill="'+(i<k?'#B9A7F5':'#fff')+'" stroke="#3F2E94" stroke-width="3" stroke-linejoin="round"/>';
+  }
+  return s+'</svg>'}
+function rectParts(ws,k,w){
+  w=w||200;const tot=sum(ws);let x=2,s='<svg class="fsvg" viewBox="0 0 '+(w+4)+' 56" width="'+(w+4)+'" height="56" role="img" aria-label="شكل مقسوم">';
+  ws.forEach((p,i)=>{const pw=w*p/tot;s+='<rect x="'+x.toFixed(1)+'" y="3" width="'+pw.toFixed(1)+'" height="50" fill="'+(i<(k||0)?'#B9A7F5':'#fff')+'" stroke="#3F2E94" stroke-width="3"/>';x+=pw});
+  return s+'</svg>'}
+const equalParts=(n,k,w)=>rectParts(Array(n).fill(1),k,w);
+function numLine(min,max,o){
+  o=o||{};const W=360,H=100,pad=14,y0=68,span=max-min,x=v=>pad+(v-min)*(W-2*pad)/span;
+  const lab=o.lab||(span>25?10:span>12?5:1);
+  let s='<svg class="nl" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="خط الأعداد من '+min+' إلى '+max+'"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7154D6"/></marker></defs>';
+  s+='<line x1="'+(pad-6)+'" x2="'+(W-pad+6)+'" y1="'+y0+'" y2="'+y0+'" stroke="#3F2E94" stroke-width="3" stroke-linecap="round"/>';
+  for(let v=min;v<=max;v++){const big=(v%lab===0)||v===min||v===max;
+    s+='<line x1="'+x(v)+'" x2="'+x(v)+'" y1="'+(y0-(big?8:5))+'" y2="'+(y0+(big?8:5))+'" stroke="#3F2E94" stroke-width="'+(big?2.5:1.5)+'"/>';
+    if(big)s+='<text x="'+x(v)+'" y="'+(y0+24)+'" text-anchor="middle" font-size="'+(span>14?11:13)+'" font-weight="800" fill="#2A2358" font-family="Nunito,sans-serif">'+v+'</text>'}
+  (o.jumps||[]).forEach((j,i)=>{const x1=x(j[0]),x2=x(j[1]),xm=(x1+x2)/2,top=y0-46;
+    s+='<path d="M'+x1+' '+(y0-8)+' Q'+xm+' '+top+' '+x2+' '+(y0-8)+'" fill="none" stroke="#7154D6" stroke-width="3" marker-end="url(#ah)"/>';
+    if(j[2])s+='<text x="'+xm+'" y="'+(top+8)+'" text-anchor="middle" font-size="13" font-weight="900" fill="#7154D6" font-family="Nunito,sans-serif">'+j[2]+'</text>'});
+  (o.pins||[]).forEach(v=>{s+='<circle cx="'+x(v)+'" cy="'+y0+'" r="7" fill="#F5C842" stroke="#2A2358" stroke-width="2.5"/>'});
+  if(o.start!==undefined)s+='<circle cx="'+x(o.start)+'" cy="'+y0+'" r="7" fill="#7154D6" stroke="#fff" stroke-width="2"/>';
+  return s+'</svg>'}
+function barChart(data,step,max){
+  const W=340,H=210,L=34,B=34,T=12,R=8,ph=H-B-T,pw=W-L-R,n=data.length,bw=Math.min(48,pw/n*.62),y=v=>T+ph-(v/max)*ph;
+  let s='<svg class="bc" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="رسم بياني بالأعمدة">';
+  for(let v=0;v<=max;v+=step)s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="'+(v?'#E7E1FA':'#3F2E94')+'" stroke-width="'+(v?1.5:2.5)+'"/><text x="'+(L-6)+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="11" font-weight="700" fill="#615A8E" font-family="Nunito,sans-serif">'+v+'</text>';
+  data.forEach((d,i)=>{const cx=L+pw/n*(i+.5);
+    s+='<rect x="'+(cx-bw/2).toFixed(1)+'" y="'+y(d.v).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(y(0)-y(d.v)).toFixed(1)+'" rx="5" fill="'+d.c+'" stroke="#3F2E94" stroke-width="1.5"/>';
+    s+='<text x="'+cx.toFixed(1)+'" y="'+(H-12)+'" text-anchor="middle" font-size="12" font-weight="800" fill="#2A2358">'+d.l+'</text>'});
+  return s+'</svg>'}
+function pictograph(data,key,sym){
+  return '<div class="pg">'+data.map(d=>'<div class="pg-row"><span class="pg-l">'+d.l+'</span><span class="pg-s">'+Array(d.v/key).fill(sym).join('')+'</span></div>').join('')+'<div class="pg-key">كل '+sym+' = '+key+'</div></div>'}
+
+/* ============ question builders ============ */
+function mc(r,q,ans,wr,x){let opts=[ans].concat(wr).filter((v,i,a)=>a.indexOf(v)===i);opts=r.shuffle(opts);return Object.assign({t:'mc',q:q,opts:opts,ai:opts.indexOf(ans)},x||{})}
+function tf(q,b,x){return Object.assign({t:'tf',q:q,opts:['صح','غلط'],ai:b?0:1},x||{})}
+function fl(q,ans,x){return Object.assign({t:'fl',q:q,ans:+ans},x||{})}
+function fc(q,n,d,x){return Object.assign({t:'fc',q:q,ans:[n,d]},x||{})}
+function mt(r,q,pairs,x){const order=r.shuffle(pairs.map((_,i)=>i));return Object.assign({t:'mt',q:q,L:pairs.map(p=>p[0]),R:order.map(i=>pairs[i][1]),map:pairs.map((_,i)=>order.indexOf(i))},x||{})}
+
+function check(q,resp){
+  if(q.t==='mc'||q.t==='tf'){if(resp==null)return{empty:1};return{ok:resp===q.ai}}
+  if(q.t==='fl'){const s=normNum(resp||'');if(s===''||s==='-')return{empty:1};const v=parseInt(s,10);return{ok:v===q.ans,diag:q.diag&&q.diag[v]}}
+  if(q.t==='fc'){const n=parseInt(normNum(resp[0]),10),d=parseInt(normNum(resp[1]),10);if(isNaN(n)||isNaN(d))return{empty:1};
+    const ok=d>0&&n*q.ans[1]===d*q.ans[0];return{ok:ok,note:ok&&(n!==q.ans[0]||d!==q.ans[1])?'وكمان '+fr(n,d)+' بتساوي '+fr(q.ans[0],q.ans[1])+'، وده الشكل اللي بنكتبه في الدرس.':'',diag:(!ok&&d===q.ans[0]&&n===q.ans[1]&&n!==d)?'عكستي الرقمين! الرقم اللي تحت هو عدد الأجزاء الكلي، واللي فوق هو الأجزاء الملونة.':''}}
+  if(q.t==='mt'){if(resp.some(x=>x<0))return{empty:1};return{ok:resp.every((x,i)=>x===q.map[i])}}
+  return{empty:1}
+}
+function ansText(q){
+  if(q.t==='mc'||q.t==='tf')return LET[q.ai]+') '+q.opts[q.ai];
+  if(q.t==='fl')return m(q.ans)+(q.suf?' '+q.suf:'');
+  if(q.t==='fc')return fr(q.ans[0],q.ans[1]);
+  if(q.t==='mt')return q.L.map((l,i)=>(i+1)+' ← '+LET[q.map[i]]).join(' ، ');
+  return ''}
+function printQ(q,i,work){
+  let b='<div class="pq"><div class="pqn">'+i+'</div><div>';
+  if(q.vis)b+='<div class="pvis"><div class="vis">'+q.vis+'</div></div>';
+  b+='<div class="pqt">'+q.q+'</div>';
+  if(q.t==='mc')b+='<div class="pops">'+q.opts.map((o,k)=>'<span class="po"><i>'+LET[k]+'</i>'+o+'</span>').join('')+'</div>';
+  else if(q.t==='tf')b+='<div class="pops"><span class="po"><i class="bx"></i>صح</span><span class="po"><i class="bx"></i>غلط</span></div>';
+  else if(q.t==='fl')b+='<div class="pans">الإجابة: <span class="ln"></span> '+(q.suf||'')+'</div>';
+  else if(q.t==='fc')b+='<div class="pans">الإجابة: <span class="fbox"><i></i><hr><i></i></span></div>';
+  else if(q.t==='mt')b+='<div class="pmt"><div>'+q.L.map((l,k)=>'<div class="pmr"><span>'+(k+1)+'</span>'+l+'</div>').join('')+'</div><div>'+q.R.map((x,k)=>'<div class="pmr"><span>'+LET[k]+'</span>'+x+'</div>').join('')+'</div></div><div class="small">اكتبي الحرف المناسب لكل رقم: ........................</div>';
+  if(work)b+='<div class="work"></div>';
+  return b+'</div></div>'}
+
+/* ============ lesson registry & question sets ============ */
+function defL(o){APP.lessons.push(o)}
+function pool(lesson,lv){
+  if(lesson.rev){let out=[];APP.lessons.filter(l=>!l.rev).forEach(l=>(l.q[lv]||[]).forEach(f=>out.push({f:f,lid:l.id})));return out}
+  return (lesson.q[lv]||[]).map(f=>({f:f,lid:lesson.id}))}
+function pickN(r,arr,n){const out=[];let bag=[];for(let i=0;i<n;i++){if(!bag.length)bag=r.shuffle(arr.map((_,k)=>k));out.push(arr[bag.pop()])}return out}
+function build(lesson,kind,seed){
+  const r=rng(lesson.id+'|'+kind+'|'+seed);
+  const mk=(lv,n)=>{const p=pool(lesson,lv);if(!p.length)return[];return pickN(r,p,n).map(e=>{const q=e.f(r);q.lv=lv;q.lid=e.lid;return q})};
+  if(kind==='practice'||kind==='quiz')return mk(1,2).concat(mk(2,3),mk(3,1));
+  if(kind==='challenge')return mk(3,2);
+  if(kind==='ws')return{easy:mk(1,6),med:mk(2,6),hard:mk(3,4)};
+  return[]}
+function buildMixed(seed,spec){
+  const r=rng('mix|'+seed);const ls=APP.lessons.filter(l=>!l.rev);const out=[];
+  spec.forEach(lv=>{const l=r.pick(ls);const p=pool(l,lv);if(!p.length)return;const q=r.pick(p).f(r);q.lv=lv;q.lid=l.id;out.push(q)});
+  return out}
+
+/* ===== Unit 1: Money ===== */
+const r10=n=>Math.round(n/10)*10;
+function carryPair(r,lo,hi){let a,b;do{a=r.int(lo,hi);b=r.int(lo,hi)}while((a%10)+(b%10)<10);return[a,b]}
+function addDiag(a,b){const d={},o=(a%10)+(b%10)>=10,t=(Math.floor(a/10)%10)+(Math.floor(b/10)%10)+(o?1:0)>=10,tot=a+b;
+  const msg='نسيتي الحمل! لما مجموع خانة بيبقى 10 أو أكتر بنكتب الآحاد ونحمل 1 للخانة اللي جنبها.';
+  if(o)d[tot-10]=msg;if(t)d[tot-100]=msg;if(o&&t)d[tot-110]=msg;return d}
+
+defL({id:'l01',u:1,en:'Egyptian Banknotes',ar:'الفلوس المصرية',ic:'💵',
+obj:{ar:'هتعرفي قيمة كل ورقة فلوس مصرية وتعدّي الفلوس صح.',en:'I can name Egyptian banknotes and count money.'},
+vocab:[['pound (LE)','جنيه'],['banknote','ورقة فلوس'],['coin','عملة معدنية'],['value','قيمة'],['total','المجموع']],
+learn:()=>({steps:[
+ {h:'الجنيه هو فلوسنا',b:'فلوس مصر اسمها <b>الجنيه</b>. بنكتبه كلمة «جنيه» أو <b class="en">LE</b>. لما نشتري حاجة بنقول سعرها كام جنيه.'},
+ {h:'أنواع الفلوس',b:'في ورق فلوس بقيم مختلفة، وفي جنيه واحد بيكون عملة معدنية كمان:'+'<div class="vis">'+notes([1,5,10,20,50,100,200])+'</div><p class="small">الرسومات دي للتوضيح بس، وألوانها مش بالظبط زي الفلوس الحقيقية.</p>'},
+ {h:'الرقم هو القيمة',b:'على كل ورقة رقم كبير، والرقم ده هو <b class="en">value</b> يعني قيمة الورقة. ورقة <b>50</b> قيمتها خمسين جنيه. كل ما الرقم يكبر، الورقة تبقى أغلى.'},
+ {h:'إزاي نعدّ الفلوس؟',b:'ابدئي بأكبر ورقة، وبعدين ضيفي اللي بعدها، وكمّلي لحد آخر ورقة. الناتج اسمه <b class="en">total</b> يعني المجموع.'}],
+ ex:[{v:notes([100,50,10]),q:'معانا الفلوس دي. المجموع كام؟',s:['نبدأ بالأكبر: <b>100</b>','نضيف 50: '+m('100 + 50 = 150'),'نضيف 10: '+m('150 + 10 = 160')],a:'160 جنيه'},
+     {v:notes([20,5,5,1]),q:'ورقة 20 وورقتين 5 وجنيه. المجموع كام؟',s:['نبدأ بـ 20','نضيف 5 و5: '+m('20 + 5 + 5 = 30'),'نضيف الجنيه: '+m('30 + 1 = 31')],a:'31 جنيه'}]}),
+sum:['كل ورقة فلوس عليها رقم، والرقم ده هو قيمتها (value).','الرقم الأكبر معناه ورقة أغلى.','بنعدّ الفلوس من الأكبر للأصغر ونجمع للوصول للمجموع (total).'],
+mom:{goal:'تعرّف الطفلة على الفئات المصرية (1، 5، 10، 20، 50، 100، 200 جنيه) وتعدّ مجموعات فلوس.',master:['تقرأ قيمة أي ورقة','تقارن أي ورقة أغلى','تجمع 2–3 أوراق في ذهنها'],tip:'لو عندك فلوس حقيقية في البيت، سيبيها تلمسها وتعدّها. التجربة الحقيقية بتثبّت الفكرة أسرع من الشرح.'},
+q:{1:[
+ r=>{const v=r.pick([1,5,10,20,50,100,200]);return fl('الورقة اللي قدامك قيمتها كام جنيه؟',v,{vis:notes([v]),suf:'جنيه',tag:'قراءة قيمة الورقة',hint:'بصّي على الرقم الكبير المكتوب على الورقة، هو ده قيمتها.',why:'الرقم المكتوب على الورقة هو قيمتها: '+m(v)+' جنيه.'})},
+ r=>{const a=r.shuffle([5,10,20,50,100,200]).slice(0,3),b=Math.max.apply(null,a);return mc(r,'أي ورقة من دول قيمتها هي الأكبر؟','ورقة '+b+' جنيه',a.filter(x=>x!==b).map(x=>'ورقة '+x+' جنيه'),{vis:notes(a),tag:'مقارنة قيمة الفلوس',hint:'قارني الأرقام اللي على الورق. الرقم الأكبر هو الورقة الأغلى.',why:m(b)+' هو أكبر رقم، فالورقة دي أعلى قيمة.'})},
+ r=>{const p=r.shuffle([1,5,10,20,50,100,200]).slice(0,2),t=p[0]>p[1];return tf('ورقة '+p[0]+' جنيه أكبر في القيمة من ورقة '+p[1]+' جنيه.',t,{vis:notes(p),tag:'مقارنة قيمة الفلوس',hint:'قارني الرقمين: '+p[0]+' و'+p[1]+'.',why:m(p[0])+(t?' أكبر من ':' أصغر من ')+m(p[1])+(t?'، يبقى الجملة صح.':'، يبقى الجملة غلط.')})},
+ r=>{const v=r.shuffle([5,10,20,50,100,200]).slice(0,4);return mt(r,'وصّلي كل ورقة بقيمتها.',v.map(x=>[note(x),x+' جنيه']),{tag:'قراءة قيمة الورقة',hint:'اقري الرقم الكبير على كل ورقة.',why:'القيمة هي الرقم المكتوب على الورقة.'})}],
+2:[
+ r=>{const a=r.shuffle([5,10,20,50,100]).slice(0,r.int(2,3)).sort((x,y)=>y-x),t=sum(a);return fl('مجموع الفلوس دي كام جنيه؟',t,{vis:notes(a),suf:'جنيه',tag:'عدّ الفلوس',hint:'ابدئي بأكبر ورقة وضيفي الباقي واحدة واحدة.',why:m(a.join(' + ')+' = '+t)+' جنيه.'})},
+ r=>{const vals=[5,10,20,50],a=[r.pick(vals),r.pick(vals),r.pick(vals)],T=sum(a),ws=new Set();let g=0;while(ws.size<3&&g++<80){const w=a.slice();w[r.int(0,2)]=r.pick(vals);if(sum(w)!==T)ws.add(w.join(' + '))}
+  return mc(r,'أي مجموعة فلوس مجموعها '+m(T)+' جنيه؟',m(a.join(' + ')),Array.from(ws).map(m),{tag:'تكوين مبلغ',hint:'اجمعي كل اختيار لوحده، واللي ناتجه '+T+' هو الصح.',why:m(a.join(' + ')+' = '+T)+'، والباقي مجموعه مختلف.'})},
+ r=>{const p=person(r),k1=r.int(1,4),k2=r.int(1,4),v=r.shuffle([10,20,50]).slice(0,2),t=k1*v[0]+k2*v[1];
+  return fl(p.n+' '+p.has+' '+paper(k1)+' فئة '+v[0]+' جنيه و'+paper(k2)+' فئة '+v[1]+' جنيه. مجموع فلوس'+p.hers+' كام جنيه؟',t,{suf:'جنيه',tag:'عدّ الفلوس',hint:'اجمعي كل نوع لوحده الأول: '+rep(v[0],k1)+' وبعدين '+rep(v[1],k2)+'، وبعدها اجمعي الاتنين.',why:m(rep(v[0],k1)+' = '+k1*v[0])+' و '+m(rep(v[1],k2)+' = '+k2*v[1])+'، والمجموع '+m((k1*v[0])+' + '+(k2*v[1])+' = '+t)+'.'})},
+ r=>{const v=r.pick([5,10,20,50]),k=r.int(2,6);return fl('كام ورقة فئة '+v+' جنيه نحتاج عشان نعمل '+(v*k)+' جنيه؟',k,{tag:'تكوين مبلغ',hint:'عدّي بالـ '+v+': '+v+'، '+v*2+'، '+v*3+'... لحد ما توصلي '+(v*k)+'.',why:'نعدّ بالـ '+v+' لحد '+(v*k)+': محتاجين '+m(k)+' ورقات.'})}],
+3:[
+ r=>{const T=5*r.int(9,56);let rem=T,c=0;const parts=[];[200,100,50,20,10,5].forEach(v=>{const k=Math.floor(rem/v);for(let i=0;i<k;i++)parts.push(v);c+=k;rem%=v});
+  return fl('معاكي ورقات فئات 200 و100 و50 و20 و10 و5 جنيه. أقل عدد ورقات تعمل بيهم '+m(T)+' جنيه كام ورقة؟',c,{suf:'ورقات',tag:'أقل عدد ورقات',hint:'ابدئي بأكبر ورقة تدخل في المبلغ، وبعدين اللي فضل خديه بأكبر ورقة تانية.',why:m(parts.join(' + ')+' = '+T)+' وعددهم '+m(c)+' ورقات.'})},
+ r=>{const k1=r.int(1,4),k2=r.int(1,4),k3=r.int(1,4),t=50*k1+20*k2+5*k3;return fl('معاكي '+paper(k1)+' فئة 50 جنيه و'+paper(k2)+' فئة 20 جنيه و'+paper(k3)+' فئة 5 جنيه. المجموع كام؟',t,{suf:'جنيه',tag:'عدّ الفلوس',hint:'اجمعي كل فئة لوحدها: '+rep(50,k1)+' ثم '+rep(20,k2)+' ثم '+rep(5,k3)+'.',why:m((50*k1)+' + '+(20*k2)+' + '+(5*k3)+' = '+t)+' جنيه.'})},
+ r=>{let a,t;do{a=r.shuffle([5,10,20,50]).slice(0,r.int(2,3)).sort((x,y)=>y-x);t=sum(a)}while(t>95||t<20);return fl('الفلوس دي ناقصها كام جنيه عشان تبقى 100 جنيه؟',100-t,{vis:notes(a),suf:'جنيه',tag:'المبلغ الناقص',hint:'اجمعي الفلوس الأول، وبعدين شوفي الفرق بينها وبين 100.',why:'المجموع '+m(t)+'، و'+m('100 − '+t+' = '+(100-t))+'.'})}]}});
+
+defL({id:'l02',u:1,en:'Money Problems',ar:'مسائل الفلوس',ic:'🛒',
+obj:{ar:'هتحلي مسائل شراء وباقي وادّخار باستخدام الجمع والطرح.',en:'I can solve money story problems using addition and subtraction.'},
+vocab:[['price','السعر'],['change','الباقي'],['save','يدّخر'],['total','المجموع'],['spend','يصرف']],
+learn:()=>({steps:[
+ {h:'اقري المسألة كويس',b:'المسألة حكاية صغيرة. اقريها مرتين وحددي: معانا إيه؟ وعايزين نعرف إيه؟'},
+ {h:'كلمات بتدلنا على الجمع',b:'لو السؤال فيه <b>كلهم</b> أو <b>مع بعض</b> أو <b>المجموع</b> يبقى <b>نجمع (+)</b>. مثال: كراسة بـ 12 وقلم بـ 5، دفعنا '+m('12 + 5 = 17')+'.'},
+ {h:'كلمات بتدلنا على الطرح',b:'لو السؤال فيه <b>الباقي</b> أو <b>فاضل</b> أو <b>أغلى بكام</b> يبقى <b>نطرح (−)</b>. مثال: معاكي 20 وصرفتي 8، الباقي '+m('20 − 8 = 12')+'.'},
+ {h:'لو في خطوتين',b:'ساعات بنجمع الأول (نعرف صرفنا كام) وبعدين نطرح من الفلوس اللي كانت معانا. وفي الآخر راجعي إجابتك: هل منطقية؟'}],
+ ex:[{q:'معاكي 100 جنيه واشتريتي لعبة بـ 64 جنيه. الباقي كام؟',s:['الكلمة المهمة: «الباقي» يعني نطرح','نكتب: '+m('100 − 64'),'نعدّ من 64 لحد 100: +6 توصلنا 70، و+30 توصلنا 100، يبقى '+m('6 + 30 = 36')],a:'36 جنيه'},
+     {q:'مع علي 42 جنيه وأخوه معاه 57 جنيه. كام جنيه سوا؟',s:['«سوا» يعني نجمع','الآحاد: '+m('2 + 7 = 9'),'العشرات: '+m('4 + 5 = 9'),'المجموع 99'],a:'99 جنيه'}]}),
+sum:['«كلهم» و«مع بعض» معناها نجمع.','«الباقي» و«فاضل» و«أغلى بكام» معناها نطرح.','في المسائل بخطوتين: اجمعي الأول وبعدين اطرحي.','راجعي إجابتك دايمًا وشوفي هل منطقية.'],
+mom:{goal:'ربط الجمع والطرح بالمواقف الحقيقية: الشراء والباقي والادّخار.',master:['تحدد الجمع أو الطرح من كلمات السؤال','تحسب الباقي من 100','تحل مسألة بخطوتين'],tip:'اطلبي منها تلعب «محل» في البيت: حطي أسعار على 4–5 حاجات، وسيبيها تدفع وتحسب الباقي.'},
+q:{1:[
+ r=>{const p=person(r),a=r.int(6,19),b=r.int(3,9),i1=r.pick(ITEMS),i2=r.pick(ITEMS.filter(x=>x!==i1));return fl(p.n+' '+p.v('اشترى','اشترت')+' '+i1+' بـ '+m(a)+' جنيه و'+i2+' بـ '+m(b)+' جنيه. '+p.v('دفع','دفعت')+' كام جنيه كلهم؟',a+b,{suf:'جنيه',tag:'مسألة جمع فلوس',hint:'كلمة «كلهم» معناها نجمع السعرين.',why:m(a+' + '+b+' = '+(a+b))+' جنيه.'})},
+ r=>{const p=person(r),a=r.int(15,30),b=r.int(5,a-4);return fl(p.n+' '+p.has+' '+m(a)+' جنيه، و'+p.v('اشترى','اشترت')+' عصير بـ '+m(b)+' جنيه. فاضل مع '+p.n+' كام جنيه؟',a-b,{suf:'جنيه',tag:'مسألة طرح فلوس',hint:'كلمة «فاضل» معناها نطرح السعر من الفلوس اللي كانت معاها.',why:m(a+' − '+b+' = '+(a-b))+' جنيه.'})},
+ r=>{const a=r.int(40,70),b=r.int(11,35),t=r.int(0,2),qs=[['معاكي '+a+' جنيه وصرفتي '+b+'. عايزين نعرف الباقي.','نطرح (−)','الكلمة «الباقي» معناها نطرح.'],['اشتريتي كتاب بـ '+a+' جنيه وقلم بـ '+b+' جنيه. عايزين نعرف كلهم بكام.','نجمع (+)','«كلهم» معناها نجمع السعرين.'],['الكورة بـ '+a+' جنيه والعروسة بـ '+b+' جنيه. عايزين نعرف الكورة أغلى بكام.','نطرح (−)','لمّا نسأل «أغلى بكام» بنطرح السعر الأقل من الأكبر.']][t%3];
+  return mc(r,qs[0]+' نستخدم إيه؟',qs[1],['نجمع (+)','نطرح (−)'].filter(x=>x!==qs[1]),{tag:'اختيار العملية',hint:'دوري على الكلمة المفتاحية في السؤال: «الباقي»، «كلهم»، «أغلى بكام».',why:qs[2]})},
+ r=>{const s=r.pick([['لو السؤال بيقول «الباقي» نستخدم الطرح.',true,'«الباقي» معناها نطرح.'],['لو السؤال بيقول «كلهم مع بعض» نستخدم الطرح.',false,'«كلهم مع بعض» معناها نجمع مش نطرح.'],['عشان نعرف حاجة أغلى من التانية بكام، بنطرح السعرين.',true,'الفرق بين السعرين بنعرفه بالطرح.'],['لو دفعنا فلوس وخدنا باقي، نجمع السعر مع الباقي نعرف دفعنا كام.',true,'الفلوس اللي دفعناها = السعر + الباقي.']]);return tf(s[0],s[1],{tag:'اختيار العملية',hint:'افتكري الكلمات المفتاحية للجمع وللطرح.',why:s[2]})}],
+2:[
+ r=>{const p=person(r),[a,b]=carryPair(r,20,59);return fl(p.n+' '+p.has+' '+m(a)+' جنيه وأخو'+p.hers+' معاه '+m(b)+' جنيه. كام جنيه سوا؟',a+b,{suf:'جنيه',tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'اجمعي الآحاد الأول: '+(a%10)+' + '+(b%10)+'. لو طلعت 10 أو أكتر احملي 1 للعشرات.',why:'الآحاد: '+m((a%10)+' + '+(b%10)+' = '+((a%10)+(b%10)))+'، نكتب '+((a+b)%10)+' ونحمل 1. العشرات: '+m(Math.floor(a/10)+' + '+Math.floor(b/10)+' + 1')+'. المجموع '+m(a+b)+'.'})},
+ r=>{const p=person(r),pr=r.int(23,89);return fl(p.n+' '+p.v('دفع','دفعت')+' 100 جنيه في '+r.pick(ITEMS)+' بـ '+m(pr)+' جنيه. الباقي كام؟',100-pr,{suf:'جنيه',tag:'حساب الباقي',hint:'ابدئي من '+pr+' وعدّي لحد 100، أو اطرحي '+pr+' من 100.',why:m('100 − '+pr+' = '+(100-pr))+' جنيه.'})},
+ r=>{const a=r.int(60,99),b=r.int(30,a-10);return fl('الكورة بـ '+m(a)+' جنيه والعروسة بـ '+m(b)+' جنيه. الكورة أغلى بكام جنيه؟',a-b,{suf:'جنيه',tag:'مقارنة أسعار',hint:'«أغلى بكام» معناها نطرح السعر الأقل من الأكبر.',why:m(a+' − '+b+' = '+(a-b))+' جنيه.'})},
+ r=>{const its=r.shuffle(ITEMS).slice(0,4),x=r.int(10,25),y=r.int(10,25),z=r.int(41,60),w=r.int(41,60),pr=[x,y,z,w];
+  return mc(r,'معاكي 50 جنيه. الأسعار: '+its.map((n,i)=>n+' بـ '+pr[i]).join('، ')+'. تقدري تشتري أنهي اتنين مع بعض؟',its[0]+' و'+its[1],[its[0]+' و'+its[2],its[1]+' و'+its[2],its[2]+' و'+its[3]],{tag:'الميزانية',hint:'اجمعي سعر كل اتنين، وشوفي مين مجموعهم أقل من أو يساوي 50.',why:its[0]+' و'+its[1]+': '+m(x+' + '+y+' = '+(x+y))+' وده أقل من 50. باقي الاختيارات مجموعها أكبر من 50.'})}],
+3:[
+ r=>{const p=person(r),a=r.int(45,120),b=r.int(8,40);return fl(p.n+' '+p.has+' 200 جنيه. '+p.v('اشترى','اشترت')+' شنطة بـ '+m(a)+' جنيه وكراسة بـ '+m(b)+' جنيه. فاضل كام جنيه؟',200-a-b,{suf:'جنيه',tag:'مسألة بخطوتين',hint:'اجمعي سعر الشنطة والكراسة الأول، وبعدين اطرحي المجموع من 200.',why:'الصرف: '+m(a+' + '+b+' = '+(a+b))+'. الباقي: '+m('200 − '+(a+b)+' = '+(200-a-b))+'.'})},
+ r=>{const p=person(r),s1=r.int(20,60),s2=r.int(15,50),sp=r.int(10,s1+s2-5);return fl(p.n+' '+p.v('ادّخر','ادّخرت')+' '+m(s1)+' جنيه في شهر و'+m(s2)+' جنيه في الشهر اللي بعده. بعدين '+p.v('اشترى','اشترت')+' لعبة بـ '+m(sp)+' جنيه. فاضل كام؟',s1+s2-sp,{suf:'جنيه',tag:'مسألة بخطوتين',hint:'اجمعي الادّخار الأول، وبعدين اطرحي سعر اللعبة.',why:'الادّخار: '+m(s1+' + '+s2+' = '+(s1+s2))+'. الباقي: '+m((s1+s2)+' − '+sp+' = '+(s1+s2-sp))+'.'})},
+ r=>{const p=person(r),[a,b]=carryPair(r,23,48),st=a+b-10;return tf(p.n+' '+p.v('اشترى','اشترت')+' حاجة بـ '+m(a)+' جنيه وحاجة بـ '+m(b)+' جنيه، و'+p.v('قال','قالت')+' إن المجموع '+m(st)+' جنيه. هل ده صح؟',false,{tag:'الحمل في الجمع',hint:'اجمعي الآحاد: '+(a%10)+' + '+(b%10)+'. هل عدّى 10؟',why:'الآحاد '+m((a%10)+' + '+(b%10)+' = '+((a%10)+(b%10)))+' فلازم نحمل 1. المجموع الصح '+m(a+b)+' مش '+st+'.'})}]}});
+
+/* ===== Unit 2: Numbers and patterns ===== */
+defL({id:'l03',u:2,en:'Even and Odd Numbers',ar:'الأعداد الزوجية والفردية',ic:'👯',
+obj:{ar:'هتفرّقي بين العدد الزوجي والعدد الفردي.',en:'I can tell if a number is even or odd.'},
+vocab:[['even','زوجي'],['odd','فردي'],['double','ضعف (نجمعه مع نفسه)'],['pair','زوج (اتنين)'],['digit','رقم']],
+learn:()=>({steps:[
+ {h:'العدد الزوجي (even)',b:'لو قدرنا نقسم الحاجات أزواج من غير ما حاجة تفضل لوحدها يبقى العدد <b>زوجي</b>. مثال 6:'+'<div class="vis">'+dotsPairs(6)+'</div>كل نقطة ليها زوج. 6 عدد زوجي.'},
+ {h:'العدد الفردي (odd)',b:'لو قسمنا لأزواج وفضلت حاجة <b>لوحدها</b> يبقى العدد <b>فردي</b>. مثال 7:'+'<div class="vis">'+dotsPairs(7)+'</div>النقطة الحمرا فضلت من غير زوج. 7 عدد فردي.'},
+ {h:'السر في رقم الآحاد',b:'بصّي على <b>آخر رقم</b> في العدد: لو <b>0 أو 2 أو 4 أو 6 أو 8</b> يبقى زوجي. لو <b>1 أو 3 أو 5 أو 7 أو 9</b> يبقى فردي. يعني 348 زوجي لأن آخره 8، و 73 فردي لأن آخره 3.'},
+ {h:'الضعف دايمًا زوجي',b:'لما نجمع عدد مع نفسه (<b>double</b>) النتيجة زوجية: '+m('4 + 4 = 8')+' و '+m('7 + 7 = 14')+'.'}],
+ ex:[{q:'العدد 27 زوجي ولا فردي؟',s:['نبص على آخر رقم: 7','7 من الأرقام الفردية (1 3 5 7 9)'],a:'27 عدد فردي'},{q:'ضاعفي العدد 9.',s:['نجمع العدد مع نفسه',m('9 + 9 = 18')],a:'18 وهو عدد زوجي'}]}),
+sum:['الزوجي بينقسم أزواج من غير ما يفضل حاجة.','الفردي بيفضل منه واحد لوحده.','رقم الآحاد بيحدد: 0 2 4 6 8 زوجي، و 1 3 5 7 9 فردي.','ضعف أي عدد دايمًا زوجي.'],
+mom:{goal:'تمييز الزوجي والفردي من الشكل ومن رقم الآحاد.',master:['تقول زوجي/فردي لأي عدد حتى 999','تضاعف عدد وتعرف إنه زوجي','تعرف إن فردي+فردي = زوجي'],tip:'العبي «زوج ولا فرد» بالمكسرات أو الأزرار: كل مرة اسحبي عدد وخليها تقسمه أزواج.'},
+q:{1:[
+ r=>{const n=r.int(1,15);return mc(r,'العدد '+m(n)+' زوجي ولا فردي؟',n%2?'فردي':'زوجي',[n%2?'زوجي':'فردي'],{vis:dotsPairs(n),tag:'زوجي أو فردي',hint:'بصّي على النقط: لو في نقطة حمرا لوحدها يبقى فردي.',why:n%2?'فضلت نقطة من غير زوج، يبقى '+n+' فردي.':'كل النقط ليها أزواج، يبقى '+n+' زوجي.'})},
+ r=>{const n=r.int(1,10);return fl('ضاعفي العدد '+m(n)+' (اجمعيه مع نفسه).',2*n,{tag:'الضعف',hint:'اجمعي '+n+' مع '+n+'.',why:m(n+' + '+n+' = '+2*n)+'، والضعف دايمًا زوجي.'})},
+ r=>{const n=r.int(2,19),b=r.chance(.5);return tf(m(n)+' عدد '+(b?(n%2?'فردي':'زوجي'):(n%2?'زوجي':'فردي'))+'.',b,{vis:dotsPairs(n),tag:'زوجي أو فردي',hint:'قسّمي النقط أزواج وشوفي هل في نقطة لوحدها.',why:n+' عدد '+(n%2?'فردي':'زوجي')+'.'})},
+ r=>{const o=2*r.int(0,9)+1,es=r.shuffle([2,4,6,8,10,12,14,16,18,20]).slice(0,3);return mc(r,'أي عدد من دول فردي؟',m(o),es.map(m),{tag:'زوجي أو فردي',hint:'الفردي هو اللي بيفضل منه واحد لوحده لما نقسمه أزواج.',why:m(o)+' هو الفردي. الباقي كلهم زوجي.'})}],
+2:[
+ r=>{const n=r.int(21,999);return mc(r,'العدد '+m(n)+' زوجي ولا فردي؟',n%2?'فردي':'زوجي',[n%2?'زوجي':'فردي'],{tag:'زوجي أو فردي',hint:'بصّي على آخر رقم في العدد (الآحاد).',why:'آخر رقم في '+m(n)+' هو '+m(n%10)+'، يبقى العدد '+(n%2?'فردي.':'زوجي.')})},
+ r=>{const e=2*r.int(11,49),os=[];while(os.length<3){const o=2*r.int(10,49)+1;if(os.indexOf(o)<0)os.push(o)}return mc(r,'أي عدد من دول زوجي؟',m(e),os.map(m),{tag:'زوجي أو فردي',hint:'دوري على العدد اللي آخره 0 أو 2 أو 4 أو 6 أو 8.',why:m(e)+' آخره '+m(e%10)+' يبقى زوجي.'})},
+ r=>{const n=r.int(11,98);return fl('إيه أول عدد زوجي بعد العدد '+m(n)+'؟',n%2?n+1:n+2,{tag:'زوجي أو فردي',hint:'عدّي لقدام من '+n+' ووقفي عند أول عدد آخره زوجي.',why:n%2?m(n)+' فردي، فالعدد اللي بعده '+m(n+1)+' زوجي.':m(n)+' زوجي، فالعدد الزوجي اللي بعده بتخطي واحد: '+m(n+2)+'.'})}],
+3:[
+ r=>{const a=r.chance(.5),b=r.chance(.5),res=(a===b)?'زوجي':'فردي',f=x=>x?'زوجي':'فردي';return mc(r,f(a)+' + '+f(b)+' = عدد ...؟',res,['زوجي','فردي'].filter(x=>x!==res),{tag:'قواعد الزوجي والفردي',hint:'جرّبي بأمثلة: 3 + 5، 2 + 4، 2 + 3.',why:(a===b?'لما نجمع عددين من نفس النوع النتيجة زوجية، زي '+(a?'2 + 4 = 6':'3 + 5 = 8')+'.':'زوجي مع فردي النتيجة فردية، زي 2 + 3 = 5.')})},
+ r=>{const s=r.pick([['ضعف أي عدد بيبقى زوجي.',true,'جمع العدد مع نفسه بيعمل أزواج كاملة.'],['فردي + فردي = فردي.',false,'مثلًا 3 + 5 = 8 والـ 8 زوجي.'],['زوجي + فردي = فردي.',true,'مثلًا 2 + 3 = 5 والـ 5 فردي.'],['أي عدد آخره 5 فردي.',true,'5 من الأرقام الفردية.'],['أي عدد آخره 0 فردي.',false,'0 رقم زوجي، يعني العدد زوجي، زي 20 و 30.']]);return tf(s[0],s[1],{tag:'قواعد الزوجي والفردي',hint:'جرّبي مثال بأرقام صغيرة.',why:s[2]})},
+ r=>{const k=2*r.int(5,15);return fl('كام عدد زوجي من 1 لحد '+m(k)+'؟',k/2,{tag:'عد الأعداد الزوجية',hint:'الأعداد الزوجية: 2، 4، 6... وكل عدد زوجي بعد اللي قبله بـ 2.',why:'الأعداد الزوجية من 1 لـ '+k+' عددها '+m(k+' ÷ 2 = '+k/2)+' (نص الأعداد).'})},
+ r=>{const n=r.int(9,21);return mc(r,'عندنا '+m(n)+' تفاحة هنقسمها على طفلين بالتساوي. هتفضل تفاحة من غير شريك؟',n%2?'أيوه، هتفضل تفاحة واحدة':'لأ، مش هتفضل حاجة',[n%2?'لأ، مش هتفضل حاجة':'أيوه، هتفضل تفاحة واحدة'],{tag:'زوجي أو فردي',hint:'القسمة على طفلين زي ما نعمل أزواج.',why:n+' عدد '+(n%2?'فردي':'زوجي')+'، '+(n%2?'يعني هتفضل تفاحة.':'يعني اتقسمت بالتساوي.')})}]}});
+
+defL({id:'l04',u:2,en:'Number Patterns',ar:'الأنماط العددية',ic:'🔢',
+obj:{ar:'هتلاقي قاعدة النمط وتكمّليه.',en:'I can find the rule of a number pattern and continue it.'},
+vocab:[['pattern','نمط'],['rule','قاعدة'],['add','نجمع'],['subtract','نطرح'],['next','اللي بعده']],
+learn:()=>({steps:[
+ {h:'النمط هو أرقام ليها قاعدة',b:'النمط (<b class="en">pattern</b>) أرقام بتمشي بنفس الطريقة كل مرة:'+'<div class="vis">'+patStrip([2,4,6,8,10],'+2')+'</div>كل رقم بيزيد 2 عن اللي قبله.'},
+ {h:'إزاي ألاقي القاعدة؟',b:'اطرحي رقمين متجاورين: '+m('4 − 2 = 2')+' و '+m('6 − 4 = 2')+'. لو الناتج واحد كل مرة، دي هي القاعدة <b>(rule)</b>: <b>زوّد 2</b>.'},
+ {h:'نمط بينقص',b:'ساعات الأرقام بتصغر:'+'<div class="vis">'+patStrip([30,27,24,21],'−3')+'</div>القاعدة: <b>نقّص 3</b>.'},
+ {h:'كمّلي النمط',b:'طبّقي القاعدة على آخر رقم. بعد 21 ننقص 3: '+m('21 − 3 = 18')+'. وبعده '+m('18 − 3 = 15')+'.'}],
+ ex:[{v:patStrip([5,10,15,20,'?']),q:'الرقم الجاي في النمط؟',s:['الفرق: '+m('10 − 5 = 5'),'القاعدة: زوّد 5','بعد 20: '+m('20 + 5 = 25')],a:'25'}]}),
+sum:['النمط أرقام بتتغير بقاعدة ثابتة.','القاعدة بنعرفها بالفرق بين رقمين متجاورين.','الزيادة معناها نجمع، والنقص معناه نطرح.'],
+mom:{goal:'اكتشاف قاعدة الجمع أو الطرح في النمط وإكماله.',master:['تلاقي القاعدة بطرح رقمين','تكمّل نمط زيادة ونقص','تلاقي رقم غلط في نمط'],tip:'العبي «كمّلي النمط»: قولي 3 أرقام وهي تكمّل. بعدها اعكسي الأدوار وخليها هي تألّف النمط.'},
+q:{1:[
+ r=>{const k=r.pick([2,3,4,5,10]),s=r.int(1,20);return fl('كمّلي النمط. إيه الرقم الجاي؟',s+4*k,{vis:patStrip([s,s+k,s+2*k,s+3*k,'?']),tag:'إكمال النمط',hint:'اطرحي أول رقمين لتعرفي القاعدة، وبعدين زوّديها على آخر رقم.',why:'القاعدة: زوّد '+m(k)+'. بعد '+m(s+3*k)+' ييجي '+m(s+4*k)+'.'})},
+ r=>{const k=r.pick([2,3,4,5,10]),s=r.int(1,20),o=[2,3,4,5,10].filter(x=>x!==k);return mc(r,'إيه قاعدة النمط ده؟','زوّد '+k,r.shuffle(o).slice(0,3).map(x=>'زوّد '+x),{vis:patStrip([s,s+k,s+2*k,s+3*k]),tag:'قاعدة النمط',hint:'اطرحي أول رقمين من بعض.',why:m((s+k)+' − '+s+' = '+k)+'، فالقاعدة زوّد '+k+'.'})},
+ r=>{const k=r.pick([2,3,4,5,10]),s=r.int(1,20);return fl('إيه الرقم الناقص؟',s+k,{vis:patStrip([s,'?',s+2*k,s+3*k]),tag:'إكمال النمط',hint:'القاعدة هي الفرق بين '+(s+2*k)+' و '+(s+3*k)+'.',why:'القاعدة زوّد '+m(k)+'. بعد '+m(s)+' ييجي '+m(s+k)+'.'})}],
+2:[
+ r=>{const k=r.pick([3,4,5,6,10]),s=r.int(40,100);return fl('كمّلي النمط ده اللي بينقص. إيه الرقم الجاي؟',s-4*k,{vis:patStrip([s,s-k,s-2*k,s-3*k,'?']),tag:'نمط بينقص',hint:'الأرقام بتصغر، يبقى القاعدة نقص. اطرحي رقمين متجاورين.',why:'القاعدة: نقّص '+m(k)+'. '+m(s-3*k+' − '+k+' = '+(s-4*k)).replace(/(\d+) − /,function(a,b){return b+' − '})})},
+ r=>{const k=r.int(3,10),s=r.int(50,99),o=[3,4,5,6,7,8,9,10].filter(x=>x!==k);return mc(r,'إيه قاعدة النمط ده؟','نقّص '+k,r.shuffle(o).slice(0,2).map(x=>'نقّص '+x).concat(['زوّد '+k]),{vis:patStrip([s,s-k,s-2*k]),tag:'قاعدة النمط',hint:'الأرقام بتصغر ولا بتكبر؟ وبكام؟',why:m(s+' − '+(s-k)+' = '+k)+'، والأرقام بتصغر، فالقاعدة نقّص '+k+'.'})},
+ r=>{const k=r.pick([3,4,5,6]),s=r.int(10,60),ok=r.chance(.5),t=[s,s+k,s+2*k,s+3*k];if(!ok)t[2]+=1;return tf('القاعدة «زوّد '+k+'» مظبوطة على الأرقام دي: '+m(t.join('، ')),ok,{tag:'قاعدة النمط',hint:'شوفي الفرق بين كل رقمين متجاورين، هل هو '+k+' دايمًا؟',why:ok?'الفرق دايمًا '+m(k)+'، فالقاعدة مظبوطة.':'الفرق مش '+k+' في كل مكان (فيه رقم متغيّر)، فالقاعدة مش مظبوطة.'})},
+ r=>{const k=r.pick([3,4,5,6,7]),s=r.int(5,30);return fl('ابدئي من '+m(s)+' وزوّدي '+m(k)+' كل مرة. إيه الرقم الخامس في النمط؟',s+4*k,{tag:'إكمال النمط',hint:'اكتبي الأرقام واحد واحد: '+s+'، '+(s+k)+'، ...',why:m([s,s+k,s+2*k,s+3*k,s+4*k].join('، '))+'. الخامس '+m(s+4*k)+'.'})}],
+3:[
+ r=>{const [a,b]=r.pick([[5,1],[10,2],[4,1],[6,2]]),s=r.int(10,40),t=[s,s+a,s+a-b,s+2*a-b,s+2*a-2*b];return fl('النمط ده قاعدته «زوّد '+a+' وبعدين نقّص '+b+'» وبيتكرر. إيه الرقم الجاي؟',s+3*a-2*b,{vis:patStrip(t.concat(['?'])),tag:'نمط بخطوتين',hint:'مرة نزوّد '+a+' ومرة ننقّص '+b+'. شوفي آخر خطوة كانت إيه.',why:'آخر خطوة كانت نقص، فالجاية زيادة: '+m(t[4]+' + '+a+' = '+(s+3*a-2*b))+'.'})},
+ r=>{const k=r.pick([3,4,5,6]),s=r.int(10,30),w=r.int(2,4),t=[0,1,2,3,4].map(i=>s+i*k),good=t[w],bad=good+r.pick([1,2,-1]);t[w]=bad;return mc(r,'في النمط ده «زوّد '+k+'» رقم واحد غلط. أنهي رقم؟',m(bad),[1,2,3,4].map(i=>t[i]).filter(x=>x!==bad).map(m),{tag:'اكتشاف الخطأ',hint:'اطرحي كل رقم من اللي قبله وشوفي مين خارج القاعدة. الأرقام: '+t.join('، '),why:'اللي مفروض يكون هنا '+m(good)+' مش '+m(bad)+'.'})},
+ r=>{const k=r.pick([5,10]),s=r.int(80,150);return fl('بدأتي من '+m(s)+' وبتنقّصي '+m(k)+' كل مرة. إيه الرقم السادس؟',s-5*k,{tag:'إكمال النمط',hint:'اكتبي الأرقام واحد واحد لحد السادس.',why:m([0,1,2,3,4,5].map(i=>s-i*k).join('، '))+'. السادس '+m(s-5*k)+'.'})}]}});
+
+defL({id:'l05',u:2,en:'Arrays',ar:'المصفوفات (الصفوف والأعمدة)',ic:'🍎',
+obj:{ar:'هتعدّي الصفوف والأعمدة وتكتبي جملة جمع للـ array.',en:'I can count rows and columns and write an addition sentence for an array.'},
+vocab:[['array','مصفوفة'],['row','صف (أفقي)'],['column','عمود (رأسي)'],['equal','متساوي'],['total','المجموع']],
+learn:()=>({steps:[
+ {h:'الـ array ترتيب منظم',b:'الـ <b class="en">array</b> حاجات مترتبة في صفوف وأعمدة، وكل صف فيه نفس العدد:'+'<div class="vis">'+arrayGrid(3,4,'🍎')+'</div>'},
+ {h:'الصف (row) والعمود (column)',b:'<b>الصف</b> (<span class="en">row</span>) بيمشي <b>أفقي</b> ناحية الجنب. <b>العمود</b> (<span class="en">column</span>) بيمشي <b>رأسي</b> من فوق لتحت. هنا في 3 صفوف و 4 أعمدة. بنقول «3 by 4 array».'},
+ {h:'جملة الجمع بالصفوف',b:'كل صف فيه 4 تفاحات، وعندنا 3 صفوف: '+m('4 + 4 + 4 = 12')+'.'},
+ {h:'جملة الجمع بالأعمدة',b:'كل عمود فيه 3 تفاحات، وعندنا 4 أعمدة: '+m('3 + 3 + 3 + 3 = 12')+'. نفس الناتج 12 بالطريقتين!'}],
+ ex:[{v:arrayGrid(2,5,'⭐'),q:'اكتبي جملة جمع للـ array ده.',s:['في 2 صف','كل صف فيه 5 نجمات',m('5 + 5 = 10')],a:'10 نجمات'}]}),
+sum:['الـ array فيه صفوف أفقية وأعمدة رأسية.','«3 by 4» معناها 3 صفوف و 4 أعمدة.','نقدر نجمع بالصفوف أو بالأعمدة ونوصل لنفس الناتج.'],
+mom:{goal:'فهم الـ array كأساس للضرب القادم عن طريق الجمع المتكرر.',master:['تفرّق بين الصف والعمود','تكتب جملة الجمع المتكرر','تعرف إن 3 by 4 و 4 by 3 نفس العدد'],tip:'اتفرجوا على أشياء حقيقية: علبة بيض، شباك، شيكولاتة. اسأليها «كام صف؟ كام عمود؟».'},
+q:{1:[
+ r=>{const a=r.int(2,5),c=r.int(2,6),s=r.pick(['🍎','⭐','🍪','🌸']);return fl('كام <b>صف (rows)</b> في الـ array ده؟',a,{vis:arrayGrid(a,c,s),tag:'الصفوف والأعمدة',hint:'الصفوف بتمشي أفقي ناحية الجنب. عدّي كام خط أفقي.',why:'في '+m(a)+' صفوف.'})},
+ r=>{const a=r.int(2,5),c=r.int(2,6),s=r.pick(['🍎','⭐','🍪','🌸']);return fl('كام <b>عمود (columns)</b> في الـ array ده؟',c,{vis:arrayGrid(a,c,s),tag:'الصفوف والأعمدة',hint:'الأعمدة بتمشي من فوق لتحت. عدّي كام عمود جنب بعض.',why:'في '+m(c)+' أعمدة.'})},
+ r=>{const a=r.int(2,5),c=r.int(2,5),s=r.pick(['🍎','⭐','🍪','🌸']);return fl('كام '+s+' في الـ array كله؟',a*c,{vis:arrayGrid(a,c,s),tag:'مجموع الـ array',hint:'عدّي عدد كل صف، وبعدين اجمعي الصفوف.',why:m(rep(c,a)+' = '+a*c)+'.'})},
+ r=>{return mc(r,'الصفوف (rows) في الـ array بتبقى ناحية...','أفقية (ناحية الجنب)',['رأسية (من فوق لتحت)'],{tag:'الصفوف والأعمدة',hint:'افتكري: الصف زي صف الأطفال في طابور الصبح، واقفين جنب بعض.',why:'الصف أفقي، والعمود رأسي.'})}],
+2:[
+ r=>{let a,c;do{a=r.int(2,5);c=r.int(2,6)}while(a===c);return mc(r,'أي جملة جمع بتعبّر عن <b>الصفوف</b> في الـ array ده؟',m(rep(c,a)),[m(rep(a,c)),m(rep(c,a+1)),m(rep(c+1,a))],{vis:arrayGrid(a,c,'⭐'),tag:'جملة الجمع',hint:'كل صف فيه '+c+'. وعندنا '+a+' صفوف.',why:'كل صف فيه '+c+' وعندنا '+a+' صفوف، فنجمع '+c+' '+a+' مرات: '+m(rep(c,a))+'.'})},
+ r=>{const a=r.int(2,5),c=r.int(2,6),b=r.chance(.5);return tf('الـ array '+m(a+' by '+c)+' معناه '+(b?a:c)+' صفوف و '+(b?c:a)+' أعمدة.',b,{vis:arrayGrid(a,c,'🍎'),tag:'الصفوف والأعمدة',hint:'الرقم الأول في «by» هو عدد الصفوف، والتاني عدد الأعمدة.',why:'«'+a+' by '+c+'» يعني '+a+' صفوف و '+c+' أعمدة.'})},
+ r=>{const a=r.int(2,5),c=r.int(2,6);return fl(m(rep(c,a)+' = ؟'),a*c,{vis:arrayGrid(a,c,'🍪'),tag:'الجمع المتكرر',hint:'اجمعي '+c+' أول مرة، وبعدين كمّلي الجمع.',why:m(rep(c,a)+' = '+a*c)+'.'})},
+ r=>{let a,c;do{a=r.int(2,6);c=r.int(2,6)}while(a===c);return mc(r,'هل الـ array '+m(a+' by '+c)+' والـ array '+m(c+' by '+a)+' فيهم نفس العدد؟','أيوه، نفس العدد',['لأ، الأول أكتر','لأ، التاني أكتر'],{vis:arrayGrid(a,c,'🍎')+arrayGrid(c,a,'🍎'),tag:'الصفوف والأعمدة',hint:'عدّي مرة بالصفوف ومرة بالأعمدة.',why:'الاتنين '+m(a*c)+'، لأن بنقلب الصفوف أعمدة والأعمدة صفوف.'})}],
+3:[
+ r=>{const a=r.int(2,5),c=r.int(3,8);return fl(m(a*c)+' كرسي مترتبين في '+a+' صفوف متساوية. كام كرسي في كل صف؟',c,{tag:'مسألة array',hint:'جرّبي تجمعي نفس العدد '+a+' مرات لحد ما توصلي '+(a*c)+'.',why:m(rep(c,a)+' = '+a*c)+'، يبقى في كل صف '+m(c)+' كراسي.'})},
+ r=>{const a=r.int(3,5),c=r.int(3,6);return fl('عندك array فيه '+a+' صفوف وكل صف فيه '+c+'. ضفتي صف كمان فيه '+c+'. بقى فيه كام كله؟',(a+1)*c,{tag:'مسألة array',hint:'يبقى عندك '+(a+1)+' صفوف، وكل صف '+c+'.',why:m(rep(c,a+1)+' = '+(a+1)*c)+'.'})},
+ r=>{return mc(r,'أي حاجة من دول <b>مش</b> array؟','كور مرمية في الحوش في أماكن عشوائية',['علبة بيض: 2 صفين، في كل صف 6','كراسات مترتبة 3 صفوف، في كل صف 4','مربعات الشباك مترتبة في صفوف وأعمدة'],{tag:'تعريف الـ array',hint:'الـ array لازم يكون مترتب في صفوف وأعمدة، وكل صف فيه نفس العدد.',why:'الكور المرمية عشوائيًا مش مترتبة في صفوف وأعمدة منتظمة.'})}]}});
+
+defL({id:'l06',u:3,en:'Estimating and Rounding',ar:'التقدير والتقريب',ic:'🎯',
+obj:{ar:'هتقرّبي الأعداد لأقرب عشرة وتقدّري ناتج الجمع والطرح.',en:'I can round to the nearest ten and estimate sums and differences.'},
+vocab:[['estimate','تقدير'],['round','تقريب'],['nearest ten','أقرب عشرة'],['about','حوالي'],['front-end','الرقم الأول (الأكبر)']],
+learn:()=>({steps:[
+ {h:'التقدير يعني حوالي',b:'<b class="en">Estimate</b> يعني نوصل لإجابة قريبة بسرعة من غير ما نحسب بالظبط. بنقول «حوالي».'},
+ {h:'التقريب لأقرب عشرة',b:'بنبص على <b>رقم الآحاد</b>: لو <b>0 لـ 4</b> بننزل للعشرة اللي قبلها. لو <b>5 لـ 9</b> بنطلع للعشرة اللي بعدها.'+'<div class="vis">'+numLine(30,40,{pins:[37]})+'</div>37 أقرب لـ 40، يبقى بنقرّبه لـ <b>40</b>.'},
+ {h:'نقدّر الجمع',b:'نقرّب كل رقم الأول: '+m('48 + 38')+' ≈ '+m('50 + 40 = 90')+'. إجابتنا حوالي 90.'},
+ {h:'طريقة الرقم الأول (front-end)',b:'ناخد الرقم اللي في أكبر خانة بس: '+m('234 + 140')+' ≈ '+m('200 + 100 = 300')+'.'}],
+ ex:[{q:'قدّري: 87 − 21',s:['نقرّب 87 لـ 90 و 21 لـ 20','نطرح: '+m('90 − 20 = 70')],a:'حوالي 70'}]}),
+sum:['التقدير إجابة قريبة مش دقيقة.','آحاد 0–4 ننزل، آحاد 5–9 نطلع.','نقرّب كل رقم وبعدين نجمع أو نطرح.'],
+mom:{goal:'التقريب لأقرب عشرة وتقدير الجمع والطرح لمراجعة منطقية الإجابة.',master:['تقرّب أي عدد لأقرب 10','تقدّر مجموع رقمين','تعرف إن التقدير مش بالظبط'],tip:'اسأليها «حوالي كام؟» قبل ما تحسب بالظبط، وبعدين قارنوا الإجابتين.'},
+q:{1:[
+ r=>{let n;do{n=r.int(11,98)}while(n%10===0);const lo=Math.floor(n/10)*10;return fl('قرّبي '+m(n)+' لأقرب عشرة.',r10(n),{vis:numLine(lo,lo+10,{pins:[n]}),tag:'التقريب لأقرب 10',hint:'بصّي على رقم الآحاد: 0 لـ 4 ننزل، 5 لـ 9 نطلع.',why:'آحاد '+m(n)+' هو '+m(n%10)+(n%10>=5?'، يعني 5 أو أكتر فنطلع لـ ':'، يعني أقل من 5 فننزل لـ ')+m(r10(n))+'.'})},
+ r=>{let n;do{n=r.int(11,98)}while(n%10===0||n%10===5);const lo=Math.floor(n/10)*10;return mc(r,m(n)+' أقرب لـ '+m(lo)+' ولا '+m(lo+10)+'؟',m(r10(n)),[m(r10(n)===lo?lo+10:lo)],{vis:numLine(lo,lo+10,{pins:[n]}),tag:'التقريب لأقرب 10',hint:'بصّي على النقطة الصفرا: هي أقرب لأنهي طرف؟',why:m(n)+' أقرب لـ '+m(r10(n))+'.'})},
+ r=>{const n=r.int(11,98),ok=r.chance(.5),t=r10(n),c=ok?t:(t===10?20:t-10);return tf(m(n)+' بتتقرّب لأقرب عشرة لـ '+m(c)+'.',ok,{tag:'التقريب لأقرب 10',hint:'بصّي على رقم الآحاد في '+n+'.',why:m(n)+' بتتقرّب لـ '+m(t)+'.'})}],
+2:[
+ r=>{const a=r.int(21,79),b=r.int(11,49);return fl('قدّري ناتج: '+m(a+' + '+b)+' بتقريب كل رقم لأقرب عشرة.',r10(a)+r10(b),{tag:'تقدير الجمع',hint:'قرّبي '+a+' و '+b+' لأقرب عشرة الأول، وبعدين اجمعيهم.',why:m(a)+' ≈ '+m(r10(a))+' و '+m(b)+' ≈ '+m(r10(b))+'، يبقى '+m(r10(a)+' + '+r10(b)+' = '+(r10(a)+r10(b)))+'.'})},
+ r=>{const a=r.int(61,98),b=r.int(11,49);return fl('قدّري ناتج: '+m(a+' − '+b)+' بتقريب كل رقم لأقرب عشرة.',r10(a)-r10(b),{tag:'تقدير الطرح',hint:'قرّبي الرقمين لأقرب عشرة وبعدين اطرحي.',why:m(a)+' ≈ '+m(r10(a))+' و '+m(b)+' ≈ '+m(r10(b))+'، يبقى '+m(r10(a)+' − '+r10(b)+' = '+(r10(a)-r10(b)))+'.'})},
+ r=>{const a=r.int(101,799),b=r.int(101,Math.min(899,999-a)),A=Math.floor(a/100),B=Math.floor(b/100);return fl('قدّري ناتج '+m(a+' + '+b)+' بطريقة الرقم الأول (front-end): بصّي على المئات بس.',(A+B)*100,{tag:'التقدير بالرقم الأول',hint:'خدي رقم المئات بس من كل عدد: '+A+' مئات و '+B+' مئات.',why:m(a)+' ≈ '+m(A*100)+' و '+m(b)+' ≈ '+m(B*100)+'، يبقى '+m((A*100)+' + '+(B*100)+' = '+(A+B)*100)+'.'})},
+ r=>{const a=r.int(21,79),b=r.int(21,49),c=r10(a)+r10(b);return mc(r,'أنسب تقدير لـ '+m(a+' + '+b)+' هو...',m(c),[m(c+10),m(c-10),m(c+30)],{tag:'تقدير الجمع',hint:'قرّبي كل رقم لأقرب عشرة واجمعي.',why:m(a)+' ≈ '+m(r10(a))+' و '+m(b)+' ≈ '+m(r10(b))+' والمجموع '+m(c)+'.'})}],
+3:[
+ r=>{let n;do{n=r.int(101,899)}while(n%10===0);return fl('قرّبي '+m(n)+' لأقرب عشرة.',r10(n),{tag:'التقريب لأقرب 10',hint:'بصّي على رقم الآحاد بس، وسيبي المئات والعشرات.',why:'آحاد '+m(n)+' هو '+m(n%10)+'، فالتقريب '+m(r10(n))+'.'})},
+ r=>{const p=person(r),a=r.int(21,79),b=r.int(21,79);return fl(p.n+' '+p.has+' '+m(a)+' ستيكر وصاحبت'+p.hers+' معاها '+m(b)+'. قدّري مجموعهم لأقرب عشرة.',r10(a)+r10(b),{tag:'تقدير الجمع',hint:'قرّبي كل عدد لأقرب عشرة وبعدين اجمعي.',why:m(r10(a)+' + '+r10(b)+' = '+(r10(a)+r10(b)))+'.'})},
+ r=>{const a=r.int(51,98),b=r.int(11,49),c=r10(a)-r10(b);return mc(r,'قدّري ناتج '+m(a+' − '+b)+':',m(c),[m(c+10),m(c-10),m(c+30)].filter(x=>x!==m(c)),{tag:'تقدير الطرح',hint:'قرّبي الرقمين لأقرب عشرة واطرحي.',why:m(r10(a)+' − '+r10(b)+' = '+c)+'.'})},
+ r=>{const s=r.pick([['التقدير بيدّينا نفس الإجابة بالظبط دايمًا.',false,'التقدير قريب من الإجابة بس مش بالظبط.'],['لما بنقدّر بنستخدم أرقام قريبة بتخلّي الحساب أسهل.',true,'ده الهدف من التقريب.']]);return tf(s[0],s[1],{tag:'مفهوم التقدير',hint:'افتكري: التقدير معناه «حوالي».',why:s[2]})}]}});
+
+/* ===== Unit 3: Estimating & addition  |  Unit 4: Subtraction  |  Unit 5: start ===== */
+function subDiag(a,b){const d={},tr=a-b,da=[a%10,Math.floor(a/10)%10,Math.floor(a/100)],db=[b%10,Math.floor(b/10)%10,Math.floor(b/100)];
+  const flip=Math.abs(da[0]-db[0])+Math.abs(da[1]-db[1])*10+Math.abs(da[2]-db[2])*100;
+  if(flip!==tr)d[flip]='لما رقم الآحاد اللي فوق أصغر، ما ينفعش نقلب الطرح ونطرح الصغير من الكبير! لازم نفك عشرة من العشرات ونديها للآحاد.';
+  d[tr+10]='افتكري: لما بنفك عشرة لازم ننقّص 1 من خانة العشرات.';
+  return d}
+function digitsOK(r,f,tries){let x;for(let i=0;i<(tries||400);i++){x=f();if(x)return x}return f()||[]}
+
+defL({id:'l07',u:3,en:'Addition with Regrouping',ar:'الجمع مع الحمل',ic:'➕',
+obj:{ar:'هتجمعي عددين من خانتين وتحملي لما الآحاد تعدّي 10.',en:'I can add two 2-digit numbers and regroup ones into tens.'},
+vocab:[['regroup','نحمل / نجمّع'],['ones','آحاد'],['tens','عشرات'],['sum','ناتج الجمع'],['carry','الرقم المحمول']],
+learn:()=>({steps:[
+ {h:'نبدأ دايمًا من الآحاد',b:'بنجمع من ناحية اليمين: الآحاد الأول وبعدين العشرات. اكتبي الرقمين تحت بعض وكل خانة تحت خانتها:'+'<div class="vis">'+vert(38,27,'+')+'</div>'},
+ {h:'عشرة آحاد = عشرة واحدة',b:'لما نجمع الآحاد ويطلع 10 أو أكتر، بنعمل <b>عشرة</b> ونحمّلها لخانة العشرات. دي اسمها <b class="en">regrouping</b>. مثال 13 آحاد:'+'<div class="vis">'+pvBlocks(0,1,3)+'</div>13 آحاد = عشرة + 3 آحاد.'},
+ {h:'مثال: 38 + 27',b:'الآحاد: '+m('8 + 7 = 15')+'. نكتب <b>5</b> ونحمل <b>1</b> للعشرات. العشرات: '+m('3 + 2 + 1 = 6')+'. الناتج <b>65</b>.'},
+ {h:'راجعي بالتقدير',b:'قرّبي: '+m('38 ≈ 40')+' و '+m('27 ≈ 30')+' يبقى حوالي 70. إجابتنا 65 قريبة من 70، يبقى منطقية.'}],
+ ex:[{v:vert(47,38,'+'),q:'احسبي 47 + 38.',s:['الآحاد: '+m('7 + 8 = 15')+' ← نكتب 5 ونحمل 1','العشرات: '+m('4 + 3 + 1 = 8')],a:'85'}]}),
+sum:['نجمع من الآحاد للعشرات.','لو مجموع الآحاد 10 أو أكتر: نكتب الآحاد ونحمل 1 للعشرات.','نراجع الناتج بالتقدير.'],
+mom:{goal:'الجمع الرأسي لعددين من خانتين مع الحمل من الآحاد للعشرات.',master:['تجمع الآحاد أولًا','تحمل 1 صح','تراجع بالتقدير'],tip:'لو بتنسى الحمل، خليها تلوّن العشرة المحمولة بلون مختلف فوق العشرات، وتستخدم مكعبات أو عيدان لتجسيد الفكرة.'},
+q:{1:[
+ r=>{const o=r.int(3,9),b=r.int(10-o,9),a=10*r.int(2,8)+o;return fl(m(a+' + '+b+' = ؟'),a+b,{vis:vert(a,b,'+'),tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'اجمعي الآحاد: '+o+' + '+b+'. لو بقوا 10 أو أكتر احملي 1.',why:'الآحاد '+m(o+' + '+b+' = '+(o+b))+'، نكتب '+((a+b)%10)+' ونحمل 1. العشرات '+m(Math.floor(a/10)+' + 1')+'. الناتج '+m(a+b)+'.'})},
+ r=>{const o=r.int(3,9),b=r.int(10-o,9);return fl('اجمعي الآحاد: '+m(o+' + '+b+' = ؟'),o+b,{tag:'الحمل في الجمع',hint:'عدّي على صوابعك أو ابدئي من '+o+' وزوّدي '+b+'.',why:m(o+' + '+b+' = '+(o+b))+'، وده أكبر من 9 يعني فيه عشرة نحملها.'})},
+ r=>{const a=r.int(21,79),b=r.int(11,19),c=(a%10)+(b%10)>=10;return mc(r,'في العملية '+m(a+' + '+b)+' هل هنحمل 1 للعشرات؟',c?'أيوه، مجموع الآحاد 10 أو أكتر':'لأ، مجموع الآحاد أقل من 10',[c?'لأ، مجموع الآحاد أقل من 10':'أيوه، مجموع الآحاد 10 أو أكتر'],{vis:vert(a,b,'+'),tag:'الحمل في الجمع',hint:'اجمعي رقمي الآحاد بس: '+(a%10)+' + '+(b%10)+'.',why:'الآحاد '+m((a%10)+' + '+(b%10)+' = '+((a%10)+(b%10)))+(c?'، ده 10 أو أكتر، يبقى نحمل 1.':'، ده أقل من 10، يبقى مفيش حمل.')})},
+ r=>{const n=r.int(11,19);return fl('عندك '+n+' آحاد. لما تعملي منهم عشرة واحدة، يفضل كام آحاد؟',n-10,{vis:pvBlocks(0,0,n),tag:'فكرة عشرة آحاد',hint:'العشرة = 10 آحاد. شيلي 10 من '+n+'.',why:m(n+' − 10 = '+(n-10))+'. يعني '+n+' آحاد = عشرة + '+(n-10)+' آحاد.'})}],
+2:[
+ r=>{const [a,b]=carryPair(r,20,49);return fl(m(a+' + '+b+' = ؟'),a+b,{vis:vert(a,b,'+'),tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'اجمعي الآحاد الأول وحملي 1 لو لزم. بعدين العشرات.',why:'الآحاد '+m((a%10)+' + '+(b%10)+' = '+((a%10)+(b%10)))+' نكتب '+((a+b)%10)+' ونحمل 1. العشرات '+m(Math.floor(a/10)+' + '+Math.floor(b/10)+' + 1 = '+Math.floor((a+b)/10))+'. الناتج '+m(a+b)+'.'})},
+ r=>{const [a,b]=carryPair(r,45,89);return fl(m(a+' + '+b+' = ؟'),a+b,{vis:vert(a,b,'+'),tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'ممكن الناتج يعدّي 100. اجمعي الآحاد وحملي، وبعدين العشرات.',why:'الآحاد: '+m((a%10)+' + '+(b%10))+' ← نكتب '+((a+b)%10)+' ونحمل 1. العشرات: '+m(Math.floor(a/10)+' + '+Math.floor(b/10)+' + 1 = '+Math.floor((a+b)/10))+'. الناتج '+m(a+b)+'.'})},
+ r=>{const [a,b]=carryPair(r,20,49);return fl('إيه رقم الآحاد في ناتج '+m(a+' + '+b)+'؟',(a+b)%10,{tag:'الحمل في الجمع',hint:'اجمعي الآحاد '+(a%10)+' + '+(b%10)+'. الرقم اللي في الآحاد هو اللي يفضل بعد ما نشيل العشرة.',why:m((a%10)+' + '+(b%10)+' = '+((a%10)+(b%10)))+' نكتب '+m((a+b)%10)+' ونحمل 1.'})}],
+3:[
+ r=>{const p=person(r),[a,b]=carryPair(r,26,59);return fl(p.n+' '+p.v('خبز','خبزت')+' '+m(a)+' كوكيز وصاحب'+(p.f?'تها':'ها')+' خبزت '+m(b)+'. كام كوكيز مع بعض؟',a+b,{tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'«مع بعض» يعني نجمع. الآحاد الأول.',why:m(a+' + '+b+' = '+(a+b))+' كوكيز.'})},
+ r=>{const p=person(r),[a,b]=carryPair(r,23,48),st=a+b-10;return tf(p.n+' '+p.v('جمع','جمعت')+' '+m(a+' + '+b)+' و'+p.v('طلّع','طلّعت')+' '+m(st)+'. هل ده صح؟',false,{vis:vert(a,b,'+',st),tag:'الحمل في الجمع',hint:'اجمعي الآحاد '+(a%10)+' + '+(b%10)+'. هل عدّت 10؟',why:'نسيت الحمل! الآحاد '+m((a%10)+' + '+(b%10)+' = '+((a%10)+(b%10)))+' فلازم نحمل 1. الناتج الصح '+m(a+b)+'.'})},
+ r=>{let a,b,c;do{a=r.int(18,48);b=r.int(15,40);c=r.int(5,9)}while(((a%10)+(b%10)+c)<10);return fl(m(a+' + '+b+' + '+c+' = ؟'),a+b+c,{tag:'الحمل في الجمع',hint:'اجمعي رقمين الأول وبعدين الرقم الثالث.',why:m(a+' + '+b+' = '+(a+b))+' وبعدين '+m((a+b)+' + '+c+' = '+(a+b+c))+'.'})}]}});
+
+defL({id:'l08',u:3,en:'Three-Digit Addition',ar:'جمع الأعداد من ثلاث خانات',ic:'💯',
+obj:{ar:'هتجمعي عددين من ثلاث خانات، وتحملي من الآحاد للعشرات ومن العشرات للمئات.',en:'I can add two 3-digit numbers with regrouping.'},
+vocab:[['hundreds','مئات'],['tens','عشرات'],['ones','آحاد'],['place value','قيمة الخانة'],['digit','رقم']],
+learn:()=>({steps:[
+ {h:'العدد له 3 خانات',b:'العدد 345 فيه 3 مئات و4 عشرات و5 آحاد:'+'<div class="vis">'+pvBlocks(3,4,5)+'</div>مئات = 300، عشرات = 40، آحاد = 5.'},
+ {h:'نبدأ من الآحاد',b:'زي ما عملنا في خانتين: الآحاد، وبعدين العشرات، وبعدين المئات. وأي خانة مجموعها 10 أو أكتر بنحمل منها 1 للخانة اللي جنبها.'},
+ {h:'مثال: 358 + 267',b:'<div class="vis">'+vert(358,267,'+')+'</div>الآحاد: '+m('8 + 7 = 15')+' ← 5 ونحمل 1. العشرات: '+m('5 + 6 + 1 = 12')+' ← 2 ونحمل 1. المئات: '+m('3 + 2 + 1 = 6')+'. الناتج <b>625</b>.'},
+ {h:'جمع سريع في دماغك',b:'لو الأرقام قريبة من مئات، ركّبيها: '+m('145 + 155')+'. الآحاد '+m('5 + 5 = 10')+' والعشرات '+m('4 + 5 + 1 = 10')+' يعني 300 بالظبط.'}],
+ ex:[{v:vert(245,127,'+'),q:'احسبي 245 + 127.',s:['الآحاد: '+m('5 + 7 = 12')+' ← 2 ونحمل 1','العشرات: '+m('4 + 2 + 1 = 7'),'المئات: '+m('2 + 1 = 3')],a:'372'}]}),
+sum:['العدد من 3 خانات: مئات وعشرات وآحاد.','نبدأ من الآحاد ونحمل عند الحاجة.','ممكن نحمل مرتين: من الآحاد للعشرات ومن العشرات للمئات.'],
+mom:{goal:'جمع عددين من ثلاث خانات مع الحمل، وفهم قيمة كل خانة.',master:['تكتب الأعداد تحت بعض بدقة','تحمل من الآحاد ومن العشرات','تعرف قيمة الرقم حسب مكانه'],tip:'الأخطاء غالبًا بتبقى من سوء ترتيب الأعمدة. وفّري ورقة مسطرة بالعرض أو كراسة مربعات.'},
+q:{1:[
+ r=>{const ah=r.int(1,6),at=r.int(0,8),ao=r.int(0,8),a=100*ah+10*at+ao,b=100*r.int(1,9-ah)+10*r.int(0,9-at)+r.int(0,9-ao);return fl(m(a+' + '+b+' = ؟'),a+b,{vis:vert(a,b,'+'),tag:'جمع 3 خانات',hint:'اجمعي كل خانة لوحدها: الآحاد، العشرات، المئات.',why:'الآحاد '+m((a%10)+' + '+(b%10))+'، العشرات '+m(Math.floor(a/10)%10+' + '+Math.floor(b/10)%10)+'، المئات '+m(Math.floor(a/100)+' + '+Math.floor(b/100))+'. الناتج '+m(a+b)+'.'})},
+ r=>{let n,ds;do{n=r.int(123,987);ds=[Math.floor(n/100),Math.floor(n/10)%10,n%10]}while(new Set(ds).size<3||ds.indexOf(0)>=0);const k=r.int(0,2),d=ds[k],v=d*Math.pow(10,2-k),nm=['المئات','العشرات','الآحاد'][k];return mc(r,'قيمة الرقم '+m(d)+' في العدد '+m(n)+' هي...',m(v),[m(d),m(d*10),m(d*100)].filter(x=>x!==m(v)),{tag:'قيمة الخانة',hint:'الرقم '+d+' في خانة '+nm+'. القيمة بتعتمد على الخانة.',why:d+' في خانة '+nm+' فقيمتها '+m(v)+'.'})},
+ r=>{let n;do{n=r.int(123,987)}while(Math.floor(n/10)%10===0);return fl('إيه الرقم اللي في خانة العشرات في العدد '+m(n)+'؟',Math.floor(n/10)%10,{tag:'قيمة الخانة',hint:'خانة العشرات هي الخانة اللي في النص.',why:'في '+m(n)+': المئات '+Math.floor(n/100)+'، العشرات '+Math.floor(n/10)%10+'، الآحاد '+n%10+'.'})}],
+2:[
+ r=>{const [a,b]=digitsOK(r,()=>{const a=r.int(101,499),b=r.int(101,499);return((a%10)+(b%10)>=10&&(Math.floor(a/10)%10)+(Math.floor(b/10)%10)+1<10)?[a,b]:null});return fl(m(a+' + '+b+' = ؟'),a+b,{vis:vert(a,b,'+'),tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'الآحاد هتحمل 1 للعشرات.',why:'الآحاد '+m((a%10)+' + '+(b%10))+' ← نكتب '+((a+b)%10)+' ونحمل 1. العشرات '+m(Math.floor(a/10)%10+' + '+Math.floor(b/10)%10+' + 1')+'. المئات '+m(Math.floor(a/100)+' + '+Math.floor(b/100))+'. الناتج '+m(a+b)+'.'})},
+ r=>{const [a,b]=digitsOK(r,()=>{const a=r.int(101,499),b=r.int(101,499);return((a%10)+(b%10)<10&&(Math.floor(a/10)%10)+(Math.floor(b/10)%10)>=10)?[a,b]:null});return fl(m(a+' + '+b+' = ؟'),a+b,{vis:vert(a,b,'+'),tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'العشرات هتحمل 1 للمئات.',why:'العشرات '+m(Math.floor(a/10)%10+' + '+Math.floor(b/10)%10+' = '+(Math.floor(a/10)%10+Math.floor(b/10)%10))+' نكتب '+(Math.floor((a+b)/10)%10)+' ونحمل 1 للمئات. الناتج '+m(a+b)+'.'})},
+ r=>{const a=r.int(110,490),h=r.int(1,4)*100;return fl('اجمعي في دماغك: '+m(a+' + '+h)+' = ؟',a+h,{tag:'جمع سريع',hint:'المئات بس هي اللي بتتغير. اجمعي 3 مئات مثلًا.',why:'المئات بس زادت: '+m(Math.floor(a/100)+' + '+h/100+' = '+Math.floor((a+h)/100))+' والباقي زي ما هو، فالناتج '+m(a+h)+'.'})}],
+3:[
+ r=>{const [a,b]=digitsOK(r,()=>{const a=r.int(120,499),b=r.int(120,499);return((a%10)+(b%10)>=10&&(Math.floor(a/10)%10)+(Math.floor(b/10)%10)+1>=10)?[a,b]:null});return fl(m(a+' + '+b+' = ؟'),a+b,{vis:vert(a,b,'+'),tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'هتحملي مرتين: من الآحاد ومن العشرات.',why:'الآحاد '+m((a%10)+' + '+(b%10))+' ← '+((a+b)%10)+' وحمل 1. العشرات '+m((Math.floor(a/10)%10)+' + '+(Math.floor(b/10)%10)+' + 1')+' ← '+(Math.floor((a+b)/10)%10)+' وحمل 1. المئات '+m(Math.floor(a/100)+' + '+Math.floor(b/100)+' + 1')+'. الناتج '+m(a+b)+'.'})},
+ r=>{const a=r.int(180,420),b=r.int(180,420);return fl('في المكتبة '+m(a)+' كتاب قصص و '+m(b)+' كتاب علوم. كام كتاب كلهم؟',a+b,{tag:'مسألة جمع كبيرة',diag:addDiag(a,b),hint:'«كلهم» يعني نجمع. رتّبي الأعداد تحت بعض.',why:m(a+' + '+b+' = '+(a+b))+' كتاب.'})},
+ r=>{const [a,b]=digitsOK(r,()=>{const a=r.int(120,499),b=r.int(120,499);return Math.floor(a/10)%10>0?[a,b]:null}),t=Math.floor(a/10)%10,sh=String(a).replace(/^(\d)\d(\d)$/,'$1?$2');return fl('إيه الرقم الناقص (؟) في العدد الأول؟  '+m(sh+' + '+b+' = '+(a+b)),t,{tag:'الرقم الناقص',hint:'اطرحي '+b+' من '+(a+b)+' عشان تعرفي العدد الأول كله.',why:m((a+b)+' − '+b+' = '+a)+'، يبقى الرقم الناقص '+m(t)+'.'})},
+ r=>{const a=r.int(110,190),b=300-a;return fl('جرّبي تجمعي في دماغك: '+m(a+' + '+b+' = ؟'),300,{tag:'جمع سريع',hint:'الآحاد والعشرات هيكمّلوا مية.',why:'الآحاد والعشرات بيكوّنوا 100 بالظبط، فالناتج '+m(300)+'.'})}]}});
+
+defL({id:'l09',u:4,en:'Addition and Subtraction Relationships',ar:'العلاقة بين الجمع والطرح',ic:'🔄',
+obj:{ar:'هتفهمي إن الجمع والطرح عكس بعض، وتستخدمي عيلة الأرقام.',en:'I can use fact families to show addition and subtraction are related.'},
+vocab:[['fact family','عيلة الأرقام'],['addition','جمع'],['subtraction','طرح'],['inverse','عكس'],['check','نراجع']],
+learn:()=>({steps:[
+ {h:'تلات أرقام عيلة واحدة',b:'الأرقام 5 و 8 و 13 عيلة واحدة <b class="en">(fact family)</b>:'+'<div class="vis">'+famTri(5,8,13)+'</div>الرقم الكبير 13 هو المجموع.'},
+ {h:'4 جمل من العيلة',b:m('5 + 8 = 13')+' ، '+m('8 + 5 = 13')+' ، '+m('13 − 5 = 8')+' ، '+m('13 − 8 = 5')},
+ {h:'الجمع والطرح عكس بعض',b:'لو أضفنا 8 لـ 5 وصلنا 13. ولو شلنا 8 من 13 رجعنا لـ 5. <b>الطرح بيفك الجمع</b>.'},
+ {h:'نراجع الطرح بالجمع',b:'لو حسبنا '+m('52 − 17 = 35')+' نراجع: '+m('35 + 17 = 52')+' ✓. رجعنا للرقم الأول، يبقى الحل صح.'}],
+ ex:[{v:famTri(9,'?',15),q:'إيه الرقم الناقص: 9 + ؟ = 15؟',s:['العيلة (9, 6, 15)','نطرح: '+m('15 − 9 = 6')],a:'6'}]}),
+sum:['كل 3 أرقام (اتنين ومجموعهم) عيلة واحدة.','من العيلة نكتب جملتين جمع وجملتين طرح.','نراجع الطرح بالجمع.'],
+mom:{goal:'فهم العلاقة العكسية بين الجمع والطرح واستخدامها للتحقق من الحل.',master:['تكتب 4 جمل من 3 أرقام','تراجع طرحها بالجمع','تحل «؟ + 5 = 12» بالطرح'],tip:'استخدمي مثلث العيلة: غطّي رقم بإصبعك واسأليها «الرقم المخفي كام؟».'},
+q:{1:[
+ r=>{const a=r.int(3,9),b=r.int(3,9),c=a+b;return fl(m(a+' + ؟ = '+c),b,{vis:famTri(a,'?',c),tag:'عيلة الأرقام',hint:'اطرحي '+a+' من '+c+'.',why:m(c+' − '+a+' = '+b)+'، يبقى '+m(a+' + '+b+' = '+c)+'.'})},
+ r=>{const a=r.int(3,9),b=r.int(3,9),c=a+b;return fl('لو '+m(a+' + '+b+' = '+c)+' يبقى '+m(c+' − '+b+' = ؟'),a,{vis:famTri(a,b,c),tag:'عيلة الأرقام',hint:'اتطلعي على عيلة الأرقام: الطرح بيرجع للرقم التاني.',why:'الطرح بيفك الجمع: '+m(c+' − '+b+' = '+a)+'.'})},
+ r=>{let a,b;do{a=r.int(3,9);b=r.int(3,9)}while(a===b);const c=a+b,good=[a+' + '+b+' = '+c,b+' + '+a+' = '+c,c+' − '+a+' = '+b,c+' − '+b+' = '+a],bad=a+' + '+c+' = '+b;return mc(r,'أي جملة <b>مش</b> من عيلة الأرقام '+m(a+'، '+b+'، '+c)+'؟',m(bad),r.shuffle(good).slice(0,3).map(m),{vis:famTri(a,b,c),tag:'عيلة الأرقام',hint:'جملة العيلة لازم تستخدم الرقم الكبير '+c+' كمجموع في الجمع.',why:m(bad)+' غلط لأن '+c+' هو المجموع الكبير، ما ينفعش نجمعه مع حاجة ونطلع رقم أصغر.'})}],
+2:[
+ r=>{const a=r.int(4,12),b=r.int(4,12),c=a+b;return fl(m(c+' − '+a+' = ؟'),b,{vis:famTri(a,'?',c),tag:'عيلة الأرقام',hint:'فكّري: '+a+' + إيه = '+c+'؟',why:m(a+' + '+b+' = '+c)+' يبقى '+m(c+' − '+a+' = '+b)+'.'})},
+ r=>{const a=r.int(4,12),b=r.int(4,12),c=a+b,ok=r.chance(.5);return tf('لو '+m(a+' + '+b+' = '+c)+' يبقى '+m(c+' − '+a+' = '+(ok?b:b+1))+'.',ok,{vis:famTri(a,b,c),tag:'عيلة الأرقام',hint:'طبّقي: الطرح بيرجّعنا للرقم التاني في العيلة.',why:'الصح '+m(c+' − '+a+' = '+b)+'.'})},
+ r=>{const a=r.int(20,60),b=r.int(15,39),c=a+b;return fl('لو '+m(a+' + '+b+' = '+c)+' يبقى '+m(c+' − '+b+' = ؟'),a,{tag:'عيلة الأرقام',hint:'اتطلعي على العيلة ('+a+', '+b+', '+c+').',why:m(c+' − '+b+' = '+a)+'.'})},
+ r=>{let a,b;do{a=r.int(3,12);b=r.int(3,12)}while(a===b);return fl('كام جملة (جمع وطرح) نقدر نكتبها من الأرقام '+m(a+'، '+b+'، '+(a+b))+'؟',4,{vis:famTri(a,b,a+b),tag:'عيلة الأرقام',hint:'جملتين جمع (بنبدّل الترتيب) وجملتين طرح.',why:'جملتين جمع وجملتين طرح، يعني '+m(4)+' جمل.'})}],
+3:[
+ r=>{const a=r.int(40,95),b=r.int(11,39);return fl(m(a+' − '+b+' = '+(a-b))+'. اتأكدي بالجمع: '+m((a-b)+' + '+b+' = ؟'),a,{tag:'مراجعة الطرح',hint:'لو الجمع رجّعنا للرقم الأول يبقى الحل صح.',why:m((a-b)+' + '+b+' = '+a)+' ✓ رجعنا للرقم الأول.'})},
+ r=>{const p=person(r),s=r.int(15,40),f=r.int(20,60);return fl('كان مع '+p.n+' فلوس. '+p.v('صرف','صرفت')+' '+m(s)+' جنيه وفضل '+m(f)+' جنيه. كان معاه كام الأول؟',s+f,{suf:'جنيه',tag:'عيلة الأرقام',hint:'الطرح عكس الجمع: الباقي + اللي اتصرف = اللي كان موجود.',why:m(f+' + '+s+' = '+(s+f))+' جنيه.'})},
+ r=>{const a=r.int(45,90),b=r.int(11,35),ok=r.chance(.5),st=ok?a-b:a-b+r.pick([10,-10,1,-1]);return tf(m(a+' − '+b+' = '+st)+'. اتأكدي بالجمع: هل الإجابة دي صح؟',st===a-b,{tag:'مراجعة الطرح',hint:'اجمعي '+st+' + '+b+' وشوفي هل وصلتي لـ '+a+'.',why:m(st+' + '+b+' = '+(st+b))+(st===a-b?' وده '+a+' يبقى صح ✓':' وده مش '+a+'، يبقى غلط. الصح '+m(a-b))})}]}});
+
+defL({id:'l10',u:4,en:'Subtraction on Number Lines',ar:'الطرح على خط الأعداد',ic:'↩️',
+obj:{ar:'هتطرحي برجوع خطوات على خط الأعداد.',en:'I can subtract by jumping back on a number line.'},
+vocab:[['number line','خط الأعداد'],['jump','قفزة'],['difference','الفرق (ناتج الطرح)'],['subtract','نطرح'],['break apart','نفكك العدد']],
+learn:()=>({steps:[
+ {h:'الطرح رجوع لورا',b:'على <b class="en">number line</b> بنبدأ من الرقم الكبير ونرجع ناحية الأرقام الأصغر بعدد الخطوات.'},
+ {h:'مثال: 17 − 8',b:'نرجع أول 7 لحد 10، وبعدين نرجع 1 كمان:'+'<div class="vis">'+numLine(5,20,{jumps:[[17,10,'−7'],[10,9,'−1']],start:17,lab:5})+'</div>'+m('17 − 8 = 9')},
+ {h:'عدد كبير: 38 − 15',b:'نفكّك 15 لـ 10 و5. نرجع 10 الأول، وبعدين 5:'+'<div class="vis">'+numLine(20,40,{jumps:[[38,28,'−10'],[28,23,'−5']],start:38,lab:5})+'</div>'+m('38 − 15 = 23')},
+ {h:'اتأكدي',b:'نراجع بالجمع: '+m('23 + 15 = 38')+' ✓.'}],
+ ex:[{v:numLine(40,55,{jumps:[[52,50,'−2'],[50,43,'−7']],start:52,lab:5}),q:'احسبي 52 − 9 على خط الأعداد.',s:['نرجع 2 لحد 50 (عشان نوصل للعشرة)','فاضل 7 من التسعة: '+m('50 − 7 = 43')],a:'43'}]}),
+sum:['الطرح معناه نرجع على خط الأعداد.','نرجع بالعشرات الأول وبعدين الآحاد.','نراجع بالجمع.'],
+mom:{goal:'الطرح على خط الأعداد وتجزئة العدد المطروح.',master:['ترجع على الخط بالقفزات','تفكك العدد لعشرات وآحاد','تحل مسائل طرح كلامية'],tip:'ارسمي معاها خط الأعداد على ورقة، أو على الأرض بالطباشير، وخليها تقفز بجسمها لورا.'},
+q:{1:[
+ r=>{const a=r.int(12,20),b=r.int(3,9);return fl(m(a+' − '+b+' = ؟'),a-b,{vis:numLine(0,20,{start:a,lab:5}),tag:'الطرح على خط الأعداد',hint:'ابدئي من '+a+' وارجعي '+b+' خطوات ناحية الصفر.',why:'نرجع '+b+' من '+a+' فنوصل '+m(a-b)+'.'})},
+ r=>mc(r,'لما بنطرح على خط الأعداد بنتحرك ناحية...','الأرقام الأصغر (ناحية الصفر)',['الأرقام الأكبر'],{tag:'الطرح على خط الأعداد',hint:'الطرح بيصغّر الرقم.',why:'الطرح بيخلي الرقم أصغر، فبنرجع ناحية الصفر.'}),
+ r=>{const a=r.int(11,19),b=r.int(2,a-3);return fl(m(a+' − '+b+' = ؟'),a-b,{vis:numLine(0,20,{start:a,lab:5}),tag:'الطرح على خط الأعداد',hint:'عدّي لورا '+b+' مرات من '+a+'.',why:m(a+' − '+b+' = '+(a-b))+'.'})}],
+2:[
+ r=>{let a,b;do{a=r.int(31,55);b=r.int(6,9)}while(Math.floor(a/10)===Math.floor((a-b)/10));return fl(m(a+' − '+b+' = ؟'),a-b,{vis:numLine(a-b-3,a+2,{start:a,lab:5}),tag:'الطرح بالعشرات',hint:'ارجعي لأقرب عشرة الأول، وبعدين كمّلي الباقي.',why:'نرجع '+(a%10)+' لحد '+(a-a%10)+'، وبعدين '+(b-a%10)+' كمان: '+m((a-a%10)+' − '+(b-a%10)+' = '+(a-b))+'.'})},
+ r=>{const a=r.int(38,79),bt=r.int(1,2),bo=r.int(2,9),b=10*bt+bo;return fl(m(a+' − '+b+' = ؟'),a-b,{vis:numLine(a-b-3,a+2,{start:a,lab:10}),tag:'الطرح بتجزئة العدد',hint:'فكّكي '+b+' لـ '+(10*bt)+' و '+bo+'. ارجعي '+(10*bt)+' وبعدين '+bo+'.',why:'نرجع '+m(10*bt)+' فنوصل '+(a-10*bt)+'، وبعدين نرجع '+bo+': '+m((a-10*bt)+' − '+bo+' = '+(a-b))+'.'})},
+ r=>{const a=r.int(48,79),bt=r.int(1,2),bo=r.int(2,9),b=10*bt+bo;return mc(r,'عشان نحسب '+m(a+' − '+b)+' على خط الأعداد، نعمل إيه؟','نرجع '+(10*bt)+' وبعدين نرجع '+bo,['نرجع '+(10*bt)+' وبعدين نزوّد '+bo,'نزوّد '+(10*bt)+' وبعدين نرجع '+bo,'نرجع '+bo+' وبعدين نزوّد '+(10*bt)],{tag:'الطرح بتجزئة العدد',hint:'الطرح كله رجوع، مفيش زيادة.',why:'نفكّك '+b+' لـ '+(10*bt)+' و '+bo+' ونرجع بالاتنين.'})}],
+3:[
+ r=>{const p=person(r),t=r.int(0,3);let a,b,txt;if(t===0){a=r.int(40,60);b=r.int(12,30);txt=p.n+' '+p.v('عمل','عملت')+' '+m(a)+' كوكيز وادّى'+(p.f?'ت':'')+' '+m(b)+' لأخت'+p.hers+'. فاضل كام كوكيز؟'}else if(t===1){a=r.int(55,80);b=r.int(12,30);txt='كان في الأتوبيس '+m(a)+' راكب. في أول محطة نزل '+m(b)+'. فاضل كام راكب؟'}else if(t===2){a=10*r.int(12,19);b=10*r.int(1,6);txt=p.n+' '+p.v('جمع','جمعت')+' '+m(a)+' طابع وادّى'+(p.f?'ت':'')+' '+m(b)+' لأخو'+p.hers+'. فاضل كام؟'}else{a=r.int(25,40);b=r.int(3,9);txt=p.n+' و'+(p.f?'صاحبتها':'صاحبه')+' كان عندهم '+m(a)+' هدية يغلفوها، غلّفوا '+m(b)+'. فاضل كام؟'}
+  return fl(txt,a-b,{tag:'مسألة طرح',hint:'«فاضل» يعني نطرح. ابدئي بالأكبر.',why:m(a+' − '+b+' = '+(a-b))+'.'})},
+ r=>{const a=r.int(25,40),b=r.int(10,24);return fl('في الفصل '+m(a)+' بنت و '+m(b)+' ولد. كام بنت أكتر من الولاد؟',a-b,{tag:'مقارنة بالطرح',hint:'«كام أكتر» يعني نطرح العدد الأقل من الأكبر.',why:m(a+' − '+b+' = '+(a-b))+' بنات أكتر.'})},
+ r=>{const a=10*r.int(15,29),b=10*r.int(1,9);return fl(m(a+' − '+b+' = ؟'),a-b,{vis:numLine(a-b-10,a+10,{start:a,lab:10}),tag:'الطرح بالعشرات',hint:'اطرحي العشرات بس: '+(a/10)+' عشرة − '+(b/10)+' عشرات.',why:m((a/10)+' − '+(b/10)+' = '+((a-b)/10))+' عشرات يعني '+m(a-b)+'.'})}]}});
+
+defL({id:'l11',u:4,en:'Subtraction with Regrouping',ar:'الطرح مع الفك',ic:'➖',
+obj:{ar:'هتطرحي لما الآحاد اللي فوق أصغر، وتفكي عشرة.',en:'I can subtract with regrouping when I do not have enough ones.'},
+vocab:[['regroup','نفك / نجمّع'],['borrow','نستلف عشرة'],['difference','الفرق'],['estimate','نقدّر'],['ones','آحاد']],
+learn:()=>({steps:[
+ {h:'مشكلة: الآحاد مش كفاية',b:'في '+m('52 − 27')+' الآحاد: 2 − 7 مش ينفع، لأن 2 أصغر من 7.'},
+ {h:'نفك عشرة',b:'ناخد عشرة من 5 عشرات (يفضل 4) ونديها للآحاد (بقت 12):'+'<div class="vis">'+pvBlocks(0,5,2)+'</div>دلوقتي الآحاد 12 والعشرات 4.'},
+ {h:'نطرح',b:'<div class="vis">'+vert(52,27,'−')+'</div>الآحاد: '+m('12 − 7 = 5')+'. العشرات: '+m('4 − 2 = 2')+'. الناتج <b>25</b>.'},
+ {h:'نراجع',b:'التقدير: '+m('50 − 30 = 20')+' قريب من 25. ونراجع بالجمع: '+m('25 + 27 = 52')+' ✓.'}],
+ ex:[{v:vert(173,48,'−'),q:'احسبي 173 − 48.',s:['الآحاد: 3 − 8 مش ينفع، نفك عشرة: '+m('13 − 8 = 5'),'العشرات بقت 6: '+m('6 − 4 = 2'),'المئات: 1'],a:'125'}]}),
+sum:['لو آحاد الرقم اللي فوق أصغر نفك عشرة.','نكتب 10 آحاد جنب الآحاد وننقص 1 من العشرات.','نراجع الطرح بالجمع.'],
+mom:{goal:'الطرح الرأسي مع فك العشرة (بين الآحاد والعشرات، وأحيانًا العشرات والمئات).',master:['تعرف متى تفك','تنقص العشرات بعد الفك','تراجع بالجمع'],tip:'الخطأ الشائع: تطرح الصغير من الكبير في كل عمود. رسّخي إننا ما نقلبش الطرح، ونفك عشرة بدل كده.'},
+q:{1:[
+ r=>{const ta=r.int(4,9),oa=r.int(0,5),tb=r.int(1,ta-1),ob=r.int(oa+1,9),a=10*ta+oa,b=10*tb+ob;return fl(m(a+' − '+b+' = ؟'),a-b,{vis:vert(a,b,'−'),tag:'الفك في الطرح',diag:subDiag(a,b),hint:'الآحاد '+oa+' أصغر من '+ob+'. فكّي عشرة وخلّيها '+(oa+10)+'.',why:'نفك عشرة: الآحاد '+m((oa+10)+' − '+ob+' = '+(oa+10-ob))+' والعشرات '+m((ta-1)+' − '+tb+' = '+(ta-1-tb))+'. الناتج '+m(a-b)+'.'})},
+ r=>{const a=r.int(31,95),b=r.int(11,a-8),f=(a%10)<(b%10);return mc(r,'في '+m(a+' − '+b)+' هل لازم نفك عشرة؟',f?'أيوه، لأن '+(a%10)+' أصغر من '+(b%10):'لأ، نطرح علطول',[f?'لأ، نطرح علطول':'أيوه، لأن '+(a%10)+' أصغر من '+(b%10)],{vis:vert(a,b,'−'),tag:'الفك في الطرح',hint:'قارني رقم الآحاد اللي فوق ('+(a%10)+') برقم الآحاد اللي تحت ('+(b%10)+').',why:f?'الآحاد اللي فوق أصغر، فلازم نفك عشرة.':'الآحاد اللي فوق أكبر أو يساوي اللي تحت، فمفيش فك.'})},
+ r=>{const t=r.int(3,9);return fl('لما نفك عشرة من '+m(t)+' عشرات، فاضل كام عشرة؟',t-1,{tag:'الفك في الطرح',hint:'خدنا عشرة واحدة بس.',why:m(t+' − 1 = '+(t-1))+' عشرات.'})},
+ r=>{const o=r.int(0,5),b=r.int(o+1,9);return fl('بعد ما فكّينا عشرة، الآحاد بقت '+m(o+10)+'. احسبي '+m((o+10)+' − '+b+' = ؟'),o+10-b,{tag:'الفك في الطرح',hint:'اطرحي '+b+' من '+(o+10)+'.',why:m((o+10)+' − '+b+' = '+(o+10-b))+'.'})}],
+2:[
+ r=>{const ah=r.int(1,8),at=r.int(4,9),ao=r.int(0,5),bt=r.int(1,at),bo=r.int(ao+1,9),a=100*ah+10*at+ao,b=10*bt+bo;return fl(m(a+' − '+b+' = ؟'),a-b,{vis:vert(a,b,'−'),tag:'الفك في الطرح',diag:subDiag(a,b),hint:'الآحاد '+ao+' أصغر من '+bo+'، فكّي عشرة من خانة العشرات.',why:'نفك عشرة: '+m((ao+10)+' − '+bo+' = '+(ao+10-bo))+'. العشرات بقت '+(at-1)+': '+m((at-1)+' − '+bt+' = '+(at-1-bt))+'. المئات '+ah+'. الناتج '+m(a-b)+'.'})},
+ r=>{const t=r.int(2,9),o=r.int(0,7),bo=r.int(o+1,9),a=10*t+o;return fl(m(a+' − '+bo+' = ؟'),a-bo,{vis:vert(a,bo,'−'),tag:'الفك في الطرح',diag:subDiag(a,bo),hint:'الآحاد '+o+' أصغر من '+bo+'، فكّي عشرة.',why:'الآحاد: '+m((o+10)+' − '+bo+' = '+(o+10-bo))+'. العشرات: '+m(String(t-1))+'. الناتج '+m(a-bo)+'.'})},
+ r=>{const a=r.int(61,98),b=r.int(11,49),c=r10(a)-r10(b);return mc(r,'قبل ما تحسبي بالظبط، قدّري '+m(a+' − '+b)+' (قرّبي لأقرب عشرة):',m(c),[m(c+10),m(c-10),m(c+30)].filter(x=>x!==m(c)),{tag:'التقدير',hint:'قرّبي '+a+' و '+b+' لأقرب عشرة.',why:m(r10(a)+' − '+r10(b)+' = '+c)+'.'})},
+ r=>{const ta=r.int(5,9),oa=r.int(0,4),tb=r.int(1,ta-1),ob=r.int(oa+1,9),a=10*ta+oa,b=10*tb+ob,st=Math.abs(ta-tb)*10+Math.abs(oa-ob);return tf('طارق حسب '+m(a+' − '+b+' = '+st)+'. هل ده صح؟',false,{vis:vert(a,b,'−',st),tag:'الفك في الطرح',hint:'هل ينفع نطرح الآحاد '+oa+' − '+ob+'؟',why:'طارق قلب الطرح في الآحاد! لازم نفك عشرة. الإجابة الصح '+m(a-b)+'.'})}],
+3:[
+ r=>{const ah=r.int(4,9),at=r.int(0,3),ao=r.int(0,3),bh=r.int(1,ah-1),bt=r.int(at+1,9),bo=r.int(ao+1,9),a=100*ah+10*at+ao,b=100*bh+10*bt+bo;return fl(m(a+' − '+b+' = ؟'),a-b,{vis:vert(a,b,'−'),tag:'الفك مرتين',diag:subDiag(a,b),hint:'محتاجة تفكي مرتين: من العشرات للآحاد، ومن المئات للعشرات.',why:'الآحاد '+m((ao+10)+' − '+bo)+'. العشرات (بعد الفك والاستلاف) '+m((at+9)+' − '+bt)+'. المئات '+m((ah-1)+' − '+bh)+'. الناتج '+m(a-b)+'.'})},
+ r=>{const p=person(r);let a,b;do{a=r.int(120,300);b=r.int(25,99)}while(!(a%10<b%10));return fl('في المكتبة '+m(a)+' كتاب واتاخد منهم '+m(b)+'. فضل كام كتاب؟',a-b,{tag:'الفك في الطرح',diag:subDiag(a,b),hint:'«فضل» يعني نطرح. الآحاد '+(a%10)+' أصغر من '+(b%10)+'، فكّي عشرة.',why:m(a+' − '+b+' = '+(a-b))+' كتاب.'})},
+ r=>{const mk=need=>{let a,b;for(let i=0;i<400;i++){a=r.int(31,98);b=r.int(11,a-2);if(((a%10)<(b%10))===need)return m(a+' − '+b)}return m('50 − 20')},good=mk(true),bads=[mk(false),mk(false),mk(false)];return mc(r,'أي عملية من دول محتاجة نفك فيها عشرة؟',good,bads,{tag:'الفك في الطرح',hint:'قارني رقم الآحاد فوق برقم الآحاد تحت في كل عملية.',why:'العملية '+good+' الآحاد اللي فوق أصغر من اللي تحت، فمحتاجين نفك.'})},
+ r=>{const [a,b]=carryPair(r,125,389);return fl(m(a+' + '+b+' = ؟'),a+b,{vis:vert(a,b,'+'),tag:'الحمل في الجمع',diag:addDiag(a,b),hint:'الآحاد '+(a%10)+' + '+(b%10)+': لو عدّى 10 احملي 1.',why:m(a+' + '+b+' = '+(a+b))+'.'})}]}});
+
+defL({id:'l12',u:5,en:'Fractions and Equal Parts',ar:'الكسور والأجزاء المتساوية',ic:'🍕',
+obj:{ar:'هتعرفي إن الكسر جزء من كل، وإن الأجزاء لازم تبقى متساوية.',en:'I can tell if a whole is divided into equal parts.'},
+vocab:[['fraction','كسر'],['equal parts','أجزاء متساوية'],['unequal parts','أجزاء مش متساوية'],['whole','الكل'],['part','جزء']],
+learn:()=>({steps:[
+ {h:'الكل واللي بيتقسم',b:'الحاجة الكاملة اسمها <b class="en">whole</b> (الكل): بيتزا أو كيكة أو ورقة. لما نقسمها، كل قطعة <b class="en">part</b> (جزء).'},
+ {h:'أجزاء متساوية',b:'الكسر بيشتغل بس لو الأجزاء <b>equal</b> يعني نفس الحجم بالظبط:'+'<div class="vis">'+equalParts(4,0)+'</div>دي 4 أجزاء متساوية.'},
+ {h:'أجزاء مش متساوية',b:'لو الأجزاء مختلفة الحجم، ما نقدرش نسمّيها كسر:'+'<div class="vis">'+rectParts([1,3],0)+'</div>دي <b class="en">unequal</b>: جزء صغير وجزء كبير.'},
+ {h:'إزاي أتأكد؟',b:'اسألي نفسك: لو قصّيت الأجزاء وحطّيتها فوق بعض، هل تتطابق؟ لو أيوه يبقى متساوية.'}],
+ ex:[{v:rectParts([1,2,1],0),q:'الشكل ده مقسوم لأجزاء متساوية؟',s:['نبص على حجم كل جزء','الجزء اللي في النص أكبر من الباقي'],a:'لأ، الأجزاء مش متساوية'}]}),
+sum:['الكسر جزء من كل (whole).','الأجزاء لازم تبقى متساوية (equal).','لو حجم الأجزاء مختلف مش بنسميها كسر.'],
+mom:{goal:'فهم إن الكسر يتطلب تقسيمًا متساويًا، وتمييز التقسيم المتساوي من غير المتساوي.',master:['تحكم هل التقسيم متساوي','تعد عدد الأجزاء','تربط عدد الأجزاء باسم الكسر'],tip:'اقطعي ورقة أو فطيرة معاها لأجزاء متساوية ومش متساوية، وخليها تقارن بالنظر.'},
+q:{1:[
+ r=>{const n=r.int(2,4),eq=r.chance(.55),ws=eq?Array(n).fill(1):{2:[1,3],3:[2,1,1],4:[1,2,2,3]}[n];return mc(r,'الشكل ده مقسوم لأجزاء متساوية؟',eq?'أجزاء متساوية':'أجزاء مش متساوية',[eq?'أجزاء مش متساوية':'أجزاء متساوية'],{vis:rectParts(ws,0),tag:'الأجزاء المتساوية',hint:'قارني حجم الأجزاء ببعض.',why:eq?'كل الأجزاء بنفس الحجم.':'الأجزاء بأحجام مختلفة.'})},
+ r=>{const n=r.int(2,6);return fl('الشكل ده مقسوم لكام جزء متساوي؟',n,{vis:equalParts(n,0),tag:'عدّ الأجزاء',hint:'عدّي المربعات واحد واحد.',why:'عددهم '+m(n)+' أجزاء.'})},
+ r=>{const s=r.pick([['الكسر لازم يتعمل من أجزاء متساوية.',true,'ده شرط أساسي للكسر.'],['ممكن نقول «نصف» على جزءين حجمهم مختلف.',false,'النصف لازم الجزءين يكونوا متساويين.'],['كل جزء في الكسور بيبقى بنفس حجم الباقي.',true,'ده معنى equal parts.']]);return tf(s[0],s[1],{tag:'الأجزاء المتساوية',hint:'افتكري: لازم الأجزاء تبقى equal.',why:s[2]})},
+ r=>{const ns=r.shuffle([2,3,4,6]).slice(0,3),w={2:'جزئين',3:'3 أجزاء',4:'4 أجزاء',6:'6 أجزاء'};return mt(r,'وصّلي كل شكل بعدد أجزائه.',ns.map(n=>[circleFrac(n,0,70),w[n]]),{tag:'عدّ الأجزاء',hint:'عدّي الخطوط اللي قسمت الدايرة.',why:'عدد الأجزاء هو عدد القطع اللي الدايرة انقسمت لها.'})}],
+2:[
+ r=>{const n=r.int(2,4),bad={2:[[1,3],[2,5]],3:[[2,1,1],[1,1,2]],4:[[1,2,2,3],[3,1,1,1]]}[n],good=rectParts(Array(n).fill(1),0,130),o=[rectParts(bad[0],0,130),rectParts(bad[1],0,130)];return mc(r,'أي شكل من دول مقسوم لـ '+n+' أجزاء <b>متساوية</b>؟',good,o,{tag:'الأجزاء المتساوية',hint:'الشكل الصح كل أجزاءه بنفس العرض.',why:'الشكل ده كل أجزاءه بنفس الحجم.'})},
+ r=>{const s=r.pick([['لو قسمنا شكل لـ 3 أجزاء بنفس الحجم، كل جزء اسمه ثلث (third).',true,'3 أجزاء متساوية = ثلث.'],['لو قسمنا شكل لجزئين، وأحدهم أكبر، كل جزء اسمه نصف.',false,'النصف لازم يكون الجزءين متساويين.'],['الربع (fourth) معناه 4 أجزاء متساوية.',true,'ربع = واحد من 4 أجزاء متساوية.']]);return tf(s[0],s[1],{tag:'أسماء الكسور',hint:'ركّزي في كلمة «متساوية».',why:s[2]})},
+ r=>{const n=r.int(3,6);return fl('بيتزا اتقسمت '+m(n)+' قطع متساوية، واتاكل واحدة. فضل كام قطعة؟',n-1,{tag:'عدّ الأجزاء',hint:'شيلي قطعة واحدة.',why:m(n+' − 1 = '+(n-1))+' قطع.'})}],
+3:[
+ r=>{const n=r.pick([2,3,4]),nm={2:'نصف (half)',3:'ثلث (third)',4:'ربع (fourth)'};return mc(r,'كيكة اتقسمت لـ '+n+' أجزاء متساوية. اسم كل جزء؟',nm[n],[2,3,4].filter(x=>x!==n).map(x=>nm[x]),{vis:circleFrac(n,0),tag:'أسماء الكسور',hint:'جزئين = نصف، 3 = ثلث، 4 = ربع.',why:n+' أجزاء متساوية، كل جزء اسمه '+nm[n]+'.'})},
+ r=>{const good=rectParts([1,1,1],0,130),o=[rectParts([2,1,1],0,130),rectParts([1,1,1,1],0,130)];return mc(r,'أي شكل مقسوم لـ <b>3</b> أجزاء <b>متساوية</b>؟',good,o,{tag:'الأجزاء المتساوية',hint:'لازم 3 أجزاء وكلهم بنفس العرض.',why:'الشكل الأول 3 أجزاء متساوية. التاني 3 أجزاء لكن مش متساوية، والتالت 4 أجزاء.'})},
+ r=>{const n=r.int(3,6),k=r.int(1,n-1);return fl('ورقة اتقسمت '+m(n)+' أجزاء متساوية ولوّنّا '+m(k)+' منهم. كام جزء من غير لون؟',n-k,{vis:equalParts(n,k),tag:'عدّ الأجزاء',hint:'الأجزاء الكلية − الملونة.',why:m(n+' − '+k+' = '+(n-k))+'.'})}]}});
+
+/* ===== Unit 5: Fractions | Unit 6: Data & repeated addition | Unit 7: Problem solving & revision ===== */
+const FN={2:'نصف',3:'ثلث',4:'ربع'},FE={2:'half',3:'third',4:'fourth'};
+const FNP={2:'أنصاف',3:'أثلاث',4:'أرباع'};
+const DEN_W={2:'اتنين',3:'تلاتة',4:'أربعة'};
+
+defL({id:'l13',u:5,en:'Halves, Thirds and Fourths',ar:'النصف والثلث والربع',ic:'🍰',
+obj:{ar:'هتسمّي النصف والثلث والربع وتكتبيهم بالأرقام.',en:'I can name and write halves, thirds and fourths.'},
+vocab:[['half','نصف'],['third','ثلث'],['fourth (quarter)','ربع'],['numerator','البسط (الرقم اللي فوق)'],['denominator','المقام (الرقم اللي تحت)']],
+learn:()=>({steps:[
+ {h:'نصف (half)',b:'قسمنا الكل لـ <b>جزئين متساويين</b>، وخدنا جزء واحد:'+'<div class="vis">'+circleFrac(2,1)+'<span class="fr" style="font-size:1.6rem"><b>1</b><b>2</b></span></div>بنكتبه '+fr(1,2)+' ونقول «نصف».'},
+ {h:'ثلث (third)',b:'3 أجزاء متساوية، وخدنا واحد:'+'<div class="vis">'+circleFrac(3,1)+'<span class="fr" style="font-size:1.6rem"><b>1</b><b>3</b></span></div>بنكتبه '+fr(1,3)+' ونقول «ثلث».'},
+ {h:'ربع (fourth)',b:'4 أجزاء متساوية، وخدنا واحد:'+'<div class="vis">'+circleFrac(4,1)+'<span class="fr" style="font-size:1.6rem"><b>1</b><b>4</b></span></div>بنكتبه '+fr(1,4)+' ونقول «ربع».'},
+ {h:'الرقم اللي فوق والرقم اللي تحت',b:'<b>الرقم اللي تحت (المقام)</b> بيقول الكل اتقسم لكام جزء. <b>الرقم اللي فوق (البسط)</b> بيقول خدنا كام جزء. يعني '+fr(3,4)+' معناها: اتقسم 4 أجزاء متساوية وخدنا 3.'+'<div class="vis">'+circleFrac(4,3)+'</div>'},
+ {h:'الكل بالكسور',b:'لو خدنا كل الأجزاء، نحصل على الكل: '+fr(4,4)+' = 1 كامل.'}],
+ ex:[{v:circleFrac(4,3),q:'اكتبي الكسر اللي بيعبّر عن الجزء الملوّن.',s:['الدايرة مقسومة لـ 4 أجزاء: المقام 4','الملوّن 3 أجزاء: البسط 3'],a:'ثلاثة أرباع، بنكتبها 3 فوق 4'}]}),
+sum:['نصف: جزئين متساويين، ثلث: 3 أجزاء، ربع: 4 أجزاء.','المقام (تحت) = كام جزء الكل اتقسم.','البسط (فوق) = كام جزء ناخد.','لو خدنا كل الأجزاء يبقى كل الشكل.'],
+mom:{goal:'تسمية النصف والثلث والربع وكتابتها بالرموز، وفهم البسط والمقام.',master:['تسمّي كسر الشكل','تكتب البسط والمقام صح','تلوّن كسر معطى'],tip:'سيبيها تلوّن بنفسها: تقسم ورقة لـ 4 وتلوّن 3. التلوين بيثبّت معنى البسط والمقام.'},
+q:{1:[
+ r=>{const n=r.pick([2,3,4]);return mc(r,'الدايرة دي مقسومة لـ '+n+' أجزاء متساوية. كل جزء اسمه...',FN[n]+' ('+FE[n]+')',[2,3,4].filter(x=>x!==n).map(x=>FN[x]+' ('+FE[x]+')'),{vis:circleFrac(n,1),tag:'أسماء الكسور',hint:'جزئين = نصف، 3 أجزاء = ثلث، 4 أجزاء = ربع.',why:n+' أجزاء متساوية، الجزء الواحد '+FN[n]+'.'})},
+ r=>{const n=r.pick([2,3,4]);return fc('اكتبي الكسر اللي بيعبّر عن الجزء الملوّن.',1,n,{vis:circleFrac(n,1),tag:'كتابة الكسر',hint:'الرقم اللي تحت = عدد الأجزاء كلها. الرقم اللي فوق = الأجزاء الملونة.',why:'الدايرة مقسومة '+n+' أجزاء ولوّنّا جزء واحد، يبقى '+fr(1,n)+'.'})},
+ r=>{const n=r.pick([2,3,4]);return fl('بنكتب '+fr(1,n)+'. الرقم اللي تحت (المقام) معناه كام جزء الكل اتقسم لها؟',n,{vis:circleFrac(n,1),tag:'المقام',hint:'عدّي الأجزاء في الشكل.',why:'المقام '+m(n)+' يعني الكل اتقسم '+n+' أجزاء.'})},
+ r=>{const n=r.pick([2,3,4]),k=r.int(1,n-1);return mc(r,'كام جزء ملوّن؟',m(k),[1,2,3,4].filter(x=>x!==k&&x<=n).map(m).slice(0,3),{vis:circleFrac(n,k),tag:'البسط',hint:'عدّي الأجزاء الملوّنة بس.',why:'الأجزاء الملونة '+m(k)+'.'})}],
+2:[
+ r=>{const n=r.pick([3,4]),k=r.int(2,n-1);return fc('اكتبي الكسر اللي بيعبّر عن الجزء الملوّن.',k,n,{vis:circleFrac(n,k),tag:'كتابة الكسر',hint:'الأجزاء كلها: '+n+' (المقام). الملوّن: '+k+' (البسط).',why:'الكسر '+fr(k,n)+': '+k+' أجزاء ملونة من '+n+' أجزاء متساوية.'})},
+ r=>{const n=r.pick([2,3,4]),k=r.int(1,n);return fc('لوّنتي '+k+' من '+n+' أجزاء متساوية. اكتبي الكسر.',k,n,{vis:circleFrac(n,k),tag:'كتابة الكسر',hint:'اللي تحت: كل الأجزاء. اللي فوق: اللي لوّنتيه.',why:'الكسر '+fr(k,n)+'.'})},
+ r=>{const n=r.pick([3,4]),k=r.int(1,n-1),ok=r.chance(.5);return tf('الشكل ده بيمثّل الكسر '+fr(ok?k:(k===1?2:1),n)+'.',ok,{vis:circleFrac(n,k),tag:'كتابة الكسر',hint:'عدّي الأجزاء الملونة والأجزاء الكلية.',why:'الشكل فيه '+k+' ملوّن من '+n+', يبقى '+fr(k,n)+'.'})},
+ r=>{const n=r.pick([2,3,4]),k=r.int(1,n-1);return mc(r,'عدد الأجزاء الملونة في الشكل ده يتكتب في الكسر فوق ولا تحت؟','فوق (البسط)',['تحت (المقام)'],{vis:circleFrac(n,k),tag:'البسط والمقام',hint:'الأجزاء الكلية هي اللي بتتكتب تحت.',why:'الملوّن هو البسط وبيتكتب فوق، والكلية هي المقام وبتتكتب تحت.'})}],
+3:[
+ r=>{const n=r.pick([3,4]);return fl('اكتبي بالأرقام: '+n+' أجزاء من '+n+' أجزاء. ما هو البسط؟ (الرقم اللي فوق)',n,{tag:'الكل بالكسور',hint:'خدنا كل الأجزاء.',why:fr(n,n)+' بتساوي الكل. البسط '+m(n)+'.'})},
+ r=>{const n=r.pick([2,3,4]);return fc('اكتبي كسر بيمثّل الكل كامل من شكل مقسوم '+n+' أجزاء.',n,n,{vis:circleFrac(n,n),tag:'الكل بالكسور',hint:'لو لوّنّا كل الأجزاء.',why:fr(n,n)+' = الكل.'})},
+ r=>{const n=r.pick([3,4]),k=r.int(1,n-1),w=(n-k);return fc('الشكل ده بيمثّل الجزء <b>غير الملوّن</b>. اكتبيه ككسر.',w,n,{vis:circleFrac(n,k),tag:'كتابة الكسر',hint:'عدّي الأجزاء البيضا.',why:'البيضا '+w+' من '+n+', يبقى '+fr(w,n)+'.'})},
+ r=>{const n=r.pick([3,4]),k=r.int(1,n-1);return mc(r,'ريم لوّنت '+k+' من '+n+' أجزاء متساوية. أنهي كسر ده؟',fr(k,n),[fr(n,k),fr(k+1<n?k+1:k-1||1,n===k?n+1:n),fr(1,n+1)].filter(x=>x!==fr(k,n)).slice(0,3),{tag:'كتابة الكسر',hint:'اللي تحت: الأجزاء الكلية. اللي فوق: الملونة.',why:'الصح '+fr(k,n)+'.'})}]}});
+
+defL({id:'l14',u:5,en:'Fractions of Shapes and Sets',ar:'كسور الأشكال والمجموعات',ic:'🔵',
+obj:{ar:'هتلاقي كسر من شكل ومن مجموعة حاجات.',en:'I can find fractions of shapes and of groups of objects.'},
+vocab:[['set','مجموعة'],['fraction of a set','كسر من مجموعة'],['whole','الكل'],['shaded','ملوّن'],['remaining','الباقي']],
+learn:()=>({steps:[
+ {h:'كسر من شكل',b:'الشكل بيتقسم لأجزاء متساوية وبنلوّن بعضها:'+'<div class="vis">'+equalParts(4,3,200)+'</div>'+fr(3,4)+' من الشكل ملوّن.'},
+ {h:'كسر من مجموعة',b:'مش بس الأشكال. الحاجات المنفصلة كمان ليها كسور. هنا 4 كور، واحدة بس حمرا:'+'<div class="vis">'+counters(['r','b','b','b'])+'</div>'+fr(1,4)+' من الكور حمرا.'},
+ {h:'القاعدة',b:'<b>تحت</b>: عدد حاجات المجموعة كلها. <b>فوق</b>: عدد حاجات من النوع اللي بنسأل عليه.'},
+ {h:'مثال',b:'في المجموعة دي 6 كور: 2 حمرا و 4 زرقا:'+'<div class="vis">'+counters(['r','r','b','b','b','b'])+'</div>الحمرا '+fr(2,6)+'، والزرقا '+fr(4,6)+'. مجموعهم الكل '+fr(6,6)+'.'}],
+ ex:[{v:counters(['y','y','y','g','g']),q:'كام كسر من الكور صفرا؟',s:['كل الكور: 5','الصفرا: 3'],a:'3 فوق 5'}]}),
+sum:['الكسر ممكن يبقى من شكل أو من مجموعة.','المقام = كل الحاجات، والبسط = اللي بنسأل عنهم.','كسر اللون الأول + كسر اللون التاني = الكل.'],
+mom:{goal:'تطبيق الكسور على المجموعات المنفصلة (counters) إلى جانب الأشكال.',master:['تكتب كسر لون من مجموعة','تفرّق بين كسر الملون وغير الملون','تحل سؤال كلامي'],tip:'استخدمي حاجات من البيت: 5 معالق، 2 مغرفة. اسأليها «كسر المعالق من كل الأدوات؟».'},
+q:{1:[
+ r=>{const n=r.int(3,6),k=r.int(1,n-1),it=[];for(let i=0;i<n;i++)it.push(i<k?'r':'b');return fc('كام كسر من الكور حمرا؟',k,n,{vis:counters(it),tag:'كسر من مجموعة',hint:'عدّي كل الكور (تحت) والحمرا بس (فوق).',why:'الحمرا '+k+' من '+n+', يبقى '+fr(k,n)+'.'})},
+ r=>{const n=r.int(3,6),k=r.int(1,n-1),it=[];for(let i=0;i<n;i++)it.push(i<k?'r':'b');return fl('كام كورة في المجموعة كلها؟ (دي المقام)',n,{vis:counters(it),tag:'المقام',hint:'عدّي كل الكور.',why:'المجموعة كلها '+m(n)+' كور.'})},
+ r=>{const n=r.int(4,8),k=r.int(1,n-1),it=[];for(let i=0;i<n;i++)it.push(i<k?'g':'y');return fl('كام كورة خضرا؟ (دي البسط)',k,{vis:counters(it),tag:'البسط',hint:'عدّي الخضرا بس.',why:'عدد الخضرا '+m(k)+'.'})},
+ r=>{const k=r.int(1,3),n=k+r.int(1,3),it=[];for(let i=0;i<n;i++)it.push(i<k?'r':'b');return tf('كسر الكور الحمرا هو '+fr(k,n)+'.',true,{vis:counters(it),tag:'كسر من مجموعة',hint:'عدّي الحمرا والكل.',why:'الحمرا '+k+' والكل '+n+'.'})}],
+2:[
+ r=>{const n=r.int(4,8),k=r.int(2,n-2),it=[];for(let i=0;i<n;i++)it.push(i<k?'r':'b');return fc('كام كسر من الكور <b>زرقا</b>؟',n-k,n,{vis:counters(it),tag:'كسر من مجموعة',hint:'عدّي الزرقا بس، والكل تحت.',why:'الزرقا '+(n-k)+' من '+n+', يبقى '+fr(n-k,n)+'.'})},
+ r=>{const n=r.int(4,8),k=r.int(2,n-2),it=[];for(let i=0;i<n;i++)it.push(i<k?'r':'b');return mc(r,'كسر الحمرا + كسر الزرقا = ؟',fr(n,n)+' (الكل)',[fr(1,n),fr(k,n)].filter(x=>x!==fr(n,n)),{vis:counters(it),tag:'الكل بالكسور',hint:'الحمرا والزرقا هما كل الكور.',why:fr(k,n)+' + '+fr(n-k,n)+' = '+fr(n,n)+' يعني الكل.'})},
+ r=>{const n=r.int(4,8),k=r.int(2,n-2),it=[];for(let i=0;i<n;i++)it.push(i<k?'r':'b');const ok=r.chance(.5),a=ok?k:k+1;return tf('كسر الحمرا هو '+fr(a,n)+'.',ok,{vis:counters(it),tag:'كسر من مجموعة',hint:'عدّي الحمرا.',why:'الحمرا '+k+' من '+n+'.'})},
+ r=>{const p=person(r),n=r.int(4,8),k=r.int(1,n-1);return fc(p.n+' '+p.has+' '+n+' ألوان خشب، '+k+' منهم أحمر. كام كسر من الألوان أحمر؟',k,n,{tag:'كسر من مجموعة',hint:'الأحمر فوق، كل الألوان تحت.',why:fr(k,n)+'.'})}],
+3:[
+ r=>{const n=r.pick([4,6,8]),k=n/2;return fc('عندك '+n+' بالونات والنص منها أحمر. أنهي كسر من البالونات حمرا؟ (اكتبي الكسر بالمقام '+n+')',k,n,{tag:'كسر من مجموعة',hint:'النص يعني نصف المجموعة.',why:'نصف '+n+' = '+k+'، يبقى '+fr(k,n)+' (وده نفس '+fr(1,2)+').'})},
+ r=>{const n=r.int(5,9),a=r.int(1,2),b=r.int(1,2),c=n-a-b;if(c<1)return fc('في '+n+' كور: كام كسر من الأحمر؟',a,n,{tag:'كسر من مجموعة',hint:'',why:''});const it=[];for(let i=0;i<a;i++)it.push('r');for(let i=0;i<b;i++)it.push('y');for(let i=0;i<c;i++)it.push('g');return fc('كام كسر من الكور <b>خضرا</b>؟',c,n,{vis:counters(it),tag:'كسر من مجموعة',hint:'في 3 ألوان. عدّي الخضرا والكل.',why:'الخضرا '+c+' من '+n+', يبقى '+fr(c,n)+'.'})},
+ r=>{const n=r.int(4,8),k=r.int(2,n-2);return fc('عندك '+n+' كراسات و '+k+' منهم متغلفين. كام كسر من الكراسات <b>مش متغلّفة</b>؟',n-k,n,{tag:'الباقي ككسر',hint:'اللي مش متغلف = الكل − المتغلف.',why:m(n+' − '+k+' = '+(n-k))+' يبقى '+fr(n-k,n)+'.'})}]}});
+
+defL({id:'l15',u:6,en:'Bar Graphs and Pictographs',ar:'الرسم بالأعمدة والرسم بالصور',ic:'📊',
+obj:{ar:'هتقري وتعملي رسم بياني بالأعمدة ورسم بالصور.',en:'I can read bar graphs and pictographs and answer questions about them.'},
+vocab:[['bar graph','رسم بالأعمدة'],['pictograph','رسم بالصور'],['data','بيانات'],['scale','تدريج'],['key','المفتاح']],
+learn:()=>({steps:[
+ {h:'الـ data والرسم',b:'لما نسأل ناس عن حاجة (فاكهة مفضلة مثلًا) اللي نجمعه اسمه <b class="en">data</b>. بنرسمه عشان نشوفه أسهل.'},
+ {h:'الرسم بالأعمدة (bar graph)',b:'كل عمود لنوع. كل ما العمود أطول يبقى العدد أكبر. بنقرأ الرقم من الخط الجنب:'+'<div class="vis">'+barChart([{l:'تفاح',v:10,c:COL[0]},{l:'موز',v:6,c:COL[2]},{l:'برتقال',v:8,c:COL[1]}],2,12)+'</div>التفاح 10، الموز 6، البرتقال 8.'},
+ {h:'الرسم بالصور (pictograph)',b:'بنستخدم صورة بدل الأرقام. لازم نبص على الـ <b class="en">key</b> (المفتاح): كل صورة بتساوي كام؟'+'<div class="vis">'+pictograph([{l:'قطط',v:6},{l:'كلاب',v:4},{l:'عصافير',v:8}],2,'🐾')+'</div>كل 🐾 = 2. القطط 3 صور × 2 = 6.'},
+ {h:'نجاوب أسئلة',b:'أكتر شيء هو العمود أو الصف الأطول. «كام أكتر» معناها نطرح. «كام كلهم» معناها نجمع.'}],
+ ex:[{v:barChart([{l:'أحمر',v:8,c:'#EF6B81'},{l:'أزرق',v:12,c:'#58AEE8'},{l:'أصفر',v:4,c:'#F5C842'}],4,12),q:'كام شخص أكتر بيحبوا الأزرق من الأصفر؟',s:['الأزرق 12','الأصفر 4',m('12 − 4 = 8')],a:'8 أشخاص'}]}),
+sum:['البيانات (data) بنرسمها عشان نفهمها بسهولة.','في الأعمدة: نقرأ ارتفاع العمود على التدريج.','في الصور: نبص على المفتاح (key).','أكتر = العمود/الصف الأطول.'],
+mom:{goal:'قراءة وتفسير رسوم الأعمدة والصور، والإجابة على أسئلة المقارنة والجمع.',master:['تقرأ قيمة عمود','تفهم المفتاح في الرسم بالصور','تقارن وتجمع من الرسم'],tip:'اعملوا استبيان صغير في البيت: ألوان مفضلة لأفراد العيلة، وارسموه بالأعمدة معاها.'},
+q:{1:[
+ r=>{const vs=[r.int(3,9),r.int(3,9),r.int(3,9)];if(vs[0]===vs[1])vs[1]=Math.min(12,vs[1]+2);const lb=['تفاح','موز','برتقال'],i=r.int(0,2);return fl('كام شخص بيحبوا '+lb[i]+'؟',vs[i],{vis:barChart(lb.map((l,k)=>({l:l,v:vs[k],c:COL[k]})),2,12),tag:'قراءة رسم الأعمدة',hint:'اطلعي بعينك من أعلى العمود للخط الجنب.',why:'العمود وصل '+m(vs[i])+'.'})},
+ r=>{const vs=r.shuffle([3,5,7,9,11]).slice(0,3),lb=['قطط','كلاب','عصافير'],mx=vs.indexOf(Math.max.apply(null,vs));return mc(r,'أنهي حيوان هو الأكتر؟',lb[mx],lb.filter((_,i)=>i!==mx),{vis:barChart(lb.map((l,k)=>({l:l,v:vs[k],c:COL[k]})),2,12),tag:'الأكتر والأقل',hint:'أطول عمود هو الأكتر.',why:'أطول عمود هو '+lb[mx]+'.'})},
+ r=>{const vs=r.shuffle([2,4,6,8]).slice(0,3),lb=['أحمر','أزرق','أخضر'],it=r.int(0,2);return fl('كام صورة 🐾 قدّام '+lb[it]+'؟ (كل صورة = 2)',vs[it]/2,{vis:pictograph(lb.map((l,k)=>({l:l,v:vs[k]})),2,'🐾'),tag:'قراءة الرسم بالصور',hint:'عدّي الصور في الصف.',why:'عدد الصور '+m(vs[it]/2)+'.'})},
+ r=>{const a=r.int(4,10),b=r.int(2,a-1);return mc(r,'الرسم ده بيقول إن في '+a+' بيحبوا الأزرق و '+b+' بيحبوا الأحمر. مين الأكتر؟','الأزرق',['الأحمر'],{vis:barChart([{l:'أزرق',v:a,c:'#58AEE8'},{l:'أحمر',v:b,c:'#EF6B81'}],2,12),tag:'الأكتر والأقل',hint:'قارني الأعمدة.',why:'عمود الأزرق أطول.'})}],
+2:[
+ r=>{const vs=[r.int(4,10),r.int(4,10),r.int(4,10)],lb=['تفاح','موز','برتقال'];return fl('كام شخص بيحبوا التفاح والموز مع بعض؟',vs[0]+vs[1],{vis:barChart(lb.map((l,k)=>({l:l,v:vs[k],c:COL[k]})),2,12),tag:'جمع من الرسم',hint:'اقري عمود التفاح وعمود الموز واجمعيهم.',why:m(vs[0]+' + '+vs[1]+' = '+(vs[0]+vs[1]))+'.'})},
+ r=>{const a=r.int(8,12),b=r.int(2,a-3),lb=['كورة','عروسة'];return fl('كام شخص أكتر بيحبوا الكورة من العروسة؟',a-b,{vis:barChart([{l:lb[0],v:a,c:COL[0]},{l:lb[1],v:b,c:COL[2]}],2,12),tag:'المقارنة بالطرح',hint:'«كام أكتر» يعني نطرح.',why:m(a+' − '+b+' = '+(a-b))+'.'})},
+ r=>{const vs=[r.int(2,8)*2,r.int(2,8)*2,r.int(2,8)*2],lb=['أحمر','أزرق','أخضر'];return fl('كام شخص كلهم في الرسم؟ (كل صورة = 2)',sum(vs),{vis:pictograph(lb.map((l,k)=>({l:l,v:vs[k]})),2,'⭐'),tag:'جمع من الرسم',hint:'اجمعي كل القيم الأول وبعدين اضربي بالتعديل: كل صورة = 2.',why:'القيم '+m(vs.join(' + ')+' = '+sum(vs))+'.'})},
+ r=>{const k=r.pick([2,5,10]),n=r.int(2,5);return fl('في الرسم ده، كل صورة = '+k+' أشخاص. صف فيه '+n+' صور. كام شخص؟',k*n,{vis:pictograph([{l:'كورة',v:k*n}],k,'⚽'),tag:'المفتاح',hint:'عدّي بالـ '+k+': '+k+'، '+2*k+'...',why:m(rep(k,n)+' = '+k*n)+'.'})}],
+3:[
+ r=>{const vs=[r.int(3,8),r.int(3,8),r.int(3,8)].map(x=>x*2),lb=['تفاح','موز','برتقال'];return fl('كام شخص في الرسم كله؟ (الأعمدة على تدريج 2)',sum(vs),{vis:barChart(lb.map((l,k)=>({l:l,v:vs[k],c:COL[k]})),4,24),tag:'جمع من الرسم',hint:'اقري 3 أعمدة واجمعيهم.',why:m(vs.join(' + ')+' = '+sum(vs))+'.'})},
+ r=>{const vs=r.shuffle([2,4,6,8,10,12]).slice(0,3),lb=['أحمر','أزرق','أخضر'],mx=Math.max.apply(null,vs),mn=Math.min.apply(null,vs);return fl('كام شخص أكتر بيحبوا اللون الأكتر شعبية من اللون الأقل شعبية؟ (كل صورة = 2)',mx-mn,{vis:pictograph(lb.map((l,k)=>({l:l,v:vs[k]})),2,'🌸'),tag:'المقارنة بالطرح',hint:'لاقي أكبر صف وأصغر صف واطرحي.',why:'الأكبر '+mx+' والأصغر '+mn+'. '+m(mx+' − '+mn+' = '+(mx-mn))+'.'})},
+ r=>mc(r,'عشان نعمل رسم بالأعمدة بشكل صح، إيه اللي لازم نكتبه؟','عنوان، وأسماء للأعمدة، وتدريج',['اسم الرسام بس','ألوان من غير أرقام','عدد الأعمدة بس'],{tag:'عمل رسم بياني',hint:'الرسم الكويس لازم يكون واضح لأي حد يقراه.',why:'العنوان والتسميات والتدريج بيخلّوا الرسم مفهوم.'}),
+ r=>{const a=r.int(3,7)*2,b=r.int(3,7)*2;return fl('عملتي رسم بالصور: '+a+' شخص بيحبوا الكيك و '+b+' بيحبوا الآيس كريم. كل صورة = 2. كام صورة في الصفين مع بعض؟',(a+b)/2,{tag:'المفتاح',hint:'كل صورة = 2، يبقى قسّمي كل عدد على 2 أو اجمعي وبعدين قسّمي.',why:'صور الكيك '+m(a/2)+' وصور الآيس كريم '+m(b/2)+'، المجموع '+m((a+b)/2)+'.'})}]}});
+
+defL({id:'l16',u:6,en:'Repeated Addition',ar:'الجمع المتكرر',ic:'🔁',
+obj:{ar:'هتحسبي مجموعات متساوية بالجمع المتكرر.',en:'I can use repeated addition to find the total of equal groups.'},
+vocab:[['group','مجموعة'],['equal groups','مجموعات متساوية'],['repeated addition','جمع متكرر'],['each','كل واحدة'],['total','المجموع']],
+learn:()=>({steps:[
+ {h:'مجموعات متساوية',b:'لو عندنا 3 أطباق في كل طبق 4 فراولة:'+'<div class="vis">'+groups(3,4,'🍓')+'</div>'},
+ {h:'نجمع نفس العدد كذا مرة',b:'بدل ما نعدّ واحدة واحدة نجمع: '+m('4 + 4 + 4 = 12')+'. ده <b class="en">repeated addition</b> (جمع متكرر).'},
+ {h:'العلاقة بالـ array',b:'الـ array صفوف متساوية، فالجمع المتكرر بيحسبه:'+'<div class="vis">'+arrayGrid(3,4,'🍓')+'</div>3 صفوف، كل صف 4: '+m('4 + 4 + 4 = 12')+'.'},
+ {h:'اعدّي بالقفز',b:'لو بنعدّ بالـ 5: 5، 10، 15، 20. دي أحلى طريقة تحسبي بيها بسرعة.'}],
+ ex:[{v:groups(4,3,'⭐'),q:'4 مجموعات في كل واحدة 3 نجمات. المجموع؟',s:['نكرر 3 أربع مرات',m('3 + 3 + 3 + 3 = 12')],a:'12 نجمة'}]}),
+sum:['المجموعات المتساوية بنجمعها بالجمع المتكرر.','نكرر العدد اللي في كل مجموعة بعدد المجموعات.','الـ array هو شكل بيوضح الجمع المتكرر.'],
+mom:{goal:'ربط المجموعات المتساوية بالجمع المتكرر (تمهيد للضرب).',master:['تكتب جملة جمع متكرر','تحسب المجموع','تعد بالقفز 2 و5 و10'],tip:'استخدمي حاجات حقيقية: أطباق، علب، أكواب. اسأليها «كام كله؟» وخليها تكتب الجملة.'},
+q:{1:[
+ r=>{const k=r.int(2,4),n=r.int(2,5),s=r.pick(['🍓','⭐','🍪','🌸']);return fl('في '+m(k)+' مجموعات، كل واحدة فيها '+m(n)+' '+s+'. كام '+s+' كلهم؟',k*n,{vis:groups(k,n,s),tag:'جمع متكرر',hint:'اجمعي '+n+' كذا مرة: '+rep(n,k)+'.',why:m(rep(n,k)+' = '+k*n)+'.'})},
+ r=>{const k=r.int(2,4),n=r.int(2,5);return mc(r,'أي جملة جمع تعبّر عن '+k+' مجموعات في كل واحدة '+n+'؟',m(rep(n,k)),[m(rep(k,n)),m(rep(n,k+1))].filter(x=>x!==m(rep(n,k))),{vis:groups(k,n,'🍎'),tag:'جمع متكرر',hint:'اكتبي رقم المجموعة ('+n+') بعدد المجموعات ('+k+').',why:m(rep(n,k))+'.'})},
+ r=>{const n=r.pick([2,5,10]),k=r.int(2,4);return fl('عدّي بالقفز بالـ '+n+': '+m(Array.from({length:k},(_,i)=>n*(i+1)).join('، ')+'، ؟'),n*(k+1),{tag:'العد بالقفز',hint:'زوّدي '+n+' على آخر رقم.',why:m((n*k)+' + '+n+' = '+n*(k+1))+'.'})}],
+2:[
+ r=>{const k=r.int(3,5),n=r.pick([2,3,4,5]);return fl(m(rep(n,k)+' = ؟'),k*n,{tag:'جمع متكرر',hint:'اجمعي اتنين اتنين: '+n+' + '+n+' = '+2*n+'.',why:m(rep(n,k)+' = '+k*n)+'.'})},
+ r=>{const p=person(r),k=r.int(3,6),n=r.pick([2,5,10]);return fl(p.n+' '+p.has+' '+k+' أكياس، في كل كيس '+n+' بالونات. كام بالونة كلهم؟',k*n,{tag:'جمع متكرر',hint:'العدّ بالـ '+n+' '+k+' مرات.',why:m(rep(n,k)+' = '+k*n)+'.'})},
+ r=>{const k=r.int(3,5),n=r.int(2,6);return mc(r,'أي جملة جمع متكرر تقدر نكتبها للـ array ده؟ ('+k+' صفوف، '+n+' أعمدة)',m(rep(n,k)),[m(rep(n,k+1)),m(rep(k,k)),m(rep(n,n))].filter(x=>x!==m(rep(n,k))).slice(0,3),{vis:arrayGrid(k,n,'🍎'),tag:'جمع متكرر',hint:'كل صف فيه '+n+'. عندنا '+k+' صفوف.',why:'جمع '+n+' '+k+' مرات.'})},
+ r=>{const k=r.int(3,5),n=r.int(3,6);return fl('اكتبي الجملة المختصرة: '+m(rep(n,k))+' = '+m(k*n)+'. كام مرة اتكرر '+n+'؟',k,{tag:'جمع متكرر',hint:'عدّي كام '+n+' في الجملة.',why:'اتكرر '+m(k)+' مرات.'})}],
+3:[
+ r=>{const k=r.int(4,6),n=r.pick([3,4,5,6]);return fl('مدرسة فيها '+k+' فصول، في كل فصل '+n+' شبابيك. كام شباك كله؟',k*n,{tag:'مسألة جمع متكرر',hint:'اجمعي '+n+' '+k+' مرات.',why:m(rep(n,k)+' = '+k*n)+'.'})},
+ r=>{const k=r.int(3,5),n=r.int(3,6),sh=k*n;return fl(m(sh)+' قلم متوزعين بالتساوي على '+k+' علب. كام قلم في العلبة؟',n,{tag:'مجموعات متساوية',hint:'جرّبي تجمعي نفس الرقم '+k+' مرات لحد ما توصلي '+sh+'.',why:m(rep(n,k)+' = '+sh)+'، يبقى '+m(n)+' في العلبة.'})},
+ r=>{const a=r.int(3,5),b=r.int(3,5),n=r.int(2,5);return fl('طبق فيه '+n+' تفاحات وعندك '+a+' أطباق، وعلبة فيها '+n+' موزات وعندك '+b+' علب. كام فاكهة كلها؟',(a+b)*n,{tag:'مسألة جمع متكرر',hint:'اجمعي كل نوع لوحده وبعدين الاتنين.',why:'التفاح '+m(a*n)+' والموز '+m(b*n)+'، المجموع '+m((a+b)*n)+'.'})}]}});
+
+defL({id:'l17',u:7,en:'Problem Solving',ar:'حل المسائل',ic:'🧩',
+obj:{ar:'هتحلي مسائل كلامية بخطوات: اقري، خططي، احسبي، راجعي.',en:'I can solve word problems with four steps.'},
+vocab:[['problem','مسألة'],['plan','خطة'],['solve','نحل'],['check','نراجع'],['answer','الإجابة']],
+learn:()=>({steps:[
+ {h:'4 خطوات للحل',b:'<b>1) اقري</b> المسألة كويس. <b>2) خططي</b>: هتجمعي ولا تطرحي؟ <b>3) احسبي</b>. <b>4) راجعي</b> الإجابة.'},
+ {h:'ابدئي بالسؤال',b:'اسألي نفسك: «بيسألوا عن إيه؟». ده بيحدد العملية.'},
+ {h:'اختاري العملية',b:'«كلهم»، «مع بعض» ← جمع. «فاضل»، «الباقي»، «أكتر بكام» ← طرح. «في كل..» ← جمع متكرر.'},
+ {h:'راجعي',b:'هل الإجابة منطقية؟ اتحققي بالتقدير أو بالعملية العكسية.'}],
+ ex:[{q:'ريم عندها 35 ستيكر. أعطت صاحبتها 12 وجابت 20 جديدة. معاها كام دلوقتي؟',s:['بعد العطاء: '+m('35 − 12 = 23'),'بعد ما جابت: '+m('23 + 20 = 43')],a:'43 ستيكر'}]}),
+sum:['اقري، خططي، احسبي، راجعي.','دوري على الكلمات المفتاحية.','راجعي إجابتك بالتقدير أو بالعملية العكسية.'],
+mom:{goal:'تطبيق مهارات الجمع والطرح والجمع المتكرر على مسائل كلامية متعددة الخطوات.',master:['تحدد العملية','تحل مسألة بخطوتين','تراجع الإجابة'],tip:'لو حلّت غلط لا تصححيها فورًا. اسأليها «احكيلي أنتِ عملتي إيه؟». غالبًا هتلاقي الخطأ بنفسها.'},
+q:{1:[
+ r=>{const p=person(r),a=r.int(12,30),b=r.int(5,15);return fl(p.n+' '+p.has+' '+m(a)+' لعبة وجاب'+(p.f?'ت':'')+' '+m(b)+' كمان. كام لعبة كلهم؟',a+b,{tag:'مسألة جمع',hint:'«كمان» و«كلهم» معناها نجمع.',why:m(a+' + '+b+' = '+(a+b))+'.'})},
+ r=>{const a=r.int(25,50),b=r.int(5,20);return fl('كان في الحديقة '+m(a)+' ورده، واتقطف '+m(b)+'. فاضل كام؟',a-b,{tag:'مسألة طرح',hint:'«فاضل» معناها نطرح.',why:m(a+' − '+b+' = '+(a-b))+'.'})},
+ r=>{const k=r.int(2,5),n=r.int(2,5);return fl('في كل طبق '+m(n)+' برتقالات، وعندنا '+m(k)+' أطباق. كام برتقالة كلهم؟',k*n,{tag:'جمع متكرر',hint:'اجمعي '+n+' '+k+' مرات.',why:m(rep(n,k)+' = '+k*n)+'.'})}],
+2:[
+ r=>{const p=person(r),b=r.int(11,25),c=r.int(11,25),a=b+c+r.int(4,25);return fl(p.n+' '+p.has+' '+m(a)+' جنيه. '+p.v('اشترى','اشترت')+' حاجة بـ '+m(b)+' وحاجة بـ '+m(c)+'. فاضل كام؟',a-b-c,{suf:'جنيه',tag:'مسألة بخطوتين',hint:'اجمعي المشتريات الأول وبعدين اطرحي من الفلوس.',why:'صرفت '+m(b+' + '+c+' = '+(b+c))+' وفاضل '+m(a+' − '+(b+c)+' = '+(a-b-c))+'.'})},
+ r=>{const a=r.int(22,48),b=r.int(15,38),c=r.int(8,20);return fl('في المكتبة '+m(a)+' كتاب قصص و '+m(b)+' كتاب علوم. استعاروا '+m(c)+' كتاب. فاضل كام كتاب؟',a+b-c,{tag:'مسألة بخطوتين',hint:'اجمعي القصص والعلوم، وبعدين اطرحي الكتب المستعارة.',why:'الكل '+m(a+' + '+b+' = '+(a+b))+'، والباقي '+m((a+b)+' − '+c+' = '+(a+b-c))+'.'})},
+ r=>{const s=r.pick([['كلهم','نجمع (+)'],['فاضل','نطرح (−)'],['في كل طبق 4 ثمرات، 3 أطباق','نجمع نفس العدد 3 مرات']]);return mc(r,'في المسألة كلمة «'+s[0]+'». نعمل إيه؟',s[1],['نجمع (+)','نطرح (−)','نجمع نفس العدد 3 مرات'].filter(x=>x!==s[1]).slice(0,2),{tag:'اختيار العملية',hint:'افتكري الكلمات المفتاحية.',why:'الكلمة «'+s[0]+'» معناها '+s[1]+'.'})}],
+3:[
+ r=>{const p=person(r),a=r.int(45,90),b=r.int(12,30),c=r.int(20,40);return fl(p.n+' '+p.has+' '+m(a)+' ستيكر. '+p.v('أعطى','أعطت')+' صاحب'+(p.f?'تها':'ه')+' '+m(b)+' و'+p.v('جاب','جابت')+' '+m(c)+' جداد. معاه كام دلوقتي؟',a-b+c,{tag:'مسألة بخطوتين',hint:'مرة نطرح ومرة نجمع، بالترتيب.',why:m(a+' − '+b+' = '+(a-b))+' وبعدين '+m((a-b)+' + '+c+' = '+(a-b+c))+'.'})},
+ r=>{const k=r.int(3,5),n=r.int(3,6),e=r.int(2,k*n-1);return fl('في الفصل '+k+' صفوف كراسي، في كل صف '+n+' كراسي، وقعد '+e+' طفل. فاضل كام كرسي فاضي؟',k*n-e,{tag:'مسألة بخطوتين',hint:'احسبي الكراسي كلها الأول بالجمع المتكرر، وبعدين اطرحي.',why:'الكراسي '+m(rep(n,k)+' = '+k*n)+'، وفاضل '+m(k*n+' − '+e+' = '+(k*n-e))+'.'})},
+ r=>{const b=r.int(40,80),c=r.int(20,60),a=b+c+r.int(10,80);return fl('عندك '+m(a)+' جنيه. اشتريتي لعبة بـ '+m(b)+' وكتاب بـ '+m(c)+'. فاضل كام؟',a-b-c,{suf:'جنيه',tag:'مسألة بخطوتين',hint:'اجمعي المشتريات وبعدين اطرحي.',why:'الصرف '+m(b+' + '+c+' = '+(b+c))+'، الباقي '+m(a+' − '+(b+c)+' = '+(a-b-c))+'.'})}]}});
+
+defL({id:'l18',u:7,rev:true,en:'Term 2 Revision',ar:'مراجعة الفصل الثاني',ic:'🏆',
+obj:{ar:'هتراجعي كل اللي اتعلمتيه في الفصل الثاني.',en:'I can review everything I learned in Term 2.'},
+vocab:[['revision','مراجعة'],['review','نراجع'],['strategy','استراتيجية'],['practice','تدريب'],['challenge','تحدي']],
+learn:()=>({steps:[
+ {h:'اللي اتعلمناه',b:'الفلوس المصرية، الأعداد الزوجية والفردية، الأنماط، الـ arrays، التقدير، الجمع مع الحمل، الطرح مع الفك، الكسور، الرسم البياني، والجمع المتكرر.'},
+ {h:'اختاري اللي محتاجة مراجعة',b:'روحي على صفحة الدروس وشوفي الدروس اللي ليها علامة «تحتاج مراجعة». ابدئي بيها.'},
+ {h:'مراجعة سريعة',b:'الجمع والطرح بنبدأ فيهم من الآحاد. الكسر الأجزاء فيه لازم تبقى متساوية. الأنماط ليها قاعدة. الـ array صفوف وأعمدة.'},
+ {h:'خدي وقتك',b:'اعملي تدريب كل يوم 10 دقايق بدل ساعة في يوم واحد.'}],
+ ex:[]}),
+sum:['راجعي الدروس اللي ليها علامة «تحتاج مراجعة».','التدريب القصير كل يوم أحسن من الطويل مرة.','أسئلة المراجعة من كل الدروس مخلوطة.'],
+mom:{goal:'مراجعة شاملة من كل دروس الفصل.',master:['تحل أسئلة من كل المواضيع','تراجع الأخطاء الشائعة'],tip:'استخدمي نتائج الاختبارات في صفحة «قسم الأمهات» لتعرفي الدروس اللي تحتاج وقت إضافي.'},
+q:{1:[],2:[],3:[]}});
+
+'use strict';
+/* Pure HTML builders for printable worksheets and answer keys (shared by the app and the PDF generator). */
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LVN={1:'سهل',2:'متوسط',3:'تحدي'};
+function sheetHead(l,v,kind){
+  return '<div class="sh-head"><div><div class="en">'+l.en+'</div><div class="ar">'+l.ar+'</div></div><div class="small" style="text-align:left;direction:ltr">Math Made Easy · Grade 2 · Term 2<br>'+kind+' '+v+'</div></div>';
+}
+function sheetFoot(){return '<div class="small" style="text-align:center;margin-top:14px;direction:ltr">Created with care by Mina Wageh | مينا وجيه</div>'}
+function sheetHTML(l,v){
+  const w=build(l,'ws',v);let i=0;
+  const sec=(title,stars,arr,work)=>'<div class="sh-sec"><span>'+title+'</span><span>'+stars+'</span></div>'+arr.map(q=>printQ(q,++i,work)).join('');
+  return '<div class="sheet">'+sheetHead(l,v,'Worksheet')+
+    '<div class="sh-line"><span>الاسم: <i></i></span><span>التاريخ: <i></i></span></div>'+
+    '<div class="small">اقري كل سؤال كويس وحلّيه بالقلم الرصاص. لو وقفتي في سؤال، كمّلي اللي بعده ورجعي ليه.</div>'+
+    sec('المستوى الأول: سهل','⭐',w.easy,false)+
+    sec('المستوى الثاني: متوسط','⭐⭐',w.med,true)+
+    sec('المستوى الثالث: تحدي','⭐⭐⭐',w.hard,true)+
+    sheetFoot()+'</div>';
+}
+function answersHTML(l,v){
+  const w=build(l,'ws',v);let i=0;
+  const rows=a=>a.map(q=>{i++;return '<div class="ans-q"><b>'+i+')</b> '+ansText(q)+'<div class="small">'+q.why+'</div></div>'}).join('');
+  return '<div class="sheet">'+sheetHead(l,v,'Answer key')+
+    '<div class="notice">إجابات نموذجية للأم. ورقة الطفلة منفصلة. اطلبي منها تشرح لك طريقتها قبل ما تبصّي هنا.</div>'+
+    '<div class="sh-sec"><span>المستوى الأول: سهل</span><span>⭐</span></div>'+rows(w.easy)+
+    '<div class="sh-sec"><span>المستوى الثاني: متوسط</span><span>⭐⭐</span></div>'+rows(w.med)+
+    '<div class="sh-sec"><span>المستوى الثالث: تحدي</span><span>⭐⭐⭐</span></div>'+rows(w.hard)+
+    sheetFoot()+'</div>';
+}
+
+'use strict';
+/* ============ state (saved on this device only) ============ */
+const KEY='mme.grade2.term2.v1';
+let MEM=null;
+const fresh=()=>({v:1,name:'',last:'',L:{},badges:{},games:{},days:{},rev:{n:0,day:''}});
+function load(){try{const s=window.localStorage.getItem(KEY);if(s){const o=JSON.parse(s);if(o&&o.v===1)return Object.assign(fresh(),o)}}catch(e){}return MEM||fresh()}
+let S=load();
+function save(){MEM=S;try{window.localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const pad=n=>(n<10?'0':'')+n;
+const dstr=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const today=()=>dstr(new Date());
+function rec(id){return S.L[id]||(S.L[id]={seen:0,tries:0,bestQ:0,lastQ:-1,ch:0,pr:0,sd:0,err:{},ts:0})}
+function mark(){S.days[today()]=1}
+function streak(){let n=0,d=new Date();if(!S.days[dstr(d)])d.setDate(d.getDate()-1);while(S.days[dstr(d)]){n++;d.setDate(d.getDate()-1)}return n}
+const NL=()=>APP.lessons;
+const ALL=()=>NL().length;
+const lesson=id=>NL().find(l=>l.id===id);
+const UNITS=[
+ {id:1,en:'Money',ar:'الفلوس',ic:'💰'},{id:2,en:'Numbers and Patterns',ar:'الأعداد والأنماط',ic:'🔢'},
+ {id:3,en:'Estimating and Adding',ar:'التقدير والجمع',ic:'➕'},{id:4,en:'Subtraction',ar:'الطرح',ic:'➖'},
+ {id:5,en:'Fractions',ar:'الكسور',ic:'🍕'},{id:6,en:'Data and Repeated Addition',ar:'الرسوم البيانية والجمع المتكرر',ic:'📊'},
+ {id:7,en:'Problem Solving and Revision',ar:'حل المسائل والمراجعة',ic:'🏆'}];
+function lstars(id){const r=S.L[id];if(!r||!r.tries)return 0;return r.bestQ>=5.5?3:r.bestQ>=5?2:r.bestQ>=4?1:0}
+function lstat(id){const r=S.L[id];if(!r||(!r.seen&&!r.tries&&!r.pr&&!r.ch))return 'new';if(r.tries&&r.bestQ>=4)return 'done';if(r.tries)return 'review';return 'started'}
+const STX={new:'جديد',started:'بدأتي',done:'خلّصتي',review:'تحتاج مراجعة'};
+const pill=id=>{const s=lstat(id);return '<span class="pill '+s+'">'+STX[s]+'</span>'};
+const doneCount=()=>NL().filter(l=>lstat(l.id)==='done').length;
+const GAMES={money:{n:'متجر الجنيه',ic:'🛍️',max:5,star:4,l:'l01'},evenodd:{n:'زوجي ولا فردي؟',ic:'👯',max:10,star:8,l:'l03'},pattern:{n:'صيّادة الأنماط',ic:'🎯',max:6,star:5,l:'l04'},pizza:{n:'بيتزا الكسور',ic:'🍕',max:5,star:4,l:'l13'}};
+const gameStar=k=>(S.games[k]||0)>=GAMES[k].star?1:0;
+function totalStars(){let t=0;NL().forEach(l=>{t+=lstars(l.id);const r=S.L[l.id];if(r&&r.ch>=1.5)t++});Object.keys(GAMES).forEach(k=>t+=gameStar(k));return t}
+const maxStars=()=>ALL()*4+Object.keys(GAMES).length;
+const star=on=>'<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z" fill="'+(on?'#F5C842':'#fff')+'" stroke="'+(on?'#C99A10':'#C2B2F6')+'" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+const stars3=n=>'<span class="stars" role="img" aria-label="'+n+' من 3 نجوم">'+star(n>=1)+star(n>=2)+star(n>=3)+'</span>';
+const bar=p=>'<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(p)+'"><i style="width:'+Math.max(2,p)+'%"></i></div>';
+const nextLesson=()=>NL().find(l=>lstat(l.id)!=='done')||NL()[0];
+
+/* badges: always computed from real saved results */
+const chCount=()=>NL().filter(l=>S.L[l.id]&&S.L[l.id].ch>=1.5).length;
+const BADGES=[
+ {id:'first',ic:'🌱',n:'أول خطوة',d:'خلّصتي أول درس',t:()=>doneCount()>=1},
+ {id:'five',ic:'🌟',n:'نجمة صغيرة',d:'خلّصتي 5 دروس',t:()=>doneCount()>=5},
+ {id:'ten',ic:'🚀',n:'صاروخ الرياضيات',d:'خلّصتي 10 دروس',t:()=>doneCount()>=10},
+ {id:'all',ic:'👑',n:'بطلة الفصل',d:'خلّصتي كل الدروس',t:()=>doneCount()>=ALL()},
+ {id:'perfect',ic:'💯',n:'ولا غلطة',d:'اختبار كامل من أول محاولة',t:()=>NL().some(l=>S.L[l.id]&&S.L[l.id].bestQ>=6)},
+ {id:'unit',ic:'🎓',n:'وحدة كاملة',d:'خلّصتي كل دروس وحدة',t:()=>UNITS.some(u=>NL().filter(l=>l.u===u.id).every(l=>lstat(l.id)==='done'))},
+ {id:'chal',ic:'🔥',n:'أول تحدي',d:'نجحتي في تحدي',t:()=>chCount()>=1},
+ {id:'chal5',ic:'🏅',n:'قهرمانة التحديات',d:'نجحتي في 5 تحديات',t:()=>chCount()>=5},
+ {id:'s3',ic:'📅',n:'3 أيام ورا بعض',d:'ذاكرتي 3 أيام متتالية',t:()=>streak()>=3},
+ {id:'s7',ic:'🗓️',n:'أسبوع كامل',d:'ذاكرتي 7 أيام متتالية',t:()=>streak()>=7},
+ {id:'rev3',ic:'🔁',n:'مراجعة منتظمة',d:'خلّصتي 3 مراجعات يومية',t:()=>S.rev.n>=3},
+ {id:'gm',ic:'🛍️',n:'تاجرة شاطرة',d:'نجحتي في لعبة متجر الجنيه',t:()=>gameStar('money')},
+ {id:'ge',ic:'👯',n:'سيدة الأزواج',d:'نجحتي في لعبة زوجي ولا فردي',t:()=>gameStar('evenodd')},
+ {id:'gp',ic:'🎯',n:'صيّادة أنماط',d:'نجحتي في لعبة الأنماط',t:()=>gameStar('pattern')},
+ {id:'gz',ic:'🍕',n:'شيف الكسور',d:'نجحتي في لعبة بيتزا الكسور',t:()=>gameStar('pizza')}];
+let TOASTQ=[];
+function checkBadges(){let got=false;BADGES.forEach(b=>{if(!S.badges[b.id]&&b.t()){S.badges[b.id]=today();TOASTQ.push(b);got=true}});if(got)save();flushToast()}
+let toastBusy=false;
+function flushToast(){
+  if(toastBusy||!TOASTQ.length)return;const b=TOASTQ.shift(),el=document.getElementById('toast');if(!el)return;
+  toastBusy=true;el.innerHTML='<span class="tic">'+b.ic+'</span><span><b>شارة جديدة: '+b.n+'</b><br><small>'+b.d+'</small></span>';el.classList.add('show');
+  setTimeout(()=>{el.classList.remove('show');setTimeout(()=>{toastBusy=false;flushToast()},350)},3200);
+}
+
+/* ============ small view helpers ============ */
+const A=(h,t,c)=>'<a class="'+(c||'btn')+'" href="#'+h+'">'+t+'</a>';
+const crumb=a=>'<nav class="crumb" aria-label="مسار الصفحة"><a href="#home">الرئيسية</a>'+a.map(x=>' ‹ '+(x[1]?'<a href="#'+x[1]+'">'+x[0]+'</a>':'<span>'+x[0]+'</span>')).join('')+'</nav>';
+function tile(l){
+  return '<a class="tile" href="#learn-'+l.id+'"><span class="ic" aria-hidden="true">'+l.ic+'</span><span class="tx"><span class="t1">'+l.en+'</span><span class="t2">'+l.ar+' '+pill(l.id)+'</span></span><span aria-hidden="true">'+(lstars(l.id)?stars3(lstars(l.id)):'')+'</span></a>';
+}
+function unitBlock(u){
+  const ls=NL().filter(l=>l.u===u.id),d=ls.filter(l=>lstat(l.id)==='done').length;
+  return '<section class="card" aria-labelledby="u'+u.id+'"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><div style="min-width:0"><h2 id="u'+u.id+'" style="margin:0"><span aria-hidden="true">'+u.ic+'</span> '+u.ar+'</h2><div class="en small" style="font-weight:800">Unit '+u.id+' · '+u.en+'</div></div><span class="chip">'+d+'/'+ls.length+'</span></div>'+bar(ls.length?d/ls.length*100:0)+'<div class="list" style="margin-top:12px">'+ls.map(tile).join('')+'</div></section>';
+}
+function footer(){
+  return '<footer class="foot"><div class="f-en">Created with care by</div><div class="f-name"><span class="f-nen">Mina Wageh</span><span class="f-sep" aria-hidden="true">|</span><span class="f-nar">مينا وجيه</span></div><div class="small"><a href="#about">عن المشروع وصانعه</a> · <a href="#parents">قسم الأمهات</a></div></footer>';
+}
+const mascot='<svg class="mascot" viewBox="0 0 100 100" role="img" aria-label="نجمة الرياضيات"><path d="M50 6l12.5 26 28.5 3.6-21 19.8 5.6 28.4L50 69.5 24.4 83.8 30 55.4 9 35.6 37.5 32z" fill="#F5C842" stroke="#C99A10" stroke-width="3" stroke-linejoin="round"/><circle cx="41" cy="46" r="4" fill="#2A2358"/><circle cx="59" cy="46" r="4" fill="#2A2358"/><path d="M41 57q9 9 18 0" stroke="#2A2358" stroke-width="3.5" fill="none" stroke-linecap="round"/><circle cx="35" cy="54" r="4" fill="#F28B9B" opacity=".6"/><circle cx="65" cy="54" r="4" fill="#F28B9B" opacity=".6"/></svg>';
+const ICONS={home:'<path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>',book:'<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19a2 2 0 012-2h13"/>',game:'<rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v5M4.5 12.5h5M16 11h.01M18.5 14h.01"/>',rev:'<path d="M3 12a9 9 0 0115-6.7L21 8M21 3v5h-5M21 12a9 9 0 01-15 6.7L3 16M3 21v-5h5"/>',mom:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M17 4.5a3.5 3.5 0 010 7M19 14a6 6 0 012.5 5"/>'};
+const navIc=k=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[k]+'</svg>';
+const NAV=[['home','الرئيسية','home'],['lessons','الدروس','book'],['games','ألعاب','game'],['review','مراجعة','rev'],['parents','الأمهات','mom']];
+
+/* ============ views ============ */
+function vHome(){
+  const nm=S.name?esc(S.name):'',n=nextLesson(),started=NL().some(l=>lstat(l.id)!=='new'),dc=doneCount(),all=ALL(),last=S.last&&lesson(S.last),revDone=S.rev.day===today();
+  let h='<section class="hero" aria-labelledby="h1"><span class="blob b1"></span><span class="blob b2"></span>'+mascot+'<div><div class="sub">'+(nm?'أهلًا يا '+nm+'! ':'أهلًا يا بطلة الرياضيات! ')+'👋</div><h1 id="h1"><span class="en">Math Made Easy</span>الرياضيات ببساطة</h1><p style="margin:.3em 0 .8em">الصف الثاني الابتدائي · الفصل الدراسي الثاني</p><div class="row">'+A(started?'learn-'+n.id:'learn-'+NL()[0].id,'<span class="en">'+(started?'Continue Learning':'Start Learning')+'</span> ▶','btn sun')+A('lessons','كل الدروس','btn ghost')+'</div></div></section>';
+  h+='<section class="card" aria-label="تقدمك"><h2>تقدمك</h2><div class="small" style="margin-bottom:8px">'+dc+' من '+all+' درس خلّصتيهم</div>'+bar(dc/all*100)+'<div class="stats" style="margin-top:12px"><div class="stat"><b>'+totalStars()+'</b><span>نجمة من '+maxStars()+'</span></div><div class="stat"><b>'+dc+'</b><span>درس مكتمل</span></div><div class="stat"><b>'+streak()+'</b><span>أيام ورا بعض</span></div><div class="stat"><b>'+Object.keys(S.badges).length+'</b><span>شارات</span></div></div><div class="row" style="margin-top:12px">'+A('badges','شاراتي 🏅','btn sm ghost')+(dc>=all?A('certificate','شهادتي 🎓','btn sm sun'):'')+'</div></section>';
+  if(last&&lstat(last.id)!=='done')h+='<section class="card sky"><h2>كمّلي من حيث وقفتي</h2>'+tile(last)+'</section>';
+  h+='<section class="card sun"><h2>مراجعة اليوم 🔁</h2><p>'+(revDone?'خلّصتي مراجعة النهاردة. برافو! تقدري تعيديها لو عايزة.':'5 دقايق بتفكّرك بدروس قبل كده. بنبدأ بالدروس اللي محتاجة تدريب.')+'</p>'+A('review',revDone?'مراجعة تانية':'ابدئي المراجعة','btn sun')+'</section>';
+  h+='<div class="grid" role="navigation" aria-label="اختصارات"><a class="tile" href="#lessons"><span class="ic">📚</span><span class="tx"><span class="t1">Units</span><span class="t2">الوحدات والدروس</span></span></a><a class="tile" href="#worksheets"><span class="ic">🖨️</span><span class="tx"><span class="t1">Worksheets</span><span class="t2">أوراق العمل</span></span></a><a class="tile" href="#games"><span class="ic">🎮</span><span class="tx"><span class="t1">Games</span><span class="t2">ألعاب وتحديات</span></span></a><a class="tile" href="#parents"><span class="ic">💜</span><span class="tx"><span class="t1">For Moms</span><span class="t2">قسم الأمهات</span></span></a></div>';
+  h+='<div class="card"><h2>الوحدات</h2><div class="list">'+UNITS.map(u=>{const ls=NL().filter(l=>l.u===u.id),d=ls.filter(l=>lstat(l.id)==='done').length;return '<a class="tile" href="#unit-'+u.id+'"><span class="ic">'+u.ic+'</span><span class="tx"><span class="t1">'+u.en+'</span><span class="t2">'+u.ar+' · '+d+'/'+ls.length+'</span></span></a>'}).join('')+'</div></div>';
+  h+='<form class="card lav" id="nameform"><label for="nm"><b>اسم البطلة (اختياري)</b></label><div class="namebox"><input id="nm" maxlength="20" autocomplete="off" value="'+nm+'" placeholder="اكتبي اسمك"><button class="btn sm" type="submit">حفظ</button></div><div class="small" style="margin-top:6px">الاسم والتقدم بيتحفظوا على الجهاز ده بس، ومفيش تسجيل.</div></form>';
+  return h+footer();
+}
+function vLessons(){return crumb([['الدروس']])+'<h1>الدروس</h1><p class="small" style="margin:0">اختاري أي درس. تقدري ترجعي لأي درس قبل كده في أي وقت.</p>'+UNITS.map(unitBlock).join('')+footer()}
+function vUnit(id){const u=UNITS.find(x=>x.id===+id);if(!u)return vHome();return crumb([['الدروس','lessons'],['الوحدة '+u.id]])+unitBlock(u)+footer()}
+
+function vLearn(id){
+  const l=lesson(id);if(!l)return vHome();S.last=id;save();
+  const L=l.learn(),r=S.L[id]||{},idx=NL().indexOf(l),prev=NL()[idx-1],next=NL()[idx+1];
+  let h=crumb([['الدروس','lessons'],[UNITS.find(u=>u.id===l.u).ar,'unit-'+l.u],[l.en]]);
+  h+='<header class="lhead"><div class="row">'+pill(id)+(lstars(id)?stars3(lstars(id)):'')+'</div><div class="en">'+l.en+'</div><div class="ar">'+l.ar+'</div></header>';
+  h+='<div class="jump noprint" role="navigation" aria-label="أقسام الدرس"><button data-a="go" data-t="s-obj">الهدف</button><button data-a="go" data-t="s-vocab">الكلمات</button><button data-a="go" data-t="s-steps">الشرح</button>'+(L.ex.length?'<button data-a="go" data-t="s-ex">أمثلة</button>':'')+'<button data-a="go" data-t="s-sum">الملخص</button><button data-a="go" data-t="s-do">تدريب</button></div>';
+  h+='<section id="s-obj" class="objective"><span class="lab">Learning Objective</span><div class="en" style="font-weight:700">'+l.obj.en+'</div><div>'+l.obj.ar+'</div></section>';
+  h+='<section id="s-vocab" class="card"><h2>الكلمات المهمة <span class="en">Math Words</span></h2><div class="vocab">'+l.vocab.map(v=>'<span><span class="en">'+v[0]+'</span><span>'+v[1]+'</span></span>').join('')+'</div></section>';
+  h+='<section id="s-steps" class="card lav"><h2>الشرح خطوة بخطوة</h2><div class="list">'+L.steps.map((s,i)=>'<div class="step"><span class="no">'+(i+1)+'</span><div style="min-width:0"><h3>'+s.h+'</h3><div>'+s.b+'</div></div></div>').join('')+'</div></section>';
+  if(L.ex.length)h+='<section id="s-ex" class="card sky"><h2>أمثلة محلولة</h2><div class="list">'+L.ex.map((e,k)=>'<div class="ex" data-ex="'+k+'" data-n="'+e.s.length+'">'+(e.v?'<div class="vis">'+e.v+'</div>':'')+'<b>'+e.q+'</b><ol class="exs">'+e.s.map(x=>'<li hidden>'+x+'</li>').join('')+'</ol><div class="ans" hidden>الإجابة: '+e.a+'</div><div><button class="btn sm sky" data-a="exnext">أظهري الخطوة الأولى</button></div></div>').join('')+'</div></section>';
+  h+='<section id="s-sum" class="card sun"><h2>الملخص ✨</h2><ul class="sumlist">'+l.sum.map(x=>'<li>'+x+'</li>').join('')+'</ul>'+(r.seen?'<p class="pill done" style="margin-top:10px">فهمتي الدرس ✓</p>':'<button class="btn sun" data-a="seen" data-id="'+id+'" style="margin-top:10px">فهمت الدرس ✓</button>')+'</section>';
+  if(l.rev){const need=NL().filter(x=>!x.rev&&lstat(x.id)==='review');h+='<section class="card"><h2>دروس تحتاج مراجعة</h2>'+(need.length?'<div class="list">'+need.map(tile).join('')+'</div>':'<div class="empty">مفيش دروس محتاجة مراجعة دلوقتي. لسه ممكن تعملي المراجعة اليومية.</div>')+'</section>'}
+  h+='<section id="s-do" class="card"><h2>يلا نتدرب!</h2><div class="grid">'+A('practice-'+id,'✏️ تدريب','btn')+A('quiz-'+id,'📝 اختبار صغير','btn sky')+A('challenge-'+id,'🔥 تحدي','btn sun')+A('worksheet-'+id+'-1','🖨️ ورقة عمل','btn ghost')+'</div><p class="small" style="margin:.6em 0 0">التدريب بيدّيكي تلميحات. الاختبار بيحسب نجومك. التحدي أسئلة أصعب.</p></section>';
+  h+='<div class="row" style="justify-content:space-between">'+(prev?A('learn-'+prev.id,'‹ الدرس السابق','btn ghost sm'):'<span></span>')+(next?A('learn-'+next.id,'الدرس التالي ›','btn ghost sm'):'')+'</div>';
+  return h+footer();
+}
+
+function vBadges(){
+  const got=Object.keys(S.badges).length;
+  return crumb([['شاراتي']])+'<h1>شاراتي 🏅</h1><p class="small" style="margin:0">'+got+' من '+BADGES.length+' شارة. كل شارة بتتفتح بإنجاز حقيقي.</p><div class="grid">'+BADGES.map(b=>{const on=!!S.badges[b.id];return '<div class="card" style="text-align:center;'+(on?'':'opacity:.6')+'"><div style="font-size:2.4rem;filter:'+(on?'none':'grayscale(1)')+'" aria-hidden="true">'+b.ic+'</div><h3>'+b.n+'</h3><div class="small">'+b.d+'</div><div class="pill '+(on?'done':'new')+'" style="margin-top:6px">'+(on?'اتفتحت ✓':'لسه')+'</div></div>'}).join('')+'</div>'+footer();
+}
+function vCert(){
+  if(doneCount()<ALL())return crumb([['الشهادة']])+'<div class="card"><h1>شهادتي 🎓</h1><p>الشهادة بتتفتح لما تخلّصي كل الدروس. خلّصتي '+doneCount()+' من '+ALL()+'.</p>'+bar(doneCount()/ALL()*100)+'<div class="row" style="margin-top:12px">'+A('lessons','كمّلي الدروس')+'</div></div>'+footer();
+  return crumb([['الشهادة']])+'<div class="cert"><div class="en">Certificate of Achievement</div><div>تشهد «الرياضيات ببساطة» بأن</div><div class="nm">'+(S.name?esc(S.name):'البطلة')+'</div><div>أنهت دروس الرياضيات للصف الثاني الابتدائي، الفصل الدراسي الثاني</div><div>'+stars3(3)+'</div><div class="small">'+totalStars()+' نجمة · '+Object.keys(S.badges).length+' شارة</div><div class="small">'+new Date().toLocaleDateString('ar-EG')+'</div><div class="small en">Created with care by Mina Wageh | مينا وجيه</div></div>'+footer();
+}
+function vAbout(){
+  return crumb([['عن المشروع']])+
+  '<section class="hero" style="text-align:center;justify-items:center"><span class="blob b1"></span><span class="blob b2"></span><div class="f-en" style="font-size:1.3rem">Created with care by</div><div class="f-name"><span class="f-nen" style="font-size:2.6rem">Mina Wageh</span></div><div class="f-nar" style="font-size:2.4rem">مينا وجيه</div><p style="margin:0">صانع مشروع «الرياضيات ببساطة»</p></section>'+
+  '<section class="card"><h2>إيه فكرة المشروع؟</h2><p><b class="en">Math Made Easy</b> منصة صغيرة بتشرح رياضيات الصف الثاني الابتدائي، الفصل الدراسي الثاني، بالعربي المصري المبسّط مع الحفاظ على المصطلحات الإنجليزية اللي بتتقال في المدرسة.</p><p>اتبنت عشان طفلة عمرها حوالي 8 سنين تتعلم بالراحة، ومعاها أمها من غير ما تحتاج تشرح طريقة استخدام الموقع.</p></section>'+
+  '<section class="card lav"><h2>الموجود جوه الموقع</h2><div class="stats"><div class="stat"><b>'+ALL()+'</b><span>درس</span></div><div class="stat"><b>'+UNITS.length+'</b><span>وحدات</span></div><div class="stat"><b>'+Object.keys(GAMES).length+'</b><span>ألعاب</span></div><div class="stat"><b>'+BADGES.length+'</b><span>شارة</span></div></div><ul class="sumlist" style="margin-top:12px"><li>شرح خطوة بخطوة وأمثلة محلولة بترتيب تدريجي.</li><li>تدريب باللمس واختبار صغير بتصحيح فوري وفرصة تانية.</li><li>أسئلة جديدة في كل محاولة، فمفيش حفظ للإجابات.</li><li>مراجعة يومية بتختار الدروس اللي محتاجة تدريب.</li><li>أوراق عمل A4 بثلاث مستويات، وإجاباتها منفصلة للأم.</li><li>قسم للأمهات بنتايج الطفلة وأخطائها المتكررة.</li></ul></section>'+
+  '<section class="card sky"><h2>معلومة مهمة</h2><p>المحتوى مبني على ترتيب موضوعات منهج Discover Mathematics للصف الثاني الابتدائي (الفصل الثاني)، ومكتوب بأسلوب مستقل ومبسّط. هذا الموقع مش موقع رسمي، وغير تابع لوزارة التربية والتعليم. لو في اختلاف بين الموقع وكتاب المدرسة، الأولوية لكتاب المدرسة وتوجيهات المعلمة.</p></section>'+
+  '<section class="card sun"><h2>جاي بعد كده 🛠️</h2><ul class="sumlist"><li>الفصل الدراسي الأول، والصف الأول والثالث.</li><li>باقي المواد، وفيديوهات ومكتبة تعليمية.</li><li>اختبارات أكبر وحسابات للأمهات.</li></ul></section>'+footer();
+}
+
+'use strict';
+/* ============ question runner (practice / quiz / challenge / review) ============ */
+let RUN=null;
+const KIND={practice:{n:'تدريب',maxTry:3,hints:true,rec:false},quiz:{n:'اختبار صغير',maxTry:2,hints:false,rec:true},challenge:{n:'تحدي',maxTry:2,hints:false,rec:true},review:{n:'مراجعة اليوم',maxTry:2,hints:false,rec:true}};
+const blank=q=>q.t==='fl'?'':q.t==='fc'?['','']:q.t==='mt'?Array(q.L.length).fill(-1):null;
+const PRAISE=['برافو عليكي!','ممتاز!','شاطرة جدًا!','إجابة مظبوطة!','كده صح!','عظمة!'];
+function startRun(kind,lid,qs){RUN={kind:kind,lid:lid,qs:qs,i:0,tries:0,pts:[],miss:[],st:'ask',fb:null,resp:blank(qs[0]),sel:0,wrong:[],hint:false,done:false};draw()}
+function seedFor(l,kind){const r=rec(l.id);r.sd=(r.sd||0)+1;save();return kind+r.sd+'|'+today()}
+function newSet(kind,id){
+  const l=lesson(id);if(!l)return;const sd=seedFor(l,kind),cfg=KIND[kind];let qs;
+  if(kind==='challenge')qs=build(l,'challenge',sd);else qs=build(l,kind==='practice'?'practice':'quiz',sd);
+  if(!qs.length){qs=buildMixed(sd,[1,1,2,2,3,3])}
+  startRun(kind,id,qs);
+}
+function dots(){return '<div class="dots" aria-hidden="true">'+RUN.qs.map((_,k)=>'<i class="'+(k<RUN.i||(k===RUN.i&&RUN.st!=='ask'&&RUN.st!=='try'&&RUN.pts[k]!==undefined)?(RUN.pts[k]===1?'ok':RUN.pts[k]>0?'half':'no'):k===RUN.i?'now':'')+'"></i>').join('')+'</div>'}
+function qHTML(){
+  const R=RUN,q=R.qs[R.i],locked=R.st==='right'||R.st==='reveal';let h='';
+  if(q.vis)h+='<div class="vis">'+q.vis+'</div>';
+  h+='<div class="qtext">'+q.q+'</div>';
+  if(q.t==='mc'||q.t==='tf'){
+    h+='<div class="opts'+(q.t==='tf'?' tfs':'')+'" role="group" aria-label="الاختيارات">'+q.opts.map((o,k)=>{
+      let c='opt';if(R.resp===k&&!locked)c+=' on';if(locked&&k===q.ai)c+=' ok';if(R.wrong.indexOf(k)>=0)c+=' off';
+      return '<button class="'+c+'" data-a="opt" data-k="'+k+'"'+(locked||R.wrong.indexOf(k)>=0?' disabled':'')+'><span class="ol">'+(q.t==='tf'?(k?'✗':'✓'):LET[k])+'</span><span class="ot">'+o+'</span></button>'}).join('')+'</div>';
+  }else if(q.t==='fl'){
+    h+='<div class="fl"><input id="ans" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="اكتبي الإجابة" value="'+esc(R.resp)+'"'+(locked?' disabled':'')+'>'+(q.suf?'<b>'+q.suf+'</b>':'')+'</div>';
+  }else if(q.t==='fc'){
+    h+='<div class="fcin" dir="ltr"><input id="fn" inputmode="numeric" aria-label="البسط (الرقم اللي فوق)" placeholder="فوق" value="'+esc(R.resp[0])+'"'+(locked?' disabled':'')+'><hr><input id="fd" inputmode="numeric" aria-label="المقام (الرقم اللي تحت)" placeholder="تحت" value="'+esc(R.resp[1])+'"'+(locked?' disabled':'')+'></div>';
+  }else if(q.t==='mt'){
+    h+='<div class="small">دوسي على رقم من الشمال، وبعدين على اللي يناسبه من اليمين.</div><div class="mtc"><div class="list">'+q.L.map((x,k)=>{const as=R.resp[k];return '<button class="mtb'+(R.sel===k&&!locked?' pick':'')+(locked?(as===q.map[k]?' ok':' bad'):'')+'" data-a="mtl" data-k="'+k+'"'+(locked?' disabled':'')+'><span class="nb">'+(k+1)+'</span><span>'+x+'</span>'+(as>=0?'<b>← '+LET[as]+'</b>':'')+'</button>'}).join('')+'</div><div class="list">'+q.R.map((x,k)=>'<button class="mtb" data-a="mtr" data-k="'+k+'"'+(locked?' disabled':'')+'><span class="nb">'+LET[k]+'</span><span>'+x+'</span></button>').join('')+'</div></div>';
+  }
+  return h;
+}
+function runDraw(){
+  const R=RUN,K=KIND[R.kind];
+  if(R.done)return resultHTML();
+  const q=R.qs[R.i],lastQ=R.i===R.qs.length-1;
+  let h=crumb([[R.kind==='review'?'مراجعة اليوم':lesson(R.lid).en,R.kind==='review'?'':'learn-'+R.lid],[K.n]]);
+  h+='<section class="card q" aria-live="polite"><div class="qhead"><b>'+K.n+' · سؤال '+(R.i+1)+' من '+R.qs.length+'</b><span class="lvl">'+LVN[q.lv||2]+'</span></div>'+dots()+qHTML();
+  if(R.hint&&q.hint)h+='<div class="fb rev show"><b class="h">تلميح 💡</b>'+q.hint+'</div>';
+  if(R.fb)h+='<div class="fb '+R.fb.c+' show" role="status"><b class="h">'+R.fb.h+'</b>'+R.fb.b+'</div>';
+  h+='<div class="row">';
+  if(R.st==='right'||R.st==='reveal')h+='<button class="btn" data-a="next">'+(lastQ?'شوفي نتيجتي 🎉':'السؤال اللي بعده ›')+'</button>';
+  else{h+='<button class="btn" data-a="check">تأكدي ✓</button>';if(K.hints&&q.hint&&!R.hint)h+='<button class="btn ghost" data-a="hint">تلميح 💡</button>'}
+  h+='</div></section>';
+  return h;
+}
+function respEmpty(q,v){return q.t==='fc'?(!v[0]||!v[1]):q.t==='mt'?v.some(x=>x<0):(v===null||v==='')}
+function doCheck(){
+  const R=RUN,q=R.qs[R.i],K=KIND[R.kind];
+  if(q.t==='fl'){const e=document.getElementById('ans');if(e&&e.value!=='')R.resp=e.value}
+  if(q.t==='fc'){const a=(document.getElementById('fn')||{}).value,b=(document.getElementById('fd')||{}).value;if(a||b)R.resp=[a||R.resp[0]||'',b||R.resp[1]||'']}
+  if(respEmpty(q,R.resp)){R.fb={c:'try',h:'استني لحظة',b:'اختاري أو اكتبي إجابة الأول.'};draw();return}
+  const c=check(q,R.resp);mark();
+  if(c.empty){R.fb={c:'try',h:'استني لحظة',b:'اكتبي إجابتك الأول.'};draw();return}
+  if(c.ok){R.pts[R.i]=R.tries===0?1:R.tries===1?.5:.25;R.st='right';R.fb={c:'ok',h:PRAISE[(R.i+R.tries)%PRAISE.length]+(R.tries?' وصلتي للإجابة بعد محاولة':''),b:q.why+(c.note?'<br>'+c.note:'')}}
+  else{
+    if(R.tries===0){const er=rec(q.lid||R.lid).err;er[q.tag||'عام']=(er[q.tag||'عام']||0)+1}
+    R.tries++;
+    if(R.tries>=K.maxTry){R.pts[R.i]=0;R.miss.push(q);R.st='reveal';R.fb={c:'rev',h:'مفيش مشكلة، نتعلم من الغلط 💜',b:'الإجابة الصح: <b>'+ansText(q)+'</b><br>'+q.why}}
+    else{
+      if(q.t==='mc'||q.t==='tf'){R.wrong.push(R.resp);R.resp=null}
+      R.st='try';R.fb={c:'try',h:'قريبة! جرّبي تاني 💪',b:(c.diag?c.diag+'<br>':'')+(q.hint?'فكّري كده: '+q.hint:'راجعي الحل وحاولي تاني.')};
+      if(q.t==='mt')R.resp=Array(q.L.length).fill(-1);
+    }
+  }
+  save();draw();
+}
+function nextQ(){
+  const R=RUN;if(R.i>=R.qs.length-1){finish();return}
+  R.i++;R.tries=0;R.st='ask';R.fb=null;R.wrong=[];R.hint=false;R.sel=0;R.resp=blank(R.qs[R.i]);draw();
+}
+function finish(){
+  const R=RUN,pts=sum(R.pts),r=R.lid&&R.kind!=='review'?rec(R.lid):null;R.done=true;R.total=pts;mark();
+  if(R.kind==='quiz'){r.tries++;r.lastQ=pts;if(pts>r.bestQ)r.bestQ=pts;r.ts=Date.now()}
+  else if(R.kind==='challenge'){if(pts>r.ch)r.ch=pts;r.ts=Date.now()}
+  else if(R.kind==='practice'){r.pr++;r.ts=Date.now()}
+  else if(R.kind==='review'){S.rev.n++;S.rev.day=today();R.qs.forEach(q=>{if(q.lid)rec(q.lid).ts=Date.now()})}
+  save();checkBadges();draw();
+}
+function resultHTML(){
+  const R=RUN,n=R.qs.length,pts=R.total,ratio=pts/n,r=R.kind==='quiz'?lstars(R.lid):0;
+  const msg=ratio>=.9?'مذهلة! إنتي فاهمة الدرس كويس.':ratio>=.65?'شاطرة! شوية تدريب كمان وتبقي ممتازة.':'مفيش مشكلة. الدرس محتاج مراجعة بسيطة، وبعدها هتبقي أحسن.';
+  const l=R.lid&&lesson(R.lid);
+  let h='<section class="card fin pop"><h1>'+(R.kind==='review'?'خلّصتي المراجعة!':'خلّصتي '+KIND[R.kind].n+'!')+'</h1>'+(R.kind==='quiz'?stars3(r):'')+'<div class="big">'+pts+' / '+n+'</div><p>'+msg+'</p>'+(R.kind==='quiz'?'<div class="small">النجوم: 4 نقاط = نجمة، 5 = نجمتين، 5.5 فأكتر = 3 نجوم. المحاولة التانية بنصف نقطة.</div>':'')+(R.kind==='challenge'?'<div class="small">'+(pts>=1.5?'نجحتي في التحدي وخدتي نجمة إضافية ⭐':'محتاجة 1.5 نقطة على الأقل عشان تاخدي نجمة التحدي. جرّبي تاني!')+'</div>':'')+'</section>';
+  if(R.miss.length)h+='<section class="card"><h2>خلّينا نراجع الأسئلة اللي اتغلطت</h2><div class="list">'+R.miss.map(q=>'<div class="ex">'+(q.vis?'<div class="vis">'+q.vis+'</div>':'')+'<b>'+q.q+'</b><div>الإجابة: <b>'+ansText(q)+'</b></div><div class="small">'+q.why+'</div></div>').join('')+'</div></section>';
+  h+='<section class="card"><div class="row">';
+  if(R.kind==='review')h+='<button class="btn" data-a="again">مراجعة جديدة</button>'+A('home','الرئيسية','btn ghost');
+  else{h+='<button class="btn" data-a="again">محاولة جديدة بأسئلة تانية</button>'+A('learn-'+R.lid,'‹ ارجعي للدرس','btn ghost');
+    const nx=NL()[NL().indexOf(l)+1];if(nx)h+=A('learn-'+nx.id,'الدرس التالي ›','btn sun')}
+  return h+'</div></section>';
+}
+/* daily review: spaced by need and by time since last practice */
+function reviewSet(){
+  const pool=NL().filter(l=>!l.rev&&S.L[l.id]&&(S.L[l.id].seen||S.L[l.id].tries||S.L[l.id].pr||S.L[l.id].ch));
+  if(!pool.length)return null;
+  const now=Date.now(),sc=pool.map(l=>{const r=S.L[l.id],age=r.ts?Math.min(14,(now-r.ts)/864e5):7,errs=sum(Object.values(r.err||{}));return{l:l,s:(lstat(l.id)==='review'?5:0)+age+Math.min(4,errs)}}).sort((a,b)=>b.s-a.s);
+  const seed='rev'+S.rev.n+'|'+today(),r=rng(seed),chosen=sc.slice(0,4).map(x=>x.l),qs=[];
+  chosen.forEach((l,i)=>{const lv=(lstat(l.id)==='review')?1:2,p=pool_lv(l,lv);if(p){const q=r.pick(p).f(r);q.lv=lv;q.lid=l.id;qs.push(q)}});
+  while(qs.length<5){const l=r.pick(pool),p=pool_lv(l,2);if(!p)break;const q=r.pick(p).f(r);q.lv=2;q.lid=l.id;qs.push(q)}
+  const l3=r.pick(pool),p3=pool_lv(l3,3);if(p3){const q=r.pick(p3).f(r);q.lv=3;q.lid=l3.id;qs.push(q)}
+  return qs;
+}
+function pool_lv(l,lv){const a=l.q[lv];return a&&a.length?a.map(f=>({f:f})):null}
+function vReview(){
+  const qs=reviewSet();
+  if(!qs)return crumb([['مراجعة اليوم']])+'<section class="card"><h1>مراجعة اليوم 🔁</h1><div class="empty">المراجعة بتتفتح بعد ما تبدأي أول درس. ابدئي درس وارجعي هنا، وهنختار لك أسئلة من اللي اتعلمتيه.</div><div class="row" style="margin-top:12px">'+A('learn-'+NL()[0].id,'ابدئي أول درس')+'</div></section>'+footer();
+  const need=NL().filter(l=>!l.rev&&lstat(l.id)==='review');
+  return crumb([['مراجعة اليوم']])+'<section class="card sun"><h1>مراجعة اليوم 🔁</h1><p>'+qs.length+' أسئلة سريعة من الدروس اللي اتعلمتيها. بنبدأ بالدروس اللي محتاجة تدريب أو بقالها فترة.</p><div class="row">'+'<button class="btn sun" data-a="startrev">ابدئي المراجعة ▶</button></div></section>'+(need.length?'<section class="card"><h2>دروس تحتاج مراجعة</h2><div class="list">'+need.map(tile).join('')+'</div></section>':'')+footer();
+}
+
+/* ============ games ============ */
+let G=null;
+const gtop=(k,extra)=>crumb([['ألعاب','games'],[GAMES[k].n]])+'<section class="card"><div class="qhead"><h2 style="margin:0">'+GAMES[k].ic+' '+GAMES[k].n+'</h2><span class="chip">'+(extra||'')+'</span></div>';
+function gameStart(k){
+  const r=rng(k+'|'+Date.now());G={k:k,i:0,pts:0,r:r,st:'ask',tries:0,msg:'',pay:[],sel:[]};gNew();draw();
+}
+function gNew(){
+  const g=G,r=g.r;g.tries=0;g.st='ask';g.msg='';g.pay=[];g.sel=[];
+  if(g.k==='money'){const items=[['كورة ⚽'],['عروسة 🧸'],['كتاب 📘'],['عصير 🧃'],['شنطة 🎒'],['آيس كريم 🍦'],['لعبة 🚗']];g.item=r.pick(items)[0];g.price=r.pick([7,12,18,25,34,46,55,63,78,95,115,140,175])}
+  if(g.k==='evenodd'){g.n=r.int(1,99)}
+  if(g.k==='pattern'){const k=r.pick([2,3,4,5,10]),up=r.chance(.65),s=up?r.int(1,30):r.int(60,100),a=[0,1,2,3,4].map(i=>s+(up?1:-1)*k*i),h=r.int(3,4),ans=a[h];g.arr=a.map((v,i)=>i===h?'?':v);g.ans=ans;g.opts=r.shuffle([ans,ans+k,ans-k,ans+1].filter((v,i,o)=>o.indexOf(v)===i&&v>0)).slice(0,4);if(g.opts.indexOf(ans)<0)g.opts[0]=ans;g.opts=r.shuffle(g.opts);g.rule=(up?'زوّد ':'نقّص ')+k}
+  if(g.k==='pizza'){g.n=r.pick([2,3,4,4,3]);g.t=r.int(1,g.n)}
+}
+const GTOT=k=>GAMES[k].max;
+function gameDraw(){
+  const g=G,k=g.k;
+  if(g.done){const best=S.games[k]||0,star=g.pts>=GAMES[k].star;return crumb([['ألعاب','games'],[GAMES[k].n]])+'<section class="card fin pop"><h1>'+(star?'برافو! نجحتي 🎉':'حلوة! جرّبي تاني')+'</h1>'+stars3(star?3:g.pts>=GAMES[k].star-1?1:0)+'<div class="big">'+g.pts+' / '+GTOT(k)+'</div><p class="small">أفضل نتيجة: '+best+'. محتاجة '+GAMES[k].star+' عشان تاخدي نجمة اللعبة.</p><div class="row"><button class="btn" data-a="gstart" data-k="'+k+'">العبي تاني</button>'+A('games','كل الألعاب','btn ghost')+'</div></section>'+footer()}
+  const prog=(g.i+1)+' / '+GTOT(k);let h=gtop(k,prog),fb=g.msg?'<div class="fb '+g.mc+' show" role="status">'+g.msg+'</div>':'',next='<button class="btn" data-a="gnext">'+(g.i>=GTOT(k)-1?'شوفي النتيجة 🎉':'الجاي ›')+'</button>';
+  if(k==='money'){
+    const tot=sum(g.pay);
+    h+='<p>الـ <b>'+g.item+'</b> سعرها <b class="m">'+g.price+'</b> جنيه. ادفعي المبلغ بالظبط: دوسي على الفلوس عشان تضيفيها، ودوسي على فلوسك عشان تشيليها.</p><div class="vis" role="group" aria-label="الفلوس المتاحة">'+[1,5,10,20,50,100,200].map(v=>'<button class="coinbtn" data-a="gpay" data-v="'+v+'" aria-label="'+v+' جنيه"'+(g.st==='done'?' disabled':'')+'>'+note(v)+'</button>').join('')+'</div><div class="card lav"><b>معاكي دلوقتي: <span class="m">'+tot+'</span> جنيه</b><div class="notes" style="margin-top:8px;min-height:50px">'+(g.pay.length?g.pay.map((v,i)=>'<button class="coinbtn" data-a="gunpay" data-i="'+i+'" aria-label="شيلي '+v+' جنيه"'+(g.st==='done'?' disabled':'')+'>'+note(v)+'</button>').join(''):'<span class="small">لسه مفيش فلوس</span>')+'</div></div>'+fb+'<div class="row">'+(g.st==='done'?next:'<button class="btn" data-a="gcheck">ادفعي ✓</button><button class="btn ghost" data-a="gclear">امسحي</button>')+'</div>';
+  }else if(k==='evenodd'){
+    h+='<div class="vis" style="padding:22px"><span class="big m" style="font-size:3.2rem;font-family:var(--f-en);font-weight:900">'+g.n+'</span></div><p>العدد ده زوجي ولا فردي؟</p>'+fb+(g.st==='done'?'<div class="row">'+next+'</div>':'<div class="tfs"><button class="opt" data-a="gans" data-v="e"><span class="ot">زوجي (even)</span></button><button class="opt" data-a="gans" data-v="o"><span class="ot">فردي (odd)</span></button></div>');
+  }else if(k==='pattern'){
+    h+='<p>إيه الرقم الناقص؟ <span class="small">(القاعدة هتظهر بعد الإجابة)</span></p><div class="vis">'+patStrip(g.arr)+'</div>'+fb+(g.st==='done'?'<div class="row">'+next+'</div>':'<div class="tfs">'+g.opts.map(o=>'<button class="opt'+(g.sel.indexOf(o)>=0?' off':'')+'" data-a="gans" data-v="'+o+'"'+(g.sel.indexOf(o)>=0?' disabled':'')+'><span class="ot m">'+o+'</span></button>').join('')+'</div>');
+  }else if(k==='pizza'){
+    const n=g.n,cx=50,cy=50,R=44;let sv='<svg viewBox="0 0 100 100" width="220" height="220" style="max-width:100%" role="group" aria-label="بيتزا مقسومة '+n+' أجزاء">';
+    for(let i=0;i<n;i++){const a0=-Math.PI/2+2*Math.PI*i/n,a1=-Math.PI/2+2*Math.PI*(i+1)/n,on=g.sel.indexOf(i)>=0;
+      const d='M50 50 L'+(cx+R*Math.cos(a0)).toFixed(2)+' '+(cy+R*Math.sin(a0)).toFixed(2)+' A'+R+' '+R+' 0 0 1 '+(cx+R*Math.cos(a1)).toFixed(2)+' '+(cy+R*Math.sin(a1)).toFixed(2)+' Z';
+      sv+='<path class="slice" tabindex="0" role="button" aria-pressed="'+on+'" aria-label="قطعة '+(i+1)+'" data-a="gslice" data-i="'+i+'" d="'+d+'" fill="'+(on?'#F5A742':'#FFF3BF')+'" stroke="#8A5A00" stroke-width="3" stroke-linejoin="round"/>'}
+    sv+='</svg>';
+    h+='<p>لوّني '+fr(g.t,n)+' من البيتزا: دوسي على القطع.</p><div class="vis">'+sv+'</div><div class="small" style="text-align:center">لونتي '+g.sel.length+' من '+n+'</div>'+fb+'<div class="row">'+(g.st==='done'?next:'<button class="btn" data-a="gcheck">تأكدي ✓</button><button class="btn ghost" data-a="gclear">امسحي</button>')+'</div>';
+  }
+  return h+'</section>'+footer();
+}
+function gActGame(a,b){
+  const g=G,k=g.k;
+  if(a==='gpay'){if(g.st==='ask'&&g.pay.length<14){g.pay.push(+b.dataset.v);g.msg=''}}
+  else if(a==='gunpay'){if(g.st==='ask'){g.pay.splice(+b.dataset.i,1);g.msg=''}}
+  else if(a==='gclear'){if(g.st==='ask'){g.pay=[];g.sel=[];g.msg=''}}
+  else if(a==='gcheck'&&k==='money'){
+    const t=sum(g.pay),ok=t===g.price;
+    if(ok){g.pts+=g.tries===0?1:.5;g.st='done';g.mc='ok';g.msg='<b>مظبوط!</b> دفعتي '+g.price+' جنيه بالظبط.'}
+    else{g.tries++;if(g.tries>=2){g.st='done';g.mc='rev';g.msg='المبلغ المطلوب '+g.price+' جنيه وإنتي دفعتي '+t+'. جرّبي مرة: '+m(greedy(g.price).join(' + ')+' = '+g.price)}else{g.mc='try';g.msg=t<g.price?'لسه ناقص <b class="m">'+(g.price-t)+'</b> جنيه. ضيفي فلوس.':'دفعتي زيادة <b class="m">'+(t-g.price)+'</b> جنيه. شيلي ورقة وجرّبي.'}}
+  }else if(a==='gans'&&k==='evenodd'){
+    const ok=(b.dataset.v==='e')===(g.n%2===0),ex=g.n+' آخره '+(g.n%10)+' يبقى '+(g.n%2?'فردي':'زوجي')+'.';
+    if(ok){g.pts+=g.tries===0?1:.5;g.st='done';g.mc='ok';g.msg='<b>صح!</b> '+ex}else{g.tries++;if(g.tries>=2){g.st='done';g.mc='rev';g.msg=ex}else{g.mc='try';g.msg='بصّي على آخر رقم في العدد. هل هو 0 أو 2 أو 4 أو 6 أو 8؟'}}
+  }else if(a==='gans'&&k==='pattern'){
+    const v=+b.dataset.v;
+    if(v===g.ans){g.pts+=g.tries===0?1:.5;g.st='done';g.mc='ok';g.msg='<b>صح!</b> القاعدة: '+g.rule+'. الرقم الناقص '+g.ans+'.'}
+    else{g.tries++;g.sel.push(v);if(g.tries>=2){g.st='done';g.mc='rev';g.msg='القاعدة: '+g.rule+'. الرقم الناقص '+g.ans+'.'}else{g.mc='try';g.msg='قريبة! اطرحي رقمين متجاورين تعرفي القاعدة.'}}
+  }else if(a==='gslice'&&k==='pizza'){
+    if(g.st==='ask'){const i=+b.dataset.i,p=g.sel.indexOf(i);if(p>=0)g.sel.splice(p,1);else g.sel.push(i);g.msg=''}
+  }else if(a==='gcheck'&&k==='pizza'){
+    const ok=g.sel.length===g.t;
+    if(ok){g.pts+=g.tries===0?1:.5;g.st='done';g.mc='ok';g.msg='<b>برافو!</b> لونتي '+g.t+' من '+g.n+' يعني '+fr(g.t,g.n)+'.'}
+    else{g.tries++;if(g.tries>=2){g.st='done';g.mc='rev';g.msg='المطلوب '+g.t+' قطع من '+g.n+'، يعني '+fr(g.t,g.n)+'. إنتي لونتي '+g.sel.length+'.'}else{g.mc='try';g.msg='الرقم اللي فوق في الكسر ('+g.t+') هو عدد القطع اللي نلوّنها. إنتي لونتي '+g.sel.length+'.'}}
+  }
+  mark();
+}
+function greedy(T){const o=[];[200,100,50,20,10,5,1].forEach(v=>{while(T>=v){o.push(v);T-=v}});return o}
+function gNextRound(){
+  const g=G;if(g.i>=GTOT(g.k)-1){g.done=true;const b=S.games[g.k]||0;if(g.pts>b)S.games[g.k]=g.pts;save();checkBadges()}else{g.i++;gNew()}
+}
+function vGames(){
+  return crumb([['ألعاب']])+'<h1>ألعاب وتحديات 🎮</h1><p class="small" style="margin:0">كل لعبة بتراجع درس. خدي نجمة لما تنجحي.</p><div class="list">'+Object.keys(GAMES).map(k=>{const g=GAMES[k],b=S.games[k]||0;return '<div class="card"><div class="row" style="flex-wrap:nowrap"><span style="font-size:2.4rem" aria-hidden="true">'+g.ic+'</span><div style="flex:1;min-width:0"><h3>'+g.n+'</h3><div class="small">أفضل نتيجة: '+b+' من '+g.max+' · مطلوب '+g.star+' لنجمة '+star(b>=g.star)+'</div></div></div><div class="row" style="margin-top:10px"><button class="btn" data-a="gstart" data-k="'+k+'">العبي ▶</button>'+A('learn-'+g.l,'راجعي الدرس','btn ghost sm')+'</div></div>'}).join('')+'</div><section class="card sun"><h2>تحديات الدروس 🔥</h2><p>كل درس فيه تحدي بأسئلة أصعب. افتحي أي درس وادوسي «تحدي».</p>'+A('lessons','اختاري درس','btn sun sm')+'</section>'+footer();
+}
+
+/* ============ worksheets & parents ============ */
+function vWorksheets(){
+  return crumb([['أوراق العمل']])+'<h1>أوراق العمل 🖨️</h1><div class="notice">لكل درس ورقتين A4 بثلاث مستويات (سهل، متوسط، تحدي). ملف PDF للطباعة، وإجابات الأم في ملف منفصل.</div><div class="list">'+NL().map(l=>'<div class="card"><div class="row" style="justify-content:space-between"><div><b class="en">'+l.en+'</b><div class="small">'+l.ar+'</div></div><div class="row">'+A('worksheet-'+l.id+'-1','ورقة 1','btn sm')+A('worksheet-'+l.id+'-2','ورقة 2','btn sm sky')+'</div></div></div>').join('')+'</div>'+footer();
+}
+function pdfLinks(id,v){return '<div class="row noprint"><a class="btn sm" href="ws/'+id+'-'+v+'.pdf" target="_blank" rel="noopener">فتح ورقة الطفلة PDF</a><a class="btn sm ghost" href="ws/'+id+'-'+v+'-answers.pdf" target="_blank" rel="noopener">إجابات الأم PDF</a></div>'}
+function vSheet(id,v,ans){
+  const l=lesson(id);if(!l)return vHome();v=+v===2?2:1;
+  const tabs='<div class="row noprint">'+A((ans?'answers-':'worksheet-')+id+'-1','ورقة 1','btn sm'+(v===1?'':' ghost'))+A((ans?'answers-':'worksheet-')+id+'-2','ورقة 2','btn sm'+(v===2?'':' ghost'))+A(ans?'worksheet-'+id+'-'+v:'answers-'+id+'-'+v,ans?'ورقة الطفلة':'إجابات الأم','btn sm sun')+'</div>';
+  return crumb([['أوراق العمل','worksheets'],[l.en]])+tabs+(ans?'':'<div class="notice noprint">للطباعة افتحي ملف الـ PDF. الورقة هنا للمعاينة. لو متصفحك بيسمح بالطباعة، ممكن تطبعي الصفحة نفسها بـ A4.</div>')+pdfLinks(id,v)+(ans?answersHTML(l,v):sheetHTML(l,v))+footer();
+}
+function vParents(){
+  const done=NL().filter(l=>lstat(l.id)==='done'),rv=NL().filter(l=>lstat(l.id)==='review'),att=NL().filter(l=>S.L[l.id]&&S.L[l.id].tries);
+  const avg=att.length?Math.round(sum(att.map(l=>S.L[l.id].bestQ/6))/att.length*100):null;
+  const errs={};NL().forEach(l=>{const e=S.L[l.id]&&S.L[l.id].err||{};Object.keys(e).forEach(t=>{const k=l.id+'|'+t;errs[k]={l:l,t:t,n:e[t]}})});
+  const top=Object.values(errs).sort((a,b)=>b.n-a.n).slice(0,6);
+  const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push([dstr(d),d.toLocaleDateString('ar-EG',{weekday:'short'})])}
+  let h=crumb([['قسم الأمهات']])+'<h1>قسم الأمهات 💜</h1><p class="small" style="margin:0">كل الأرقام هنا حقيقية من استخدام الطفلة على الجهاز ده. لو لسه ماستخدمتش الموقع هتلاقي الأقسام فاضية.</p>';
+  h+='<section class="card"><h2>ملخص سريع</h2><div class="stats"><div class="stat"><b>'+done.length+'/'+ALL()+'</b><span>دروس مكتملة</span></div><div class="stat"><b>'+totalStars()+'</b><span>نجوم</span></div><div class="stat"><b>'+(avg===null?'—':avg+'%')+'</b><span>متوسط الاختبارات</span></div><div class="stat"><b>'+streak()+'</b><span>أيام ورا بعض</span></div></div><div class="small" style="margin:12px 0 6px">آخر 7 أيام</div><div class="row" style="gap:8px">'+days.map(d=>'<span class="pill '+(S.days[d[0]]?'done':'new')+'">'+d[1]+(S.days[d[0]]?' ✓':'')+'</span>').join('')+'</div></section>';
+  h+='<section class="card sun"><h2>محتاجة مراجعة</h2>'+(rv.length?'<div class="list">'+rv.map(l=>'<a class="tile" href="#learn-'+l.id+'"><span class="ic">'+l.ic+'</span><span class="tx"><span class="t1">'+l.en+'</span><span class="t2">أحسن نتيجة '+S.L[l.id].bestQ+' من 6. المطلوب 4 على الأقل.</span></span></a>').join('')+'</div>':'<div class="empty">مفيش دروس محتاجة مراجعة دلوقتي.</div>')+'</section>';
+  h+='<section class="card"><h2>الأخطاء المتكررة</h2>'+(top.length?'<div class="list">'+top.map(e=>'<div class="ex"><b>'+e.t+'</b> <span class="tag">'+e.n+' مرة</span><div class="small en" style="direction:ltr;text-align:right">'+e.l.en+'</div><div>'+A('learn-'+e.l.id,'راجعي الدرس','btn sm ghost')+'</div></div>').join('')+'</div><p class="small">الخطأ بيتسجل لما تغلط من أول محاولة. لا تصحّحي لها مباشرة، اسأليها تحكيلك خطواتها.</p>':'<div class="empty">لسه مفيش أخطاء متسجلة.</div>')+'</section>';
+  h+='<section class="card sky"><h2>نصائح للشرح</h2><ul class="sumlist"><li>جلسة قصيرة 10 إلى 15 دقيقة أحسن من ساعة.</li><li>خليها تشرح لك بصوتها، ده بيكشف الفهم الحقيقي.</li><li>الغلطة فرصة: اسأليها «إيه اللي شفتيه؟» قبل ما تصحّحي.</li><li>استخدمي أدوات حقيقية: فلوس، مكعبات، أطباق، ورق مقسوم.</li><li>مدحي المجهود والمحاولة مش النتيجة بس.</li></ul></section>';
+  h+='<section class="card"><h2>أوراق العمل</h2><p>لكل درس ورقة طفلة وإجابات منفصلة لك.</p>'+A('worksheets','فتح أوراق العمل','btn sm')+'</section>';
+  h+='<section class="card"><h2>تفاصيل كل درس</h2><div class="list">'+NL().map(l=>{const r=S.L[l.id]||{};return '<details class="ac"><summary><span aria-hidden="true">'+l.ic+'</span><span class="en">'+l.en+'</span>'+pill(l.id)+'</summary><div class="in"><div class="kv"><b>الهدف</b>'+l.mom.goal+'</div><div class="kv"><b>المطلوب إتقانه</b><ul class="sumlist">'+l.mom.master.map(x=>'<li>'+x+'</li>').join('')+'</ul></div><div class="kv"><b>نصيحة</b>'+l.mom.tip+'</div><div class="kv"><b>النتائج</b>أحسن اختبار: '+(r.tries?r.bestQ+' من 6':'لسه')+' · محاولات: '+(r.tries||0)+' · تحدي: '+(r.ch?r.ch+' من 2':'لسه')+'</div><div class="row">'+A('learn-'+l.id,'الدرس','btn sm ghost')+A('answers-'+l.id+'-1','إجابات الأم','btn sm sun')+'</div></div></details>'}).join('')+'</div></section>';
+  h+='<section class="card"><h2>إعدادات</h2><p class="small">التقدم محفوظ على هذا الجهاز وهذا المتصفح فقط. لو غيّرتي الجهاز هيبدأ من الأول.</p>'+(window.__rs?'<div class="notice"><b>متأكدة إنك عايزة تمسحي كل التقدم؟</b><div class="row" style="margin-top:8px"><button class="btn sm" style="background:#B3243B;box-shadow:0 4px 0 #7d1427" data-a="resetyes">أيوه، امسحي</button><button class="btn sm ghost" data-a="resetno">لأ</button></div></div>':'<button class="btn sm ghost" data-a="resetask">مسح كل التقدم</button>')+'</section>';
+  return h+footer();
+}
+
+/* ============ router, events, init ============ */
+function view(){
+  const h=(location.hash||'#home').slice(1),p=h.split('-'),k=p[0];
+  if(k==='lessons')return vLessons();
+  if(k==='unit')return vUnit(p[1]);
+  if(k==='learn')return vLearn(p[1]);
+  if(k==='practice'||k==='quiz'||k==='challenge'){if(!RUN||RUN.lid!==p[1]||RUN.kind!==k)newSet(k,p[1]);return RUN?runDraw():vHome()}
+  if(k==='review'){if(RUN&&RUN.kind==='review')return runDraw();return vReview()}
+  if(k==='games')return vGames();
+  if(k==='game'&&GAMES[p[1]]){if(!G||G.k!==p[1])gameStart(p[1]);return gameDraw()}
+  if(k==='worksheets')return vWorksheets();
+  if(k==='worksheet')return vSheet(p[1],p[2],false);
+  if(k==='answers')return vSheet(p[1],p[2],true);
+  if(k==='parents')return vParents();
+  if(k==='badges')return vBadges();
+  if(k==='certificate')return vCert();
+  if(k==='about')return vAbout();
+  return vHome();
+}
+function draw(){
+  const app=document.getElementById('app');
+  const h=(location.hash||'#home').slice(1),k=h.split('-')[0];
+  if(RUN&&['practice','quiz','challenge','review'].indexOf(k)>=0)app.innerHTML=runDraw();
+  else if(G&&k==='game')app.innerHTML=gameDraw();
+  else app.innerHTML=view();
+  const tab={home:'home',lessons:'lessons',unit:'lessons',learn:'lessons',practice:'lessons',quiz:'lessons',challenge:'lessons',games:'games',game:'games',review:'review',parents:'parents',worksheets:'parents',worksheet:'parents',answers:'parents'}[k]||'home';
+  document.querySelectorAll('.nav a').forEach(a=>{const on=a.dataset.t===tab;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  const c=document.getElementById('chip');if(c)c.textContent='⭐ '+totalStars();
+  if(RUN&&RUN.st==='try'){const f=document.getElementById('ans')||document.getElementById('fn');if(f&&!f.disabled)f.focus({preventScroll:true})}
+}
+let lastRoute='';
+function onRoute(){
+  const h=(location.hash||'#home').slice(1),k=h.split('-')[0];
+  if(['practice','quiz','challenge'].indexOf(k)<0&&k!=='review')RUN=null;
+  else if(RUN&&(RUN.kind!==k||(k!=='review'&&RUN.lid!==h.split('-')[1])))RUN=null;
+  if(k!=='game')G=null;
+  window.__rs=false;
+  draw();if(h!==lastRoute){window.scrollTo(0,0)}lastRoute=h;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
+  if(a==='go'){const t=document.getElementById(b.dataset.t);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});return}
+  if(a==='exnext'){const ex=b.closest('.ex'),li=ex.querySelectorAll('.exs li[hidden]');if(li.length){li[0].hidden=false;if(li.length===1){ex.querySelector('.ans').hidden=false;b.textContent='اتحلت ✓';b.disabled=true}else b.textContent='الخطوة اللي بعدها'}return}
+  if(a==='seen'){rec(b.dataset.id).seen=1;mark();save();checkBadges();draw();return}
+  if(a==='resetask'){window.__rs=true;draw();return}
+  if(a==='resetno'){window.__rs=false;draw();return}
+  if(a==='resetyes'){S=fresh();save();window.__rs=false;draw();return}
+  if(a==='startrev'){const qs=reviewSet();if(qs)startRun('review','',qs);return}
+  if(a==='again'){if(RUN.kind==='review'){const qs=reviewSet();if(qs)startRun('review','',qs)}else newSet(RUN.kind,RUN.lid);window.scrollTo(0,0);return}
+  if(a==='gstart'){gameStart(b.dataset.k);if(location.hash!=='#game-'+b.dataset.k)location.hash='game-'+b.dataset.k;else draw();window.scrollTo(0,0);return}
+  if(G&&a==='gnext'){gNextRound();draw();return}
+  if(G&&a.charAt(0)==='g'){gActGame(a,b);draw();return}
+  if(!RUN)return;const q=RUN.qs[RUN.i];
+  if(a==='opt'){RUN.resp=+b.dataset.k;draw();return}
+  if(a==='check'){doCheck();return}
+  if(a==='hint'){RUN.hint=true;draw();return}
+  if(a==='next'){nextQ();return}
+  if(a==='mtl'){RUN.sel=+b.dataset.k;draw();return}
+  if(a==='mtr'){const k=+b.dataset.k;RUN.resp=RUN.resp.map(x=>x===k?-1:x);RUN.resp[RUN.sel]=k;const nx=RUN.resp.findIndex(x=>x<0);if(nx>=0)RUN.sel=nx;draw();return}
+});
+document.addEventListener('submit',e=>{if(e.target.id==='nameform'){e.preventDefault();S.name=(document.getElementById('nm').value||'').trim().slice(0,20);save();draw()}});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&e.target.matches&&e.target.matches('#ans,#fn,#fd')&&RUN&&RUN.st!=='right'&&RUN.st!=='reveal'){e.preventDefault();doCheck()}
+  if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('.slice')){e.preventDefault();e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}))}
+});
+document.addEventListener('input',e=>{
+  if(!RUN)return;
+  if(e.target.id==='ans')RUN.resp=e.target.value;
+  if(e.target.id==='fn'||e.target.id==='fd')RUN.resp=[(document.getElementById('fn')||{}).value||'',(document.getElementById('fd')||{}).value||''];
+});
+window.addEventListener('hashchange',onRoute);
+function init(){
+  document.documentElement.lang='ar';document.documentElement.dir='rtl';
+  document.getElementById('nav').innerHTML=NAV.map(n=>'<a href="#'+n[0]+'" data-t="'+n[0]+'">'+navIc(n[2])+'<span>'+n[1]+'</span></a>').join('');
+  onRoute();checkBadges();
+}
+init();
+
+</script>
+
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="675dcaed69a64e68e85c92d0-|49" defer></script></body>
+</html>
